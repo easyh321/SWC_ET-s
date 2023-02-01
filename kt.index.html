@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<!--    <아이콘>-->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<!--    <글꼴>-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>내 새끼 니도 이쁘지?</title>
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <글꼴>-->
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+        font-family: 'Dongle', sans-serif;
+        }
+        .base{
+            background-color: #FA6650;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .first_line{
+            text-align: center;
+            min-width: 800px;
+            max-width: 30%;
+            margin: 10px auto 10px auto;
+            background-color: white;
+        }
+        .title{
+            color: #FA6650;
+        }
+        .home_btn{
+            margin-right: 30%;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+        .home_btn:hover{
+            border-color: #FA6650;
+            transition: 0.5s;
+        }
+        .menu_btn {
+            margin-left: 30%;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+        .menu_btn:hover{
+            border-color: #FA6650;
+            transition: 0.5s;
+        }
+        .first_line > span{
+            margin: 15px 25px 0 25px;
+        }
+        .animals_info{
+            text-align: left;
+            line-height: 10px;
+            max-width: 50%;
+            margin-left: 30px;
+        }
+        .thumb_count{
+            margin-right: 30px;
+        }
+        .count{
+            margin-bottom: 20px;
+        }
+        .picture{
+            margin: auto auto 10px auto;
+
+            min-height: 1000px;
+            max-height: 95%;
+            max-width: 90%;
+            min-width: 90%;
+
+            background-image: url("https://t1.daumcdn.net/cfile/tistory/9951754A5DFD9A1F05");
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 30px;
+        }
+        .desc{
+            text-align: left;
+            max-width: 90%;
+            margin: auto;
+            line-height: 10px
+        }
+        .desc2{
+            line-height: 35px
+        }
+        .source{
+            color: gray;
+        }
+        .guide{
+            color: #FA6650;
+            margin-bottom: 30px;
+        }
+        .like_btn{
+            background-color: #FA6650;
+            color: white;
+            width: 250px;
+            height: 70px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+        .like_btn:hover{
+            box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+        }
+        .next_btn {
+            background-color: #FA6650;
+            color: white;
+            width: 250px;
+            height: 70px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            margin-left: 50px;
+            margin-bottom: 15px;
+        }
+        .next_btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0,0,0,0.25) inset;
+            transition: 0.5s;
+        }
+        .form-control{
+            background-color: #e2e2e2;
+            max-width: 80%;
+            min-width: 75%;
+            align-items: center;
+            margin: 0px 5px 0px 5%;
+        }
+        .btn-outline-secondary{
+            background-color: #FA6650;
+            color: white;
+            max-width: 20%;
+            min-width: 15%;
+            margin: 0 5% auto 0px;
+        }
+        .comment-box{
+            text-align: left;
+            margin: 20px auto 20px auto;
+            max-width: 90%;
+            min-height: 80px;
+            max-height: 160px;
+            border-radius: 10px;
+            border:3px solid;
+            border-color: #FA6650;
+            padding: 20px 10px 5px 20px;
+        }
+        .name{
+            color: #FA6650;
+            line-height: 10px;
+        }
+        .comment1{
+            color: #FA6650;
+            line-height: 20px;
+        }
+        .background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            z-index: -1;
+            opacity: 0;
+        }
+        .show{
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+        .window{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .popup{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 350px;
+            transform: translate(-50%, -40%);
+        }
+        .show .popup{
+        transform: translate(-50%, -50%);
+        transition: all 0.5s;
+        }
+        .like_check{
+            text-align: left;
+            margin: 30px auto auto 30px;
+        }
+        .close{
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 60px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+        .close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+        .like_comment{
+            margin: 80px auto 50px auto;
+        }
+        </style>
+</head>
+<body>
+    <div class="base">
+        <div class="first_line">
+            <div>
+                <span><button class="home_btn"><span class="material-icons">home</span></button></span>
+                <span><h1 style="display: inline" class="title">내 새끼 니도 이쁘지?</h1></span>
+                <span><button class="menu_btn"><span class="material-icons">reorder</span></button></span>
+            </div>
+            <span class="material-icons">pets</span><span class="material-icons">pets</span><span class="material-icons">pets</span>
+            <div class="animals_info">
+                <h1 class="animals_name">쫀득이 / 4살</h1>
+                <h3 class="date">2023년 1월 29일 등록</h3>
+                <div class="count">
+                    <span class="material-icons">thumb_up_off_alt</span>
+                    <span class="thumb_count"><font size = "+3">5,233</span>
+
+                    <span class="material-icons-outlined">comment</span>
+                    <span class="comment_count">168</span>
+                </div>
+            </div>
+            <div>
+            <h1 class="picture"></h1>
+            </div>
+            <div class="desc">
+                <h3 class="desc2">우리 쫀득이는 비맞는 걸 참 좋아해요</h3>
+                <h4 class="source">https://rel0608.tistory.com/479</h4>
+                <h4 class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</h4>
+            </div>
+            <div class="btn2">
+                <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요</button>
+                <div class="background">
+                    <div class="window">
+                        <div class="popup">
+                            <div>
+                            <h1 class="like_check">이뻐요 확인</h1>
+                            <hr/>
+                            </div>
+                            <div class="like_comment">
+                                <h2>이뻐해 주셔서 감사합니다!</h2>
+                            </div>
+                            <hr/>
+                            <button class="close" id="close">별말씀을요!</button>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="next_btn">다음 새끼 볼래요</button></span>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="comment" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" id="button-addon2">댓글 등록</button>
+            </div>
+            <div class="comment-box">
+                <h3 class="name">글쓴이</h3>
+                <p><h4 class="comment1" id="detail">가나다라마바사아자차카타파하</h4></p>
+            </div>
+            <div class="comment-box">
+                <h3 class="name">글쓴이</h3>
+                <p><h4 class="comment1" id="detail">가나다라마바사아자차카타파하</h4></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+        function show() {
+            document.querySelector(".background").className = "background show";
+        }
+        function close() {
+            document.querySelector(".background").className = "background";
+        }
+        document.querySelector("#show").addEventListener("click", show);
+        document.querySelector("#close").addEventListener("click", close);
+    </script>
+</html>
