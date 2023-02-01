@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-family: 'GmarketSansMedium';
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .main-page {
+            max-width: 767px;
+            width: 767px;
+            height: 100vh;
+            text-align: center;
+            background: #fff;
+        }
+
+        .main .main-page .background-img {
+            width: 100%;
+        }
+
+        .main .main-page .background-img img {
+            width: 100%;
+        }
+
+        .main .main-page p {
+            margin: 0 0 0 0;
+            padding: 10px 0;
+            line-height: 150%;
+        }
+
+        .main .main-page p.title {
+            font-size: 50px;
+            padding: 0 30px;
+            color: #fa6650;
+        }
+
+        .main .main-page p.sub-tit {
+            font-size: 25px;
+        }
+
+        .main .main-page .button-wrap {
+            width: 100%;
+            margin-top: 60px;
+            /* display:flex; */
+            /* align-items:center; */
+            justify-content: center;
+        }
+
+        .main .main-page .button-wrap button {
+            width: 476px;
+            height: 81px;
+            display: block;
+            margin: 20px auto;
+            background-color: #fa6650;
+            border: 1px solid transparent;
+
+            color: white;
+            font-size: 25px;
+        }
+
+
+        /* 여기가 야매 반응형 */
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+            .main .main-page .page-gap {
+                margin: auto 0;
+            }
+
+            .main .main-page p.title {
+                font-size: 7vw;
+            }
+
+            .main .main-page p.sub-tit {
+                font-size: 4vw;
+            }
+
+            .main .main-page .button-wrap button {
+                width: 200px;
+                height: 50px;
+                display: block;
+                margin: 10px auto;
+                font-size: 3vw;
+            }
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
+
+            .background .window .popup .popup-body .animals button {
+                width: 90%;
+            }
+        }
+
+        /* 여기부터 모달 */
+
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+
+            /* 숨기기 */
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .show {
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        .window {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
+            width: 480px;
+            height: 490px;
+
+            /* 초기에 약간 아래에 배치 */
+            transform: translate(-50%, -40%);
+        }
+
+        .show .popup {
+            transform: translate(-50%, -50%);
+            transition: all 0.5s;
+        }
+
+        .popup-header {
+            margin: 10px;
+        }
+
+        .popup-title {
+            display: inline-block;
+            margin: 25px auto 15px 20px;
+            font-size: 20px;
+        }
+
+        .popup-body {
+            margin: 10px;
+        }
+
+        .popup-noti {
+            display: inline-block;
+            margin: 10px auto auto 20px;
+            font-size: 13px;
+        }
+
+        .animals {
+            text-align: center;
+            margin: 20px auto 40px auto;
+        }
+
+        .animal-button {
+            background-color: #fff;
+            padding: 10px 20px;
+            border: 1px solid #E6E6E6;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 13px auto;
+            width: 420px;
+            height: 48px;
+
+            text-align: left;
+            display: block;
+            font-size: 13px;
+        }
+
+        .animal-button.selected {
+            background-color: #fff;
+            border: 1px solid #fa6650;
+        }
+
+        .animal-button-text {
+            color: #1A1A1A;
+            font-size: 13px;
+        }
+
+        .popup-footer {
+            margin-top: 25px;
+        }
+
+        .popup-footer button {
+            width: 125px;
+            height: 60px;
+            display: block;
+            margin: 10px auto;
+            background-color: #fa6650;
+            border: 1px solid transparent;
+
+        }
+
+        .choice-button-text {
+            color: white;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+    <!-- 메인페이지 -->
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="logo">
+                <div class="background-img">
+                    <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
+                </div>
+                <p class="title">내 새끼 니도 이쁘지?</p>
+                <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
+            </div>
+            <div class="button-wrap">
+                <button id="show" class="rounded-pill" alt="...">
+                    <span class="button-text">남의 새끼 보러 가기</span>
+                </button>
+                <button onclick="mypage" class="rounded-pill" alt="...">
+                    <span class="button-text">MY PAGE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="popup-header">
+                    <button id="close" type="button" class="btn-close" aria-label="Close"
+                            style="float: right;"></button>
+                    <span class="popup-title">관심 있는 새끼 선택하기</span>
+                </div>
+                <hr>
+                <div class="popup-body">
+                    <span class="popup-noti">중복 선택이 가능합니다.</span>
+                    <div class="animals">
+                        <button class="animal-button" value="강아지">
+                            <span class="animal-button-text">강아지</span>
+                        </button>
+                        <button class="animal-button" value="고양이">
+                            <span class="animal-button-text">고양이</span>
+                        </button>
+                        <button class="animal-button" value="기타">
+                            <span class="animal-button-text">기타</span>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="popup-footer">
+                    <button id="choice-button" class="rounded-pill" alt="...">
+                        <span class="choice-button-text">선택</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    function show() {
+        document.querySelector(".background").className = "background show";
+    }
+
+    function close() {
+        document.querySelector(".background").className = "background";
+    }
+
+    document.querySelector("#show").addEventListener("click", show);
+    document.querySelector("#close").addEventListener("click", close);
+
+    const buttons = document.querySelectorAll('.animal-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', event => {
+            button.classList.toggle('selected');
+        });
+    });
+
+
+</script>
+
+</body>
+
+</html>
