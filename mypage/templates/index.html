@@ -97,6 +97,8 @@
             box-shadow: 0px 0px 3px 0px gray;
 
             display: none;
+
+            color: black;
         }
 
         .mybtns {
@@ -108,10 +110,22 @@
             margin-top: 10px;
         }
         .mybtns > button {
-            margin: 30px;
+            margin: 20px;
             padding: 10px 50px 10px 50px;
         }
+        .regis-btn {
+            background-color: #FA6650;
+            color: #ffffff;
+            border-radius: 10px;
+            border-color: #FA6650;
+        }
 
+        .regisclose-btn {
+            background-color: #ffffff;
+            color: #FA6650;
+            border-radius: 10px;
+            border-color: #FA6650;
+        }
         .container {
             width: 33%;
             height: 120px;
@@ -130,16 +144,8 @@
             display: block;
         }
 
-        .pets-image {
-            position: relative;
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: block;
-        }
+
+
 
         .card {
             float: left;
@@ -211,6 +217,15 @@
             margin-inside: 50px;
         }
 
+        .popup-btn {
+            background-color: #FA6650;
+            color: white;
+            padding: 15px 30px 15px 30px;
+
+            border-color: #FA6650;
+
+            border-radius: 15px;
+        }
         .btn-close {
             position: absolute;
             width: 10px;
@@ -223,12 +238,9 @@
             transition: all .5s;
         }
         .mypicture {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
-        .mypicture > button {
-            float: right;
-            margin-top: 5px;
-        }
+
         .moreview {
             margin-top: -1px;
         }
@@ -241,12 +253,34 @@
 
             border: none;
         }
+
+        .more-image {
+            background-color: #FA6650;
+            color: #ffffff;
+
+            bottom: 0;
+        }
+
+        #images {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+                #images_2 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        img {
+            width: 33%;
+            height: auto;
+        }
+
     </style>
     <script>
         $(document).ready(function(){
           listing();
         });
-
 
 
         function open_box(){
@@ -270,7 +304,7 @@
 
     <div>
         <div class="mypets">
-            <h4>내 새끼 자랑하기</h4>
+            <h5>내 새끼 자랑하기</h5>
             <div class="card-group" id="mypets_box_1">
                 <div class="container">
                     <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
@@ -278,7 +312,7 @@
                 </div>
                 <div class="container">
                     <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
-                         class="card-img-top" alt="...">
+                         class="card-img-top" >
                 </div>
                 <div class="container">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
@@ -298,69 +332,70 @@
                     <button onclick="open_box()" type="button">+</button>
                 </div>
                 <div class="mypost" id="post-box">
-        <h4>내 새끼 등록하기</h4>
-        <hr/>
-        <h5>분류</h5>
-        <div class="input-group mb-3">
-            <select class="form-select" id="categories">
-                <option selected>-- 선택하기 --</option>
-                <option value="강아지">강아지</option>
-                <option value="고양이">고양이</option>
-                <option value="기타">기타</option>
-            </select>
-        </div>
-        <h5>필수 등록 사항</h5>
-        <div class="mypicture" class="form-floating mb-3">
-            <h6>내 새끼 사진</h6>
-            <input id="pet-img" type="file" class="form-control" placeholder="name_example.jpg">
-        </div>
-        <hr/>
-        <h5>선택 등록 사항</h5>
-        <div class="form-floating mb-3">
-            <input id="name" type="text" class="form-control" placeholder="textarea">
-            <label>내 새끼 이름</label>
-            <br/>
-            <div class="input-group mb-3">
-                <select class="form-select" id="age">
-                    <option selected>-- 나이 --</option>
-                    <option value="1">1살</option>
-                    <option value="2">2살</option>
-                    <option value="3">3살</option>
-                    <option value="4">4살</option>
-                    <option value="5">5살</option>
-                    <option value="6">6살</option>
-                    <option value="7">7살</option>
-                    <option value="8">8살</option>
-                    <option value="9">9살</option>
-                    <option value="10">10살</option>
-                    <option value="11">11살</option>
-                    <option value="12">12살</option>
-                    <option value="13">13살</option>
-                    <option value="14">14살</option>
-                    <option value="15">15살</option>
-                    <option value="16">16살 이상</option>
-                </select>
-            </div>
-            <div class="form-floating">
-                <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-                <label>사진 설명</label>
-            </div>
-            <br/>
-            <div class="form-floating">
-                <textarea id="link" class="form-control" placeholder="Leave a comment here"></textarea>
-                <label>내 새끼 더보기 링크</label>
-            </div>
-            <br/>
-            <div class="mybtns">
-                <button class="btn btn-danger" id="show">등록</button>
-                <div class="background">
-                    <div class="window">
-                        <div class="popup">
-                            <button onclick="close_box()" type="button" class="btn-close" aria-label="Close"></button>
-                            <h4>정말 등록하시겠습니까?  </h4>
-                            <br/>
-                            <button id="close" class="btn btn-danger; btn-lg">등록</button>
+                    <h5>내 새끼 등록하기</h5>
+                    <hr/>
+                    <h6>분류</h6>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="categories">
+                            <option selected>-- 선택하기 --</option>
+                            <option value="강아지">강아지</option>
+                            <option value="고양이">고양이</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <h6>필수 등록 사항</h6>
+                    <div class="mypicture" class="form-floating mb-3">
+                        <h6>내 새끼 사진</h6>
+                        <input id="pet-img" type="file" class="form-control" placeholder="name_example.jpg">
+                    </div>
+                    <hr/>
+                    <h6>선택 등록 사항</h6>
+                    <div class="form-floating mb-3">
+                        <input id="name" type="text" class="form-control" placeholder="textarea">
+                        <label>내 새끼 이름</label>
+                        <br/>
+                        <div class="input-group mb-3">
+                            <select class="form-select" id="age">
+                                <option selected>-- 나이 --</option>
+                                <option value="1">1살</option>
+                                <option value="2">2살</option>
+                                <option value="3">3살</option>
+                                <option value="4">4살</option>
+                                <option value="5">5살</option>
+                                <option value="6">6살</option>
+                                <option value="7">7살</option>
+                                <option value="8">8살</option>
+                                <option value="9">9살</option>
+                                <option value="10">10살</option>
+                                <option value="11">11살</option>
+                                <option value="12">12살</option>
+                                <option value="13">13살</option>
+                                <option value="14">14살</option>
+                                <option value="15">15살</option>
+                                <option value="16">16살 이상</option>
+                            </select>
                         </div>
+                        <div class="form-floating">
+                            <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>사진 설명</label>
+                        </div>
+                        <br/>
+                        <div class="form-floating">
+                            <textarea id="link" class="form-control" placeholder="Leave a comment here"></textarea>
+                            <label>내 새끼 더보기 링크</label>
+                        </div>
+                        <br/>
+                        <div class="mybtns">
+                            <button class="regis-btn" id="show">등록</button>
+                            <div class="background">
+                                <div class="window">
+                                    <div class="popup">
+                                        <button onclick="close_box()" type="button" class="btn-close"
+                                                aria-label="Close"></button>
+                                        <h4>정말 등록하시겠습니까? </h4>
+                                        <br/>
+                                        <button id="close" class="popup-btn">등록</button>
+                                    </div>
                         <div>
                             <div></div>
                         </div>
@@ -378,82 +413,100 @@
                     document.querySelector("#show").addEventListener("click", show);
                     document.querySelector("#close").addEventListener("click", close);
                 </script>
-                <button onclick="close_box()" type="button" class="btn btn-outline-danger">닫기</button>
+                <button onclick="close_box()" type="button" class="regisclose-btn">닫기</button>
             </div>
         </div>
     </div>
             </div>
         </div>
         <div class="mypets">
-            <h4>이뻐요한 새끼 모아보기</h4>
-            <div class="card-group" id="lovepets_box_1">
-                <div class="container">
-                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
-                         class="card-img-top" alt="...">
-                </div>
-                <div class="container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
-                         class="card-img-top">
-                </div>
+            <h5>이뻐요한 새끼 모아보기</h5>
+            <div id="images">
+                <img src='https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg'>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800">
+                <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
+            </div>
                 <div class="moreview">
-                    <button class="btn btn-danger" type="button">더 보기</button>
+                    <button id="showMoreButton" class="more-image" >더 보기</button>
+                    <script>
+                        const images = [
+                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+                        ];
 
+                        let currentIndex = 0;
+                        const showMoreButton = document.getElementById('showMoreButton');
+                        const imageContainer = document.getElementById('images');
+
+                        showMoreButton.addEventListener('click', function () {
+                            for (let i = 0; i < 3; i++) {
+                                const nextImage = images[currentIndex];
+                                if (!nextImage) {
+                                    showMoreButton.disabled = true;
+                                    return;
+                                }
+
+                                const newImage = document.createElement('img');
+                                newImage.src = nextImage;
+                                imageContainer.appendChild(newImage);
+                                currentIndex++;
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
         <div class="mypets">
-            <h4>내가 댓글 단 남의 새끼 모아보기</h4>
-            <div class="card-group" id="comment_box_1">
-                <div class="container">
-                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
-                         class="card-img-top" alt="...">
-                </div>
-                <div class="container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
-                         class="card-img-top">
-                </div>
-                <div class="container">
-                    <img class="pets-image"
-                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
-                         class="card-img-top">
-                </div>
-                <div class="moreview" style="margin-bottom: 50px">
-                    <button class="btn btn-danger" type="button">더 보기</button>
+            <h5>내가 댓글 단 남의 새끼 모아보기</h5>
+            <div id="images_2">
+                <img src='https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg'>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800">
+                <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
+            </div>
+                <div class="moreview">
+                    <button id="showMoreButton_2" class="more-image" >더 보기</button>
+                    <script>
+                        const images_2 = [
+                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+                        ];
+
+                        let currentIndex_2 = 0;
+                        const showMoreButton_2 = document.getElementById('showMoreButton_2');
+                        const imageContainer_2 = document.getElementById('images_2');
+
+                        showMoreButton_2.addEventListener('click', function () {
+                            for (let i = 0; i < 3; i++) {
+                                const nextImage = images_2[currentIndex_2];
+                                if (!nextImage) {
+                                    showMoreButton_2.disabled = true;
+                                    return;
+                                }
+
+                                const newImage = document.createElement('img');
+                                newImage.src = nextImage;
+                                imageContainer_2.appendChild(newImage);
+                                currentIndex_2++;
+                            }
+                        });
+                    </script>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>
