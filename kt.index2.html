@@ -17,47 +17,88 @@
 <!--    <글꼴>-->
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <style>
+
+
         * {
-        font-family: 'Dongle', sans-serif;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-family: 'Dongle', sans-serif;
         }
-        .base{
-            background-color: #FA6650;
-            max-height: 100%;
-            max-width: 100%;
+
+        html, body {
+            width: 100%;
+            height: 100%;
         }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .base {
+            width: 100vw;
+            height: auto;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            max-width: 767px;
+            width: 767px;
+            height: auto;
+            text-align: center;
+            background: #fff;
+        }
+
         .first_line{
             text-align: center;
-            min-width: 800px;
-            max-width: 30%;
+            width: 100%;
             margin: 10px auto 10px auto;
             background-color: white;
         }
+
         .title{
             color: #FA6650;
         }
+
         .home_btn{
-            margin-right: 30%;
+            float: left;
+            margin-left: 20px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
         }
+
         .home_btn:hover{
-            border-color: #FA6650;
+            color: #333333;
             transition: 0.5s;
         }
+
         .menu_btn {
-            margin-left: 30%;
+            float: right;
+            margin-right: 20px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
         }
+
         .menu_btn:hover{
-            border-color: #FA6650;
+            color: #333333;
             transition: 0.5s;
         }
+
         .first_line > span{
             margin: 15px 25px 0 25px;
         }
+
         .animals_info{
             text-align: left;
             line-height: 10px;
@@ -281,21 +322,26 @@
 
         </style>
 </head>
+
 <body>
     <div class="base">
-        <div class="first_line">
-            <div>
+        <div class="main">
+            <div class="first_line">
                 <span><button class="home_btn"><span class="material-icons">home</span></button></span>
                 <span><h1 style="display: inline" class="title">내 새끼 니도 이쁘지?</h1></span>
                 <span><button class="menu_btn"><span class="material-icons">reorder</span></button></span>
             </div>
-            <span class="material-icons">pets</span><span class="material-icons">pets</span><span class="material-icons">pets</span>
+            <div class="pet-icon">
+                <span class="material-icons">pets</span>
+                <span class="material-icons">pets</span>
+                <span class="material-icons">pets</span>
+            </div>
             <div class="animals_info">
                 <h1 class="animals_name">쫀득이 / 4살</h1>
                 <h3 class="date">2023년 1월 29일 등록</h3>
                 <div class="count">
                     <span class="material-icons">thumb_up_off_alt</span>
-                    <span class="thumb_count"><font size = "+3">5,233</span>
+                    <span class="thumb_count"><font size="+3">5,233</span>
 
                     <span class="material-icons-outlined">comment</span>
                     <span class="comment_count">168</span>
