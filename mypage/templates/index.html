@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>내 새끼 니도 이쁘지 - mypage</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .Rectangle-1 {
+            position: relative;
+            width: 702px;
+            height: auto;
+            left: 609px;
+            top: 0px;
+
+            background-color: #ffffff;
+            margin-bottom: 0px;
+        }
+
+        .mytitle {
+            width: 100%;
+            height: 50px;
+            top: 0px;
+
+            background-position: center;
+            background-size: cover;
+
+            color: #FA6650;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .regis {
+            color: #FA6650;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .regis > button {
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: #FA6650;
+
+            border-radius: 50px;
+            border: 1px solid #FA6650;
+
+            margin-top: 10px;
+        }
+
+        .regis > button:hover {
+            border: 2px solid #FA6650;
+        }
+
+        .mypets {
+            margin: 20px auto 20px auto;
+            width: 100%;
+            max-width: 500px;
+
+            align-items: center;
+            justify-content: center;
+            color: #FA6650;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+
+            display: none;
+        }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 10px;
+        }
+        .mybtns > button {
+            margin: 30px;
+            padding: 10px 50px 10px 50px;
+        }
+
+        .container {
+            width: 33%;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container > img {
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+
+        .pets-image {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+
+        .card {
+            float: left;
+            max-width: 33%;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .more > button {
+            float: left;
+            width: 165px;
+            height: 120px;
+
+            max-width: 100%;
+            font-size: xx-large;
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #FA6650;
+
+            border-radius: unset;
+            border: 0px;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+
+            /* 숨기기 */
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .show {
+            opacity: 1;
+            z-index: 1000;
+            transition: all .5s;
+        }
+
+        .window {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
+            width: 500px;
+            height: 300px;
+
+            /* 초기에 약간 아래에 배치 */
+            transform: translate(-50%, -40%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-inside: 50px;
+        }
+
+        .btn-close {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            right: 3px;
+            top: 3px;
+        }
+        .show .popup {
+            transform: translate(-50%, -50%);
+            transition: all .5s;
+        }
+        .mypicture {
+            margin-bottom: 50px;
+        }
+        .mypicture > button {
+            float: right;
+            margin-top: 5px;
+        }
+        .moreview {
+            margin-top: -1px;
+        }
+
+        .moreview > button {
+            padding: 0 225px 0 225px;
+            background-color: #FA6650;
+
+            max-width: 100%;
+
+            border: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+          listing();
+        });
+
+
+
+        function open_box(){
+            $('#post-box').show()
+        }
+        function close_box(){
+            $('#post-box').hide()
+            $('#popup').hide()
+        }
+    </script>
+</head>
+
+<body style="background-color: #FA6650">
+<div class="Rectangle-1">
+    <div class="mytitle">
+        <h4>내 새끼 너도 이쁘지?</h4>
+    </div>
+    <div class="regis">
+        <h5>My Page</h5>
+    </div>
+
+    <div>
+        <div class="mypets">
+            <h4>내 새끼 자랑하기</h4>
+            <div class="card-group" id="mypets_box_1">
+                <div class="container">
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
+                         class="card-img-top" alt="...">
+                </div>
+                <div class="container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
+                         class="card-img-top">
+                </div>
+                <div class="more">
+                    <button onclick="open_box()" type="button">+</button>
+                </div>
+                <div class="mypost" id="post-box">
+        <h4>내 새끼 등록하기</h4>
+        <hr/>
+        <h5>분류</h5>
+        <div class="input-group mb-3">
+            <select class="form-select" id="categories">
+                <option selected>-- 선택하기 --</option>
+                <option value="강아지">강아지</option>
+                <option value="고양이">고양이</option>
+                <option value="기타">기타</option>
+            </select>
+        </div>
+        <h5>필수 등록 사항</h5>
+        <div class="mypicture" class="form-floating mb-3">
+            <h6>내 새끼 사진</h6>
+            <input id="pet-img" type="file" class="form-control" placeholder="name_example.jpg">
+        </div>
+        <hr/>
+        <h5>선택 등록 사항</h5>
+        <div class="form-floating mb-3">
+            <input id="name" type="text" class="form-control" placeholder="textarea">
+            <label>내 새끼 이름</label>
+            <br/>
+            <div class="input-group mb-3">
+                <select class="form-select" id="age">
+                    <option selected>-- 나이 --</option>
+                    <option value="1">1살</option>
+                    <option value="2">2살</option>
+                    <option value="3">3살</option>
+                    <option value="4">4살</option>
+                    <option value="5">5살</option>
+                    <option value="6">6살</option>
+                    <option value="7">7살</option>
+                    <option value="8">8살</option>
+                    <option value="9">9살</option>
+                    <option value="10">10살</option>
+                    <option value="11">11살</option>
+                    <option value="12">12살</option>
+                    <option value="13">13살</option>
+                    <option value="14">14살</option>
+                    <option value="15">15살</option>
+                    <option value="16">16살 이상</option>
+                </select>
+            </div>
+            <div class="form-floating">
+                <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+                <label>사진 설명</label>
+            </div>
+            <br/>
+            <div class="form-floating">
+                <textarea id="link" class="form-control" placeholder="Leave a comment here"></textarea>
+                <label>내 새끼 더보기 링크</label>
+            </div>
+            <br/>
+            <div class="mybtns">
+                <button class="btn btn-danger" id="show">등록</button>
+                <div class="background">
+                    <div class="window">
+                        <div class="popup">
+                            <button onclick="close_box()" type="button" class="btn-close" aria-label="Close"></button>
+                            <h4>정말 등록하시겠습니까?  </h4>
+                            <br/>
+                            <button id="close" class="btn btn-danger; btn-lg">등록</button>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function show() {
+                        document.querySelector(".background").className = "background show";
+                    }
+
+                    function close() {
+                        document.querySelector(".background").className = "background";
+                    }
+
+                    document.querySelector("#show").addEventListener("click", show);
+                    document.querySelector("#close").addEventListener("click", close);
+                </script>
+                <button onclick="close_box()" type="button" class="btn btn-outline-danger">닫기</button>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+        <div class="mypets">
+            <h4>이뻐요한 새끼 모아보기</h4>
+            <div class="card-group" id="lovepets_box_1">
+                <div class="container">
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
+                         class="card-img-top" alt="...">
+                </div>
+                <div class="container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
+                         class="card-img-top">
+                </div>
+                <div class="moreview">
+                    <button class="btn btn-danger" type="button">더 보기</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="mypets">
+            <h4>내가 댓글 단 남의 새끼 모아보기</h4>
+            <div class="card-group" id="comment_box_1">
+                <div class="container">
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
+                         class="card-img-top" alt="...">
+                </div>
+                <div class="container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
+                         class="card-img-top">
+                </div>
+                <div class="container">
+                    <img class="pets-image"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg"
+                         class="card-img-top">
+                </div>
+                <div class="moreview" style="margin-bottom: 50px">
+                    <button class="btn btn-danger" type="button">더 보기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
