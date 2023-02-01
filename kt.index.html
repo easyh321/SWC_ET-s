@@ -217,8 +217,68 @@
             border: transparent;
         }
         .like_comment{
-            margin: 80px auto 50px auto;
+            margin: 75px auto 50px auto;
         }
+
+        .comment-background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            z-index: -1;
+            opacity: 0;
+        }
+        .show2{
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+        .comment-window{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .comment-popup{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 350px;
+            transform: translate(-50%, -40%);
+        }
+        .show2 .comment-popup{
+        transform: translate(-50%, -50%);
+        transition: all 0.5s;
+        }
+        .comment_check{
+            text-align: left;
+            margin: 30px auto auto 30px;
+        }
+        .comment-close{
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 60px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+        .comment-close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+        .comment_comment{
+            margin: 30px auto 40px auto;
+        }
+
+
         </style>
 </head>
 <body>
@@ -273,7 +333,29 @@
             </div>
             <div class="input-group mb-3">
                 <input type="text" id="comment" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" id="button-addon2">댓글 등록</button>
+<!--                <button class="btn btn-outline-secondary" id="button-addon2">댓글 등록</button>-->
+                <button class="btn btn-outline-secondary" id="btn-outline-secondary">댓글 등록</button>
+
+				<div class="comment-background">
+                    <div class="comment-window">
+                        <div class="comment-popup">
+                            <div>
+                            <h1 class="comment_check">댓글 등록 확인</h1>
+                            <hr/>
+                            </div>
+                            <div class="comment_comment">
+                                <h2>댓글을 등록하시면 수정/삭제가 불가합니다.</h2>
+								<p><h2>등록하시겠습니까?</h2></p>
+                            </div>
+                            <hr/>
+                            <button class="comment-close" id="comment-close">확인</button>
+                        </div>
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="comment-box">
                 <h3 class="name">글쓴이</h3>
@@ -295,5 +377,11 @@
         }
         document.querySelector("#show").addEventListener("click", show);
         document.querySelector("#close").addEventListener("click", close);
+
+        document.getElementById("btn-outline-secondary").addEventListener("click", show2);
+		function show2() {
+			document.querySelector(".comment-background").classList.toggle("show2");
+		}
+		document.getElementById("comment-close").addEventListener("click", show2);
     </script>
 </html>
