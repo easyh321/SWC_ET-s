@@ -53,6 +53,24 @@
             justify-content: center;
         }
 
+        .home_btn {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            left: 3px;
+            top: 9px;
+
+            border: white;
+            background-color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 10.3609C3 9.1048 3.59 7.92169 4.59325 7.16593L10.6494 2.60381C11.7185 1.79848 13.1917 1.79876 14.2604 2.60449L20.3109 7.1659C21.3134 7.92171 21.9029 9.10439 21.9029 10.3599V19.275C21.9029 20.9318 20.5597 22.275 18.9029 22.275H6C4.34315 22.275 3 20.9318 3 19.275V10.3609ZM10.9239 14.7848C10.5932 14.5354 10.1229 14.6013 9.87345 14.9319C9.62401 15.2626 9.68988 15.7329 10.0206 15.9823C10.7185 16.5088 11.6008 16.7521 12.4514 16.7521C13.3019 16.7521 14.1842 16.5088 14.8821 15.9823C15.2128 15.7329 15.2787 15.2626 15.0293 14.9319C14.7798 14.6013 14.3095 14.5354 13.9788 14.7848C13.5835 15.083 13.0333 15.2521 12.4514 15.2521C11.8694 15.2521 11.3192 15.083 10.9239 14.7848Z' fill='%23FA6650'/%3E%3C/svg%3E");;
+        }
+
         .regis {
             color: #FA6650;
 
@@ -61,6 +79,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .regis > button {
             width: 200px;
             height: 50px;
@@ -109,10 +128,12 @@
 
             margin-top: 10px;
         }
+
         .mybtns > button {
             margin: 20px;
             padding: 10px 50px 10px 50px;
         }
+
         .regis-btn {
             background-color: #FA6650;
             color: #ffffff;
@@ -126,6 +147,7 @@
             border-radius: 10px;
             border-color: #FA6650;
         }
+
         .container {
             width: 33%;
             height: 120px;
@@ -143,8 +165,6 @@
             transform: translate(-50%, -50%);
             display: block;
         }
-
-
 
 
         .card {
@@ -169,6 +189,7 @@
             border-radius: unset;
             border: 0px;
         }
+
         .background {
             position: fixed;
             top: 0;
@@ -226,6 +247,7 @@
 
             border-radius: 15px;
         }
+
         .btn-close {
             position: absolute;
             width: 10px;
@@ -233,16 +255,19 @@
             right: 3px;
             top: 3px;
         }
+
         .show .popup {
             transform: translate(-50%, -50%);
             transition: all .5s;
         }
+
         .mypicture {
             margin-bottom: 20px;
         }
 
         .moreview {
             margin-top: -1px;
+
         }
 
         .moreview > button {
@@ -252,6 +277,8 @@
             max-width: 100%;
 
             border: none;
+
+            margin-bottom: 10px;
         }
 
         .more-image {
@@ -266,7 +293,7 @@
             flex-wrap: wrap;
         }
 
-                #images_2 {
+        #images_2 {
             display: flex;
             flex-wrap: wrap;
         }
@@ -276,13 +303,30 @@
             height: auto;
         }
 
+        .menu_btn {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 3px;
+            top: 9px;
+
+            border: white;
+            background-color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12ZM7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12ZM19 14C20.1046 14 21 13.1046 21 12C21 10.8954 20.1046 10 19 10C17.8954 10 17 10.8954 17 12C17 13.1046 17.8954 14 19 14Z' fill='%23FA6650'/%3E%3C/svg%3E");
+        }
+
+        .menu_btn:hover {
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12ZM7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12ZM19 14C20.1046 14 21 13.1046 21 12C21 10.8954 20.1046 10 19 10C17.8954 10 17 10.8954 17 12C17 13.1046 17.8954 14 19 14Z' fill='white'/%3E%3C/svg%3E%0A");
+            color: #333333;
+            transition: 0.5s;
+        }
     </style>
     <script>
-        $(document).ready(function(){
-          listing();
-        });
-
-
         function open_box(){
             $('#post-box').show()
         }
@@ -296,7 +340,9 @@
 <body style="background-color: #FA6650">
 <div class="Rectangle-1">
     <div class="mytitle">
-        <h4>내 새끼 너도 이쁘지?</h4>
+        <span><a href="index.html" class="home_btn"></a></span>
+        <span><h4>내 새끼 너도 이쁘지?</h4></span>
+        <span><button onclick="open_box()" type="button" class="menu_btn" ></button></span>
     </div>
     <div class="regis">
         <h5>My Page</h5>
