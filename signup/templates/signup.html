@@ -20,6 +20,7 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
+
         body {
             margin: 0;
             background-color: coral;
@@ -29,7 +30,6 @@
             background-color: #FEE8E2;
             max-width: 450px;
             width: 95%;
-            height: 800px;
             border-radius: 10px;
             margin: 50px auto;
             text-align: center;
@@ -41,33 +41,39 @@
             align-items: center;
             justify-content: end;
         }
+
         .signup > h4 {
             color: #FD6038;
         }
+
         .signup-box > h1 {
             color: #FD6038;
             margin-bottom: 50px;
         }
+
         .signup-box {
             background-color: white;
             width: 95%;
+            height: 100%;
             border-radius: 10px;
             margin: 50px auto;
             padding: 10px;
             border: none;
         }
+
         .col-md-6 {
             text-align: left;
             font-size: 20px;
             font-weight: bold;
             width: 100%;
         }
+
         .form-control {
             border-radius: 5px;
             font-size: 10px;
             border: solid coral 2px;
             max-width: 300px;
-            width : 100%;
+            width: 100%;
             margin-bottom: 15px;
             text-align: center;
         }
@@ -83,6 +89,7 @@
             color: white;
             display: inline-block;
         }
+
         .done-btn {
             box-sizing: border-box;
             border-radius: 20px;
@@ -94,6 +101,7 @@
             margin-bottom: 30px;
             color: white;
         }
+
         input[type="submit"]:disabled {
             opacity: 0.6;
             cursor: not-allowed;
@@ -102,29 +110,135 @@
         .links {
             text-align: center;
         }
+
         .links a {
             font-size: 16px;
             color: coral;
         }
+
         input[type="checkbox"] {
             width: 15px;
             height: 15px;
             accent-color: coral;
         }
+
+        .warnpop {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid;
+            max-width: 400px;
+            width : 90%;
+            max-height: 500px;
+            height: 100%;
+            background-color: #FEE8E2;
+        }
+        .warnpop > h1 {
+            color: #FD6038;
+            padding: 20px;
+        }
+
+        .warncontent {
+            background-color: white;
+            margin: 10px auto 30px auto;
+            padding: 20px;
+            width: 80%;
+            max-height: 300px;
+            height: 100%;
+            border-radius: 20px;
+            overflow: auto;
+            text-align: left;
+        }
+
+        .close {
+            box-sizing: border-box;
+            border-radius: 20px;
+            font-size: 20px;
+            border: none;
+            padding: 10px;
+            width: 120px;
+            background-color: coral;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .close:hover,
+        .close:focus {
+            color: darkred;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
     </style>
+</head>
+
+<body>
+    <div class="signup">
+        <h4>내새끼 니도 예쁘지?</h4>
+        <div class="signup-box">
+            <h1>회원 가입</h1>
+            <div class="col-md-6 mb-3">
+                <label for="name">ID</label>
+                <div class="sort">
+                    <input type="text" class="form-control" id="name" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요." value="">
+                    <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" onchange="check_pw()"
+                       placeholder="영문 대소문자, 숫자, 특수기호를 조합한 6~12자리" value="">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="confirm">Confirm Password</label>
+                <input type="password" name="confirm" id="confirm" class="form-control" onchange="check_pw()"
+                       placeholder="위와 같은 비밀번호를 다시 한번 입력하세요." value="">
+                <span id="check"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="nickname">Nickname</label>
+                <input type="text" class="form-control" id="nickname" placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
+                       value="">
+                <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
+            </div>
+            <hr>
+            <div class="custom-control custom-checkbox">
+                <div class="links">
+                    모든 <a href="#" id="warn">주의사항</a>을 모두 확인하셨나요?
+                    <input type="checkbox" class="custom-control-input" id="reminder">
+                    <div id="warn-pop" class="warnpop">
+                        <h1>주의 사항</h1>
+                        <div class="warncontent">
+                            <p>1. 어쩌구</p>
+                            <p>2. 저쩌구</p>
+                            <p>3. 랄라라라</p>
+                            <p>4. ㄹ로로로로</p>
+                            <p>5. 리리리리리</p>
+                            <p>6. 레레레레레레</p>
+                            <p>7. ㄹ률류률류류</p>
+                            <p>8. ㅂ뱌뱌뱌뱌뱌</p>
+                            <p>9. 뵤뵤뵤뵤뵤뵤</p>
+                            <p>10. 뷰뷰뷰뷰뷰뷰</p>
+                        </div>
+                        <button class="close" id="close">확인 완료!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" disabled>
+    </div>
 
     <script>
-        // 아이디 중복체크 버튼 클릭 -> 가능한 아이디면 사용 가능하다는 알럿, 사용 불가능한 아이디면 중복 알럿
         function idcheck() {
             alert('이미 존재하는 아이디입니다. 새로운 아이디를 입력하세요.')
         }
 
-        // 닉네임 중복체크 버튼 클릭 -> 아이디와 마찬가지로 진행
         function nickcheck() {
             alert('이미 존재하는 닉네임입니다. 새로운 닉네임을 입력하세요.')
         }
 
-        // 비밀번호와 비밀번호 재확인이 같은지 다른지 체크
         function check_pw() {
             var pw = document.getElementById('password').value;
             var SC = ["!", "@", "#", "$", "%"];
@@ -156,61 +270,52 @@
             }
         }
 
-        // 주의사항 버튼 클릭 -> 주의 사항이 안내되어 있는 팝업 등장
-        function pop() {
+        const warn = document.getElementById("warn");
+        const modal = document.getElementById("warn-pop");
+        const span = document.getElementsByClassName("close")[0];
 
+        warn.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        });
+
+        span.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        const idInput = document.getElementById("name");
+        const passwordInput = document.getElementById("password");
+        const passwordConfirmationInput = document.getElementById("confirm");
+        const nicknameInput = document.getElementById("nickname");
+        const reminderCheckbox = document.getElementById("reminder");
+        const submitBtn = document.getElementById("submit-button");
+
+        function checkForm() {
+            if (idInput.value !== "" && passwordInput.value !== "" && passwordConfirmationInput.value !== "" && nicknameInput.value !== "" && reminderCheckbox.checked) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
         }
 
-        // 주의사항 체크박스 -> 미체크:가입 완료 버튼 비활성화, 체크:가입 완료 버튼 활성화
+        idInput.addEventListener("input", checkForm);
+        passwordInput.addEventListener("input", checkForm);
+        passwordConfirmationInput.addEventListener("input", checkForm);
+        nicknameInput.addEventListener("input", checkForm);
+        reminderCheckbox.addEventListener("change", checkForm);
 
-
-        // 가입 완료 버튼 클릭 -> 가입이 완료되었다는 알럿 + 최초 랜딩페이지(로그인 페이지)로 이동
-        function signup() {
+        function done() {
             alert('가입이 완료 되었습니다!')
             window.location.href = 'login.html';
         }
-
-        // +@ : 비번/비번확인의 눈버튼 클릭 -> 일반 문자열과 암호화 처리된 문자열로 바뀌는 부분
     </script>
 
-</head>
-
-<body>
-    <form class="signup">
-        <h4>내새끼 니도 예쁘지?</h4>
-        <div class="signup-box">
-            <h1>회원 가입</h1>
-            <div class="col-md-6 mb-3">
-                <label for="name">ID</label>
-                <div class="sort">
-                    <input type="text" class="form-control" id="name" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요." value="">
-                    <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" onchange="check_pw()" placeholder="영문 대소문자, 숫자, 특수기호를 조합한 6~12자리" value="">
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="confirm">Confirm Password</label>
-                <input type="password" name="confirm" id="confirm" class="form-control" onchange="check_pw()" placeholder="위와 같은 비밀번호를 다시 한번 입력하세요." value="">
-                <span id="check"></span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="nickname">Nickname</label>
-                <input type="text" class="form-control" id="nickname" placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요." value="">
-                <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
-            </div>
-            <hr>
-            <div class="custom-control custom-checkbox">
-                <div class="links">
-                    모든 <a href="#" onclick="pop">주의사항</a>을 모두 확인하셨나요?
-                    <input type="checkbox" class="custom-control-input">
-                </div>
-            </div>
-        </div>
-        <input type="submit" value="가입 완료하기" class="done-btn" onclick="signup()" name="checkButton" disabled>
-    </form>
 </body>
 
 </html>
