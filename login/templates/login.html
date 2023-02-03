@@ -103,6 +103,10 @@
             margin-bottom: 30px;
             color: white;
         }
+        input[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
         .links {
             text-align: center;
         }
@@ -111,29 +115,6 @@
             color: coral;
         }
     </style>
-
-    <script>
-        $(document).ready(function () {
-            login();
-        });
-
-        function login() {
-            let data = {
-                username:$("#username").val(),
-                password:$("#password").val()
-            };
-
-            $.ajax({})
-        }
-        // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
-        function mainbtn() {
-            alert('로그인 실패')
-        }
-        // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
-        function signup() {
-            window.location.href = 'signup.html';
-        }
-    </script>
 
 </head>
 
@@ -149,13 +130,54 @@
             <form>
                 <input type="text" name="name" class="text-field" placeholder="아이디를 입력하세요." id="username">
                 <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요." id="password">
-                <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login">
+                <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login" disabled>
             </form>
             <div class="links">
                 <a href="#" onclick="signup()">회원가입</a> 할래요!
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            login();
+        });
+
+        function login() {
+            let data = {
+                username: $("#username").val(),
+                password: $("#password").val()
+            };
+
+            $.ajax({})
+        }
+
+        // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
+        function mainbtn() {
+            alert('로그인 실패')
+        }
+
+        // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
+        function signup() {
+            alert('회원가입 페이지로 이동합니다!')
+            window.location.href = 'signup.html';
+        }
+
+        const idInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const submitBtn = document.getElementById("btn-login");
+        function checkForm() {
+            if (idInput.value !== "" && passwordInput.value !== "") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+        idInput.addEventListener("input", checkForm);
+        passwordInput.addEventListener("input", checkForm);
+    </script>
+
+
 </body>
 
 </html>
