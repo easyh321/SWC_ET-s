@@ -71,6 +71,52 @@
             background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 10.3609C3 9.1048 3.59 7.92169 4.59325 7.16593L10.6494 2.60381C11.7185 1.79848 13.1917 1.79876 14.2604 2.60449L20.3109 7.1659C21.3134 7.92171 21.9029 9.10439 21.9029 10.3599V19.275C21.9029 20.9318 20.5597 22.275 18.9029 22.275H6C4.34315 22.275 3 20.9318 3 19.275V10.3609ZM10.9239 14.7848C10.5932 14.5354 10.1229 14.6013 9.87345 14.9319C9.62401 15.2626 9.68988 15.7329 10.0206 15.9823C10.7185 16.5088 11.6008 16.7521 12.4514 16.7521C13.3019 16.7521 14.1842 16.5088 14.8821 15.9823C15.2128 15.7329 15.2787 15.2626 15.0293 14.9319C14.7798 14.6013 14.3095 14.5354 13.9788 14.7848C13.5835 15.083 13.0333 15.2521 12.4514 15.2521C11.8694 15.2521 11.3192 15.083 10.9239 14.7848Z' fill='%23FA6650'/%3E%3C/svg%3E");;
         }
 
+        .menu_bar {
+            border: white;
+            background-color: #FA6650;
+
+            width: 702px;
+            max-width: 100%;
+            margin: 0px auto 0px auto;
+            padding: 20px;
+
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            display: none;
+        }
+
+        .btn-close_menu {
+            padding: 0 50px 0 50px;
+            background-color: #ffffff;
+
+            max-width: 100%;
+
+            border: none;
+
+        }
+
+        .menu_home {
+            padding: 0 50px 0 50px;
+            background-color: #ffffff;
+
+            max-width: 100%;
+
+            border: none;
+
+        }
+
+        .menu_regis {
+            padding: 0 50px 0 50px;
+            background-color: #ffffff;
+
+            max-width: 100%;
+
+            border: none;
+
+        }
+
         .regis {
             color: #FA6650;
 
@@ -327,12 +373,43 @@
         }
     </style>
     <script>
-        function open_box(){
+        $(document).ready(function () {
+            registration();
+        });
+
+        function open_box() {
             $('#post-box').show()
         }
-        function close_box(){
+
+        function open_menubar() {
+            $('#menubar').show()
+        }
+
+        function close_box() {
             $('#post-box').hide()
             $('#popup').hide()
+        }
+
+        function close_menubar() {
+            $('#menubar').hide()
+        }
+
+        function registration() {
+            let age = $('#age').val()
+            let categories = $('#categories').val()
+            let url = $('#url').val()
+            let desc = $('#desc').val()
+            let name = $('#name').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/etc',
+                data: {age_give: age, categories_give: categories, url_give: url, desc_give: desc, name_give: name},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
         }
     </script>
 </head>
@@ -342,8 +419,25 @@
     <div class="mytitle">
         <span><a href="index.html" class="home_btn"></a></span>
         <span><h4>내 새끼 너도 이쁘지?</h4></span>
-        <span><button onclick="open_box()" type="button" class="menu_btn" ></button></span>
+        <span><button onclick="menubar()" type="button" class="menu_btn" >
+                <script>
+        let count = 0;
+        function menubar() {
+            if (count % 2 == 0) {
+                open_menubar();
+            } else {
+                close_menubar();
+            }
+						count += 1;
+        }
+    </script>
+        </button></span>
     </div>
+    <div class="menu_bar" id="menubar">
+        <button class="menu_home">HOME</a></button>
+        <button onclick="close_menubar()" type="button" class="menu_regis">등록</button>
+    </div>
+
     <div class="regis">
         <h5>My Page</h5>
     </div>
@@ -358,7 +452,7 @@
                 </div>
                 <div class="container">
                     <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg"
-                         class="card-img-top" >
+                         class="card-img-top">
                 </div>
                 <div class="container">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU"
@@ -422,12 +516,12 @@
                             </select>
                         </div>
                         <div class="form-floating">
-                            <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+                            <textarea id="desc" class="form-control" placeholder="Leave a comment here"></textarea>
                             <label>사진 설명</label>
                         </div>
                         <br/>
                         <div class="form-floating">
-                            <textarea id="link" class="form-control" placeholder="Leave a comment here"></textarea>
+                            <textarea id="url" class="form-control" placeholder="Leave a comment here"></textarea>
                             <label>내 새끼 더보기 링크</label>
                         </div>
                         <br/>
@@ -440,29 +534,29 @@
                                                 aria-label="Close"></button>
                                         <h4>정말 등록하시겠습니까? </h4>
                                         <br/>
-                                        <button id="close" class="popup-btn">등록</button>
+                                        <button onclick="registration()" class="popup-btn">등록</button>
                                     </div>
-                        <div>
-                            <div></div>
+                                    <div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                function show() {
+                                    document.querySelector(".background").className = "background show";
+                                }
+
+                                function close() {
+                                    document.querySelector(".background").className = "background";
+                                }
+
+                                document.querySelector("#show").addEventListener("click", show);
+                                document.querySelector("#close").addEventListener("click", close);
+                            </script>
+                            <button onclick="close_box()" type="button" class="regisclose-btn">닫기</button>
                         </div>
                     </div>
                 </div>
-                <script>
-                    function show() {
-                        document.querySelector(".background").className = "background show";
-                    }
-
-                    function close() {
-                        document.querySelector(".background").className = "background";
-                    }
-
-                    document.querySelector("#show").addEventListener("click", show);
-                    document.querySelector("#close").addEventListener("click", close);
-                </script>
-                <button onclick="close_box()" type="button" class="regisclose-btn">닫기</button>
-            </div>
-        </div>
-    </div>
             </div>
         </div>
         <div class="mypets">
@@ -475,40 +569,40 @@
                 <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
             </div>
-                <div class="moreview">
-                    <button id="showMoreButton" class="more-image" >더 보기</button>
-                    <script>
-                        const images = [
-                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
-                            'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
-                        ];
+            <div class="moreview">
+                <button id="showMoreButton" class="more-image">더 보기</button>
+                <script>
+                    const images = [
+                        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+                    ];
 
-                        let currentIndex = 0;
-                        const showMoreButton = document.getElementById('showMoreButton');
-                        const imageContainer = document.getElementById('images');
+                    let currentIndex = 0;
+                    const showMoreButton = document.getElementById('showMoreButton');
+                    const imageContainer = document.getElementById('images');
 
-                        showMoreButton.addEventListener('click', function () {
-                            for (let i = 0; i < 3; i++) {
-                                const nextImage = images[currentIndex];
-                                if (!nextImage) {
-                                    showMoreButton.disabled = true;
-                                    return;
-                                }
-
-                                const newImage = document.createElement('img');
-                                newImage.src = nextImage;
-                                imageContainer.appendChild(newImage);
-                                currentIndex++;
+                    showMoreButton.addEventListener('click', function () {
+                        for (let i = 0; i < 3; i++) {
+                            const nextImage = images[currentIndex];
+                            if (!nextImage) {
+                                showMoreButton.disabled = true;
+                                return;
                             }
-                        });
-                    </script>
-                </div>
+
+                            const newImage = document.createElement('img');
+                            newImage.src = nextImage;
+                            imageContainer.appendChild(newImage);
+                            currentIndex++;
+                        }
+                    });
+                </script>
             </div>
         </div>
+    </div>
         <div class="mypets">
             <h5>내가 댓글 단 남의 새끼 모아보기</h5>
             <div id="images_2">
@@ -553,9 +647,6 @@
                 </div>
             </div>
         </div>
-        </div>
-    </div>
-</div>
 </body>
 
 </html>
