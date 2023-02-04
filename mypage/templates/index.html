@@ -373,9 +373,7 @@
         }
     </style>
     <script>
-        $(document).ready(function () {
-            registration();
-        });
+
 
         function open_box() {
             $('#post-box').show()
@@ -394,7 +392,11 @@
             $('#menubar').hide()
         }
 
-        function registration() {
+        $(document).ready(function () {
+            animals_post();
+        });
+
+        function animals_post() {
             let age = $('#age').val()
             let categories = $('#categories').val()
             let url = $('#url').val()
@@ -534,7 +536,7 @@
                                                 aria-label="Close"></button>
                                         <h4>정말 등록하시겠습니까? </h4>
                                         <br/>
-                                        <button onclick="registration()" class="popup-btn">등록</button>
+                                        <button onclick="animals_post()" class="popup-btn">등록</button>
                                     </div>
                                     <div>
                                         <div></div>
