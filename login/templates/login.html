@@ -1,181 +1,232 @@
 <!doctype html>
 <html lang="en">
 
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+
 <head>
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <title>내새끼 니도 예쁘지? : 랜딩페이지</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+    <title>내 새끼 니도 이쁘지?</title>
 
     <style>
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
         * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        body {
             margin: 0;
-            background-color: coral;
-        }
-        .board {
-            background-color: #FEE8E2;
-            max-width : 450px;
-            width: 95%;
-            height: 800px;
-            border-radius: 10px;
-            margin: 50px auto;
-
-            text-align: center;
-            padding: 10px;
-
+            padding: 0;
+            vertical-align: middle;
             box-sizing: border-box;
-            border: none;
+            font-family: 'GmarketSansMedium';
         }
 
-        .title {
-            color: coral;
-        }
-        .subtitle {
-            color: gray;
-        }
-        .mytitle {
-            background-color: white;
+        html, body {
             width: 100%;
-            padding: 5px;
+            height: auto;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .main {
+            width: 100vw;
+            height: auto;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-        }
-        .mybg {
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
-            background-position: 20%;
-            background-size: 450px;
-            border-radius: 20px;
-            max-width: 450px;
-            width : 100%;
-            height: 400px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: end;
         }
+
+        .main .main-page {
+            max-width: 767px;
+            width: 767px;
+            height: auto;
+            text-align: center;
+            background: #FEE8E2;
+        }
+
+        .main .main-page p {
+            margin: 0 0 0 0;
+            padding: 10px 0;
+            line-height: 150%;
+        }
+
+        .main .main-page .mybg p.title {
+            font-size: 50px;
+            padding: 0 30px;
+            color: #fa6650;
+        }
+
+        .main .main-page .mybg p.sub-tit {
+            font-size: 25px;
+        }
+
 
         .login-form {
             box-sizing: border-box;
             border-radius: 20px;
-            width: 300px;
+            width: 460px;
             margin-right: auto;
             margin-left: auto;
             margin-top: 50px;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
             border: none;
             background-color: white;
-            box-shadow: 0px 0px 5px 0px coral;
+            box-shadow: 0px 0px 5px 0px #fa6650;
         }
+
         .text-field {
             box-sizing: border-box;
             border-radius: 20px;
             font-size: 15px;
             padding: 10px;
-            border: solid coral 2px;
-            width: 260px;
+            border: solid #fa6650 2px;
+            width: 360px;
             margin-bottom: 15px;
             text-align: center;
         }
+
         .next-btn {
             box-sizing: border-box;
             border-radius: 20px;
             font-size: 15px;
             border: none;
             padding: 10px;
-            width: 260px;
-            background-color: coral;
+            width: 360px;
+            background-color: #fa6650;
             margin-bottom: 30px;
             color: white;
         }
+
+        .next-btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
         input[type="submit"]:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
+
         .links {
             text-align: center;
         }
+
         .links a {
             font-size: 16px;
-            color: coral;
+            color: #fa6650;
+        }
+
+        .footer {
+            margin-bottom: 60px;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="board">
-        <div class="mybg">
-            <div class="mytitle">
-                <h1 class="title">내 새끼 니도 예쁘지?</h1>
-                <h5 class="subtitle">내 새끼 자랑하고 다른 새끼도 구경하세요!</h5>
+<div class="main">
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="mybg">
+                <div class="background-img">
+                    <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
+                </div>
+                <p class="title">내 새끼 니도 이쁘지?</p>
+                <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
             </div>
-        </div>
-        <div class="login-form">
-            <form>
-                <input type="text" name="name" class="text-field" placeholder="아이디를 입력하세요." id="username">
-                <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요." id="password">
-                <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login" disabled>
-            </form>
-            <div class="links">
-                <a href="#" onclick="signup()">회원가입</a> 할래요!
+            <div class="login-form">
+                <form>
+                    <input type="text" name="name" class="text-field" placeholder="아이디를 입력하세요." id="username">
+                    <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요." id="password">
+                    <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
+                           disabled>
+                </form>
+                <div class="links">
+                    <a href="signup.html" onclick="signup()">회원가입</a> 할래요!
+                </div>
             </div>
+            <div class="footer"></div>
         </div>
     </div>
+</div>
 
-    <script>
-        $(document).ready(function () {
-            login();
-        });
+<script>
+    $(document).ready(function () {
+        login();
+    });
 
-        function login() {
-            let data = {
-                username: $("#username").val(),
-                password: $("#password").val()
-            };
+    function login() {
+        let data = {
+            username: $("#username").val(),
+            password: $("#password").val()
+        };
 
-            $.ajax({})
+        $.ajax({})
+    }
+
+    // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
+    function mainbtn() {
+        alert('로그인 실패')
+    }
+
+    // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
+    function signup() {
+        alert('회원가입 페이지로 이동합니다!')
+        window.location.href = 'signup.html';
+    }
+
+    const idInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const submitBtn = document.getElementById("btn-login");
+
+    function checkForm() {
+        if (idInput.value !== "" && passwordInput.value !== "") {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
         }
+    }
 
-        // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
-        function mainbtn() {
-            alert('로그인 실패')
-        }
+    idInput.addEventListener("input", checkForm);
+    passwordInput.addEventListener("input", checkForm);
 
-        // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
-        function signup() {
-            alert('회원가입 페이지로 이동합니다!')
-            window.location.href = 'signup.html';
-        }
 
-        const idInput = document.getElementById("username");
-        const passwordInput = document.getElementById("password");
-        const submitBtn = document.getElementById("btn-login");
-        function checkForm() {
-            if (idInput.value !== "" && passwordInput.value !== "") {
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.disabled = true;
-            }
-        }
-        idInput.addEventListener("input", checkForm);
-        passwordInput.addEventListener("input", checkForm);
-    </script>
+</script>
 
 
 </body>
