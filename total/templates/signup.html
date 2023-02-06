@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0"/>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>내 새끼 니도 이쁘지?</title>
+
+    <style>
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-family: 'GmarketSansMedium';
+        }
+
+        html, body {
+            width: 100%;
+            height: auto;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .main {
+            width: 100vw;
+            height: auto;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .main-page {
+            max-width: 767px;
+            width: 767px;
+            height: auto;
+            background: #FEE8E2;
+        }
+
+        .header {
+            text-align: center;
+            width: 100%;
+            margin: auto auto 20px auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: white;
+            color: #FA6650;
+            font-size: 30px;
+        }
+
+        .arrow_back {
+            float: left;
+            margin-left: 20px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .header p {
+            margin-right: 20px;
+        }
+
+        .arrow_back:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .signup > h1 {
+            color: #FD6038;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .signup-box {
+            box-sizing: border-box;
+            border-radius: 20px;
+            width: 460px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 50px;
+            padding: 30px;
+            border: none;
+            background-color: white;
+            box-shadow: 0px 0px 5px 0px #fa6650;
+        }
+
+        .sort {
+            display: flex;
+        }
+
+        .label {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .ID .form-control {
+            border-radius: 10px;
+            font-size: 10px;
+            border: solid #fa6650 2px;
+            max-width: 350px;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
+
+        .Nickname .form-control {
+            border-radius: 10px;
+            font-size: 10px;
+            border: solid #fa6650 2px;
+            max-width: 350px;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
+
+        .Password .form-control {
+            border-radius: 10px;
+            font-size: 10px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
+
+        .form-control2 {
+            border-radius: 10px;
+            font-size: 10px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 40px;
+            padding: 6px 12px;
+            margin-top: 7px;
+        }
+
+        .signup-submit {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            box-sizing: border-box;
+            border: solid #fa6650 4px;
+            border-radius: 10px;
+            font-size: 15px;
+            padding: 5px;
+            width: 80px;
+            background-color: #fa6650;
+            color: white;
+            display: inline-block;
+            margin-bottom: 20px;
+            margin-top: 5px;
+            margin-left: 2px;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: solid rgba(0, 0, 0, 0.40) 4px;
+        }
+
+        .done-btn {
+            box-sizing: border-box;
+            border-radius: 20px;
+            font-size: 20px;
+            border: none;
+            padding: 10px;
+            width: 200px;
+            background-color: #fa6650;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .done-btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        input[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            font-size: 16px;
+            color: #fa6650;
+        }
+
+        input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: #fa6650;
+            margin-bottom: 2px;
+        }
+
+        .footer {
+            margin-bottom: 30px;
+        }
+
+        /* 여기부터 모달 */
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .show {
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        .window {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 350px;
+            transform: translate(-50%, -40%);
+        }
+
+        .show .popup {
+            transform: translate(-50%, -50%);
+            transition: all 0.5s;
+        }
+
+        .popup-header {
+            margin: 10px;
+            text-align: left;
+        }
+
+        .popup-title {
+            display: inline-block;
+            margin: 25px auto 15px 20px;
+            font-size: 20px;
+        }
+
+        .popup-body {
+            margin: 60px;
+            text-align: center;
+        }
+
+        .popup-footer {
+            margin-top: 22px;
+            text-align: center;
+        }
+
+        .close {
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 60px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+
+        .close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="main">
+
+    <!-- 메인페이지 -->
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="header">
+                <a href="login.html">
+                    <button class="arrow_back"><span class="material-symbols-outlined">arrow_back</span></button>
+                </a>
+                <p style="display: inline" class="title">내 새끼 니도 이쁘지?</p>
+            </div>
+            <div class="signup">
+                <h1>회원 가입</h1>
+                <div class="signup-box">
+                    <div class="ID">
+                        <span class="label">ID</span>
+                        <div class="sort">
+                            <input type="text" class="form-control" id="name" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
+                                   value="">
+                            <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
+                        </div>
+                    </div>
+                    <div class="Nickname">
+                        <span class="label">Nickname</span>
+                        <div class="sort">
+                            <input type="text" class="form-control" id="nickname"
+                                   placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
+                                   value="">
+                            <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
+                        </div>
+                    </div>
+                    <div class="Password">
+                        <span class="label">Password</span>
+                        <input type="password" name="password" id="password" class="form-control" onchange="check_pw()"
+                               placeholder="특수기호를 포함한 영문 대소문자 또는 숫자 6~12자리" value="">
+                    </div>
+                    <div class="Confirm Password">
+                        <span class="label">Confirm Password</span>
+                        <div class="check_password">
+                            <input type="password" name="confirm" id="confirm" class="form-control2"
+                                   onchange="check_pw()"
+                                   placeholder="위와 같은 비밀번호를 다시 한번 입력하세요." value="">
+                            <span id="check"
+                                  style="display: inline-block; opacity: 0; font-size: 10px; margin-left: 2px;"></span>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 20px">
+                    <div class="custom-control custom-checkbox">
+                        <div class="links">
+                            모든 <a href="#" id="show">주의사항</a>을 확인하셨나요?
+                            <input type="checkbox" class="custom-control-input" id="reminder">
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-submit">
+                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" disabled>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="popup-header">
+                    <span class="popup-title">주의사항</span>
+                </div>
+                <hr>
+                <div class="popup-body">
+                    <span class="popup-content">주의사항내용</span>
+                </div>
+                <hr>
+                <div class="popup-footer">
+                    <button class="close" id="close">확인했습니다!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function idcheck() {
+        alert('이미 존재하는 아이디입니다. 새로운 아이디를 입력하세요.')
+    }
+
+    function nickcheck() {
+        alert('이미 존재하는 닉네임입니다. 새로운 닉네임을 입력하세요.')
+    }
+
+    function check_pw() {
+        var pw = document.getElementById('password').value;
+        var SC = ["!", "@", "#", "$", "%"];
+        var check_SC = 0;
+
+        if (pw.length < 6 || pw.length > 12) {
+            window.alert('비밀번호는 6글자 이상, 12글자 이하만 이용 가능합니다.');
+            document.getElementById('password').value = '';
+        }
+        for (var i = 0; i < SC.length; i++) {
+            if (pw.indexOf(SC[i]) != -1) {
+                check_SC = 1;
+            }
+        }
+        if (check_SC == 0) {
+            window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
+            document.getElementById('password').value = '';
+        }
+
+
+        if (document.getElementById('password').value != '' && document.getElementById('confirm').value != '') {
+            if (document.getElementById('password').value == document.getElementById('confirm').value) {
+                document.getElementById('check').innerHTML = '비밀번호가 일치합니다.';
+                document.getElementById('check').style.color = 'blue';
+                document.getElementById('check').style.opacity = 1;
+            } else {
+                document.getElementById('check').innerHTML = '비밀번호가 일치하지 않습니다.';
+                document.getElementById('check').style.color = 'red';
+                document.getElementById('check').style.opacity = 1;
+            }
+        } else {
+            document.getElementById('check').innerHTML = '';
+            document.getElementById('check').style.opacity = 0;
+        }
+    }
+
+    function show() {
+        document.querySelector(".background").className = "background show";
+    }
+
+    function close() {
+        document.querySelector(".background").className = "background";
+    }
+
+    document.querySelector("#show").addEventListener("click", show);
+    document.querySelector("#close").addEventListener("click", close);
+
+
+    warn.addEventListener("click", function (event) {
+        event.preventDefault();
+        modal.style.display = "block";
+    });
+
+    span.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    const idInput = document.getElementById("name");
+    const passwordInput = document.getElementById("password");
+    const passwordConfirmationInput = document.getElementById("confirm");
+    const nicknameInput = document.getElementById("nickname");
+    const reminderCheckbox = document.getElementById("reminder");
+    const submitBtn = document.getElementById("submit-button");
+
+    function checkForm() {
+        if (idInput.value !== "" && passwordInput.value !== "" && passwordConfirmationInput.value !== "" && nicknameInput.value !== "" && reminderCheckbox.checked) {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+
+    idInput.addEventListener("input", checkForm);
+    passwordInput.addEventListener("input", checkForm);
+    passwordConfirmationInput.addEventListener("input", checkForm);
+    nicknameInput.addEventListener("input", checkForm);
+    reminderCheckbox.addEventListener("change", checkForm);
+
+    function done() {
+        alert('가입이 완료 되었습니다!')
+        window.location.href = 'login.html';
+    }
+</script>
+
+</body>
+
+</html>
