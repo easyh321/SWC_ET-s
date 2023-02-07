@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>내 새끼 니도 이쁘지?</title>
+
+    <style>
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-family: 'GmarketSansMedium';
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: auto;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .main {
+            width: 100vw;
+            height: 100%;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .main-page {
+            max-width: 767px;
+            width: 767px;
+            height: auto;
+            text-align: center;
+            background: #FEE8E2;
+        }
+
+        .footer {
+            margin: 60px;
+        }
+
+        .main .main-page .page-gap .header {
+            width: 100%;
+        }
+
+        .main .main-page .page-gap .container {
+            width: 100%;
+        }
+
+        /* 헤더 */
+        .header {
+            text-align: center;
+            width: 100%;
+            margin: auto auto 20px auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #FEE8E2;
+            color: #FA6650;
+            font-size: 30px;
+        }
+
+        .home_btn {
+            float: left;
+            margin-left: 20px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .home_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .menu_btn {
+            float: right;
+            margin-right: 20px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .menu_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .header > span {
+            margin: 15px 25px 0 25px;
+        }
+
+
+        /* 컨테이너 */
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-bottom: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dog-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
+        }
+
+        .cat-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://cdn.ccdailynews.com/news/photo/202104/2047160_528296_3416.png");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
+        }
+
+        .etc-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://img.seoul.co.kr/img/upload/2021/05/03/SSI_20210503113234.jpg");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
+        }
+
+        .button-text {
+            margin-top: 80px;
+            font-size: 12px;
+        }
+
+
+        /* 바디 */
+
+        .animals_info {
+            text-align: left;
+            line-height: 14px;
+            max-width: 50%;
+            margin-left: 60px;
+            margin-top: 20px;
+        }
+
+        .animals_info .animals_main_info {
+            display: flex;
+        }
+
+        .thumb_count {
+            margin-right: 20px;
+        }
+
+        .count {
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            margin: auto auto 30px auto;
+
+            min-height: 700px;
+            max-height: 95%;
+            max-width: 85%;
+            min-width: 70%;
+
+            background-image: url("https://t1.daumcdn.net/cfile/tistory/9951754A5DFD9A1F05");
+            background-position: center;
+            background-size: cover;
+
+            border: 1px solid #ccc;
+            border-radius: 30px;
+        }
+
+        .animals_info2 {
+            text-align: left;
+            max-width: 85%;
+            margin-left: 60px;
+        }
+
+        .desc {
+            line-height: 25px;
+            font-size: 20px;
+        }
+
+        .source p {
+            margin: 0;
+        }
+
+        .guide {
+            color: #FA6650;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px;
+        }
+
+        .like_btn {
+            background-color: #FA6650;
+            color: white;
+            width: 310px;
+            height: 75px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            font-size: 27px;
+        }
+
+        .like_btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .next_btn {
+            background-color: #FA6650;
+            color: white;
+            width: 310px;
+            height: 75px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            font-size: 27px;
+
+            margin-left: 37px;
+        }
+
+        .next_btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .reply-input {
+            display: flex;
+            margin-top: 40px;
+        }
+
+        .form-control {
+            background-color: #f2f2f2;
+            width: 555px;
+            height: 60px;
+            align-items: center;
+            margin: 0 0 0 7%;
+
+            border-color: transparent;
+            border-radius: 8px;
+
+            font-size: 15px;
+            color: #FA6650;
+        }
+
+        .reply_btn {
+            background-color: #FA6650;
+            color: white;
+            width: 100px;
+            height: 60px;
+            margin-left: 5px;
+
+            border-color: transparent;
+            border-radius: 8px;
+        }
+
+        .reply_btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .comment-box {
+            text-align: left;
+            margin: 20px auto 20px auto;
+            width: 660px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #FA6650;
+            padding: 25px 10px 15px 20px;
+        }
+
+        .name {
+            color: #FA6650;
+            line-height: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .comment {
+            color: #FA6650;
+            line-height: 20px;
+        }
+
+
+        /* 이뻐요 모달 */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .show {
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        .window {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 350px;
+            transform: translate(-50%, -40%);
+        }
+
+        .show .popup {
+            transform: translate(-50%, -50%);
+            transition: all 0.5s;
+        }
+
+        .popup-header {
+            margin: 10px;
+            text-align: left;
+        }
+
+        .popup-title {
+            display: inline-block;
+            margin: 25px auto 15px 20px;
+            font-size: 20px;
+        }
+
+        .popup-body {
+            margin: 60px;
+            text-align: center;
+        }
+
+        .popup-footer {
+            margin-top: 22px;
+            text-align: center;
+        }
+
+        .close {
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 60px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+
+        .close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        /* 댓글 모달 */
+        .comment-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .show2 {
+            opacity: 1;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        .comment-window {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .comment-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 350px;
+            transform: translate(-50%, -40%);
+        }
+
+        .show2 .comment-popup {
+            transform: translate(-50%, -50%);
+            transition: all 0.5s;
+        }
+
+        .comment-popup-header {
+            margin: 10px;
+            text-align: left;
+        }
+
+        .comment-popup-title {
+            display: inline-block;
+            margin: 25px auto 15px 20px;
+            font-size: 20px;
+        }
+
+        .comment-popup-body {
+            margin: 45px 10px 45px 10px;
+            text-align: center;
+        }
+
+        .comment-popup-footer {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .comment-close {
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 60px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+        }
+
+        .comment-close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        /* 메뉴 바 */
+
+        #menuBar {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            right: 0;
+            max-width: 767px;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            transition: top 0.2s ease-in-out;
+            padding: 20px;
+            color: #fff;
+            margin: auto;
+        }
+
+        #menuBar.active {
+            top: 0;
+        }
+
+        #menu_bar_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #logout_container {
+            margin-left: -80px;
+        }
+
+        #logout_container button {
+            color: #fa6650;
+        }
+
+        #logout_container button:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .menu_item {
+            display: flex;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .menu_item input {
+            background-color: #FA6650;
+            color: white;
+
+            width: 160px;
+            height: 55px;
+
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+            align-items: center;
+            display: flex;
+
+            font-size: 15px;
+
+            margin-left: 20px;
+        }
+
+        .menu_item .next-btn2 {
+            margin-right: 77px;
+        }
+
+        .menu_item span {
+            text-align: center;
+        }
+
+        .menu_item input:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .menu_btn2 {
+            margin-top: -35px;
+            float: right;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .menu_btn2:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+
+    <!-- 메인페이지 -->
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="header">
+                <a href="main.html">
+                    <button class="home_btn"><span class="material-icons">home</span></button>
+                </a>
+                <span><p style="display: inline" class="title">내 새끼 니도 이쁘지?</p></span>
+                <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
+            </div>
+            <div id="menuBar">
+                <div id="menu_bar_content">
+                    <div id="logout_container">
+                        <button id="logout_btn"
+                                style="background-color: transparent; border: none;" onclick="logout()">
+                            Logout
+                        </button>
+                    </div>
+                    <div class="menu_item">
+                        <a href="main.html">
+                            <input value="HOME" class="next-btn" id="home" disabled>
+                        </a>
+                        <a href="mypage.html">
+                            <input value="MY PAGE" class="next-btn2" id="mypage" disabled>
+                        </a>
+                    </div>
+                </div>
+                <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
+            </div>
+            <div class="body">
+                <div class="container">
+                    <div class="button-container">
+                        <button class="dog-button">
+                            <span class="button-text">강아지</span>
+                        </button>
+                    </div>
+                    <div class="button-container">
+                        <button class="cat-button">
+                            <span class="button-text">고양이</span>
+                        </button>
+                    </div>
+                    <div class="button-container">
+                        <button class="etc-button">
+                            <span class="button-text">기타</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="animals_info">
+                    <div class="animals_main_info">
+                        <p class="animals_name" style="font-size: 30px;">쫀득이</p>
+                        <p class="slash" style="font-size: 30px;">/</p>
+                        <p class="animals_name" style="font-size: 30px;">4살</p>
+                    </div>
+                    <p class="date" style="font-size: 13px; color: #a9a9a9;">2023년 1월 29일 등록</p>
+                    <div class="count">
+                        <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
+                        <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">5,233</span>
+                        <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
+                        <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
+                    </div>
+                </div>
+                <div class="image-container">
+                </div>
+                <div class="animals_info2">
+                    <p class="desc">우리 쫀득이는 비맞는 걸 참 좋아해요. 산책 갈 때마다 행복한 얼굴로 들어가지 말자고 하는 것도 너무 귀여움 ㅠㅠㅠ 어쩌면 좋지?</p>
+                    <div class="source" style="font-size: 13px; color: #a9a9a9;">
+                        <p class="address_title">출처: </p>
+                        <p class="address">https://rel0608.tistory.com/479</p>
+                    </div>
+                    <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
+                </div>
+                <div class="btn2">
+                    <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요
+                    </button>
+                    <button class="next_btn">다음 새끼 볼래요</button>
+                </div>
+                <div class="reply">
+                    <div class="reply-input">
+                        <input type="text" id="comment" class="form-control" placeholder="댓글을 입력해 주세요"
+                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="reply_btn" id="btn-outline-secondary">댓글 등록</button>
+                    </div>
+                    <div class="comment-box">
+                        <p class="name">글쓴이</p>
+                        <div class="comments">
+                            <span class="comment" id="detail">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="popup-header">
+                    <button id="close2" type="button" class="btn-close" aria-label="Close"
+                            style="float: right;"></button>
+                    <span class="popup-title">이뻐요 확인</span>
+                </div>
+                <hr>
+                <div class="popup-body">
+                    <span class="popup-content">이뻐해 주셔서 감사합니다!</span>
+                </div>
+                <hr>
+                <div class="popup-footer">
+                    <button class="close" id="close">별말씀을요!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="comment-background">
+        <div class="comment-window">
+            <div class="comment-popup">
+                <div class="comment-popup-header">
+                    <button id="comment-close2" type="button" class="btn-close" aria-label="Close"
+                            style="float: right;"></button>
+                    <span class="comment-popup-title">댓글 등록 확인</span>
+                </div>
+                <hr>
+                <div class="comment-popup-body">
+                    <span class="comment-popup-content1">댓글을 등록하시면 수정/삭제가 불가합니다.</span>
+                    <p>
+                        <span class="comment-popup-content2">등록하시겠습니까?</span>
+                </div>
+                <hr>
+                <div class="comment-popup-footer">
+                    <button class="comment-close" id="comment-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    const menuBar = document.getElementById("menuBar");
+    const menuBtns = document.querySelectorAll(".menu_btn");
+    const menuBtn2 = document.getElementById("menuBtn2");
+
+    menuBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            menuBar.classList.toggle("active");
+        });
+    });
+
+    menuBtn2.addEventListener("click", function () {
+        menuBar.classList.remove("active");
+    });
+
+    function menubar() {
+        menuBar.classList.toggle("active");
+    }
+
+    function show() {
+        document.querySelector(".background").className = "background show";
+    }
+
+    function close() {
+        document.querySelector(".background").className = "background";
+    }
+
+    function close2() {
+        document.querySelector(".background").className = "background";
+    }
+
+    document.querySelector("#show").addEventListener("click", show);
+    document.querySelector("#close").addEventListener("click", close);
+
+
+    document.querySelector("#close2").addEventListener("click", close2);
+
+    document.getElementById("btn-outline-secondary").addEventListener("click", show2);
+
+    function show2() {
+        document.querySelector(".comment-background").classList.toggle("show2");
+    }
+
+    document.getElementById("comment-close").addEventListener("click", show2);
+    document.getElementById("comment-close2").addEventListener("click", show2);
+
+
+</script>
+
+</body>
+
+</html>
