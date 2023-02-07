@@ -221,19 +221,25 @@
         }
 
         .image-container {
+            background-color: #FEE8E2;
             margin: auto auto 30px auto;
 
-            min-height: 700px;
-            max-height: 95%;
-            max-width: 85%;
-            min-width: 70%;
+            width: 700px;
+            height: 700px;
+            position: relative;
+        }
 
-            background-image: url("https://t1.daumcdn.net/cfile/tistory/9951754A5DFD9A1F05");
-            background-position: center;
+        .image-container img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-size: cover;
-
-            border: 1px solid #ccc;
-            border-radius: 30px;
+            background-position: center center;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            border-image: 30px;
         }
 
         .animals_info2 {
@@ -615,6 +621,61 @@
         }
 
     </style>
+    <script>
+        $(document).ready(function () {
+            show_cats()
+        });
+
+        function show_cats() {
+
+
+            $.ajax({
+                type: "GET",
+                url: "/total",
+                data: {},
+                success: function (response) {
+                    let rows = response['cats']
+                    for (let i = 0; i < rows.length; i++) {
+                        let img_url = rows[i]['img_url']
+                        let url = rows[i]['url']
+                        let name = rows[i]['name']
+                        let age = rows[i]['age']
+                        let date = rows[i]['date']
+                        let desc = rows[i]['desc']
+                        let love = rows[i]['love']
+
+                        let temp_html = `<div class="animals_info">
+                                                <div class="animals_main_info">
+                                                    <p class="animals_name" style="font-size: 30px;">${name}</p>
+                                                    <p class="slash" style="font-size: 30px;">/</p>
+                                                    <p class="animals_name" style="font-size: 30px;">${age}</p>
+                                                </div>
+                                                <p class="date" style="font-size: 13px; color: #a9a9a9;">${date} 등록</p>
+                                                <div class="count">
+                                                    <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
+                                                    <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">${love}</span>
+                                                    <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
+                                                    <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
+                                                </div>
+                                            </div>
+                                            <div class="image-container">
+                                                <img src="${img_url}" alt="My Image">
+                                            </div>
+                                            <div class="animals_info2">
+                                                <p class="desc">${desc}</p>
+                                                <div class="source" style="font-size: 13px; color: #a9a9a9;">
+                                                    <p class="address_title">출처: </p>
+                                                    <p class="address">${url}</p>
+                                                </div>
+                                                <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
+                                            </div>`
+
+                        $('#cat-list').append(temp_html)
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -668,29 +729,32 @@
                         </button>
                     </div>
                 </div>
-                <div class="animals_info">
-                    <div class="animals_main_info">
-                        <p class="animals_name" style="font-size: 30px;">쫀득이</p>
-                        <p class="slash" style="font-size: 30px;">/</p>
-                        <p class="animals_name" style="font-size: 30px;">4살</p>
+                <div id="cat-list">
+                    <div class="animals_info">
+                        <div class="animals_main_info">
+                            <p class="animals_name" style="font-size: 30px;">쫀득이</p>
+                            <p class="slash" style="font-size: 30px;">/</p>
+                            <p class="animals_name" style="font-size: 30px;">4살</p>
+                        </div>
+                        <p class="date" style="font-size: 13px; color: #a9a9a9;">2023년 1월 29일 등록</p>
+                        <div class="count">
+                            <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
+                            <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">5,233</span>
+                            <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
+                            <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
+                        </div>
                     </div>
-                    <p class="date" style="font-size: 13px; color: #a9a9a9;">2023년 1월 29일 등록</p>
-                    <div class="count">
-                        <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
-                        <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">5,233</span>
-                        <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
-                        <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
+                    <div class="image-container">
+                        <img src="https://t1.daumcdn.net/cfile/tistory/9951754A5DFD9A1F05" alt="My Image" class="img">
                     </div>
-                </div>
-                <div class="image-container">
-                </div>
-                <div class="animals_info2">
-                    <p class="desc">우리 쫀득이는 비맞는 걸 참 좋아해요. 산책 갈 때마다 행복한 얼굴로 들어가지 말자고 하는 것도 너무 귀여움 ㅠㅠㅠ 어쩌면 좋지?</p>
-                    <div class="source" style="font-size: 13px; color: #a9a9a9;">
-                        <p class="address_title">출처: </p>
-                        <p class="address">https://rel0608.tistory.com/479</p>
+                    <div class="animals_info2">
+                        <p class="desc">우리 쫀득이는 비맞는 걸 참 좋아해요. 산책 갈 때마다 행복한 얼굴로 들어가지 말자고 하는 것도 너무 귀여움 ㅠㅠㅠ 어쩌면 좋지?</p>
+                        <div class="source" style="font-size: 13px; color: #a9a9a9;">
+                            <p class="address_title">출처: </p>
+                            <p class="address">https://rel0608.tistory.com/479</p>
+                        </div>
+                        <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
                     </div>
-                    <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
                 </div>
                 <div class="btn2">
                     <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요
