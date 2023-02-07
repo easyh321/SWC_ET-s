@@ -623,58 +623,74 @@
     </style>
     <script>
         $(document).ready(function () {
-            show_cats()
-        });
+            let importedData = [];
+            show_cats();
 
-        function show_cats() {
+            $("#button").click(function () {
+                show_cats();
+            });
 
+            function show_cats() {
+                $('#cat-list').empty();
 
-            $.ajax({
-                type: "GET",
-                url: "/total",
-                data: {},
-                success: function (response) {
-                    let rows = response['cats']
-                    for (let i = 0; i < rows.length; i++) {
-                        let img_url = rows[i]['img_url']
-                        let url = rows[i]['url']
-                        let name = rows[i]['name']
-                        let age = rows[i]['age']
-                        let date = rows[i]['date']
-                        let desc = rows[i]['desc']
-                        let love = rows[i]['love']
+                $.ajax({
+                    type: "GET",
+                    url: "/total",
+                    data: {},
+                    success: function (response) {
+                        let rows = response['cats'];
+                        let remainingRows = rows.filter(row => !importedData.includes(row));
+
+                        if (remainingRows.length === 0) {
+                            importedData = [];
+                            remainingRows = rows;
+                        }
+
+                        let randomIndex = Math.floor(Math.random() * remainingRows.length);
+                        let randomRow = remainingRows[randomIndex];
+
+                        importedData.push(randomRow);
+
+                        let img_url = randomRow['img_url']
+                        let url = randomRow['url']
+                        let name = randomRow['name']
+                        let age = randomRow['age']
+                        let date = randomRow['date']
+                        let desc = randomRow['desc']
+                        let love = randomRow['love']
 
                         let temp_html = `<div class="animals_info">
-                                                <div class="animals_main_info">
-                                                    <p class="animals_name" style="font-size: 30px;">${name}</p>
-                                                    <p class="slash" style="font-size: 30px;">/</p>
-                                                    <p class="animals_name" style="font-size: 30px;">${age}</p>
-                                                </div>
-                                                <p class="date" style="font-size: 13px; color: #a9a9a9;">${date} 등록</p>
-                                                <div class="count">
-                                                    <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
-                                                    <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">${love}</span>
-                                                    <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
-                                                    <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
-                                                </div>
-                                            </div>
-                                            <div class="image-container">
-                                                <img src="${img_url}" alt="My Image">
-                                            </div>
-                                            <div class="animals_info2">
-                                                <p class="desc">${desc}</p>
-                                                <div class="source" style="font-size: 13px; color: #a9a9a9;">
-                                                    <p class="address_title">출처: </p>
-                                                    <p class="address">${url}</p>
-                                                </div>
-                                                <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
-                                            </div>`
+                                        <div class="animals_main_info">
+                                            <p class="animals_name" style="font-size: 30px;">${name}</p>
+                                            <p class="slash" style="font-size: 30px;">/</p>
+                                            <p class="animals_name" style="font-size: 30px;">${age}</p>
+                                        </div>
+                                        <p class="date" style="font-size: 13px; color: #a9a9a9;">${date} 등록</p>
+                                        <div class="count">
+                                            <span class="material-icons" style="color: #a9a9a9;">thumb_up_off_alt</span>
+                                            <span class="thumb_count" style="font-size: 13px; color: #a9a9a9;">${love}</span>
+                                            <span class="material-icons-outlined" style="color: #a9a9a9;">comment</span>
+                                            <span class="comment_count" style="font-size: 13px; color: #a9a9a9;">168</span>
+                                        </div>
+                                    </div>
+                                    <div class="image-container">
+                                        <img src="${img_url}" alt="My Image">
+                                    </div>
+                                    <div class="animals_info2">
+                                        <p class="desc">${desc}</p>
+                                        <div class="source" style="font-size: 13px; color: #a9a9a9;">
+                                            <p class="address_title">출처: </p>
+                                            <p class="address">${url}</p>
+                                        </div>
+                                        <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
+                                    </div>`
 
-                        $('#cat-list').append(temp_html)
+                        $('#cat-list').append(temp_html);
+                        remainingRows.splice(randomIndex, 1);
                     }
-                }
-            });
-        }
+                });
+            }
+        });
     </script>
 </head>
 
@@ -759,7 +775,7 @@
                 <div class="btn2">
                     <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요
                     </button>
-                    <button class="next_btn">다음 새끼 볼래요</button>
+                    <input type="button" class="next_btn" id="button" value="다음 새끼 볼래요">
                 </div>
                 <div class="reply">
                     <div class="reply-input">
