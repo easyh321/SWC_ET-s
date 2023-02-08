@@ -8,13 +8,13 @@ client = MongoClient('mongodb+srv://test:sparta@cluster0.temtprh.mongodb.net/Clu
 db = client.animals
 
 @app.route('/')
-def cat():
-    return render_template('cat.html')
+def etc():
+    return render_template('etc.html')
 
 @app.route("/total", methods=["GET"])
-def cat_get():
-    cat_list = list(db.cat.find({}, {'_id': False}))
-    return jsonify({'cats': cat_list})
+def etc_get():
+    etc_list = list(db.etc.find({}, {'_id': False}))
+    return jsonify({'etcs': etc_list})
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5002, debug=True)

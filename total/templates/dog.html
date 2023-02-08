@@ -625,21 +625,21 @@
         $(document).ready(function () {
             let importedData = [];
             let counter = 0;
-            show_cats();
+            show_dogs();
 
             $("#button").click(function () {
-                show_cats();
+                show_dogs();
             });
 
-            function show_cats() {
-                $('#cat-list').empty()
+            function show_dogs() {
+                $('#dog-list').empty()
 
                 $.ajax({
                     type: "GET",
                     url: "/total",
                     data: {},
                     success: function (response) {
-                        let rows = response['cats']
+                        let rows = response['dogs']
                         let remainingRows = rows.filter(row => !importedData.includes(row));
 
                         if (remainingRows.length === 0) {
@@ -693,7 +693,7 @@
                                             <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
                                         </div>`
 
-                        $('#cat-list').append(temp_html);
+                        $('#dog-list').append(temp_html);
                     }
                 });
             }
@@ -752,7 +752,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="cat-list">
+                <div id="dog-list">
                     <div class="animals_info">
                         <div class="animals_main_info">
                             <p class="animals_name" style="font-size: 30px;">쫀득이</p>
