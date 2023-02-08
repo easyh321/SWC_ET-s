@@ -155,7 +155,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-image: url("https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg");
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg");
             background-position: center;
             background-size: cover;
             margin: 10px;
@@ -170,7 +170,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-image: url("https://cdn.ccdailynews.com/news/photo/202104/2047160_528296_3416.png");
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://cdn.ccdailynews.com/news/photo/202104/2047160_528296_3416.png");
             background-position: center;
             background-size: cover;
             margin: 10px;
@@ -624,11 +624,23 @@
     <script>
         $(document).ready(function () {
             let importedData = [];
-            let counter = 0;
-            show_etcs();
+            let rows;
+            $.ajax({
+                type: "GET",
+                url: "/total",
+                data: {},
+                success: function (response) {
+                    rows = response['etcs'];
+                    show_etcs();
+                }
+            });
 
             $("#button").click(function () {
-                show_etcs();
+                if (importedData.length === rows.length) {
+                    alert("마지막 페이지입니다!");
+                } else {
+                    show_etcs();
+                }
             });
 
             function show_etcs() {
@@ -640,32 +652,18 @@
                     data: {},
                     success: function (response) {
                         let rows = response['etcs']
-                        let remainingRows = rows.filter(row => !importedData.includes(row));
+                        let nextIndex = importedData.length;
+                        let nextRow = rows[nextIndex];
 
-                        if (remainingRows.length === 0) {
-                            importedData = [];
-                            remainingRows = rows;
-                            counter = 0;
-                        }
+                        importedData.push(nextRow);
 
-                        rows.sort(function (a, b) {
-                            let nameA = a.name.toUpperCase();
-                            let nameB = b.name.toUpperCase();
-                            return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
-                        });
-
-                        let randomRow = remainingRows[counter];
-                        counter = (counter + 1) % remainingRows.length;
-
-                        importedData.push(randomRow);
-
-                        let img_url = randomRow['img_url']
-                        let url = randomRow['url']
-                        let name = randomRow['name']
-                        let age = randomRow['age']
-                        let date = randomRow['date']
-                        let desc = randomRow['desc']
-                        let love = randomRow['love']
+                        let img_url = nextRow['img_url']
+                        let url = nextRow['url']
+                        let name = nextRow['name']
+                        let age = nextRow['age']
+                        let date = nextRow['date']
+                        let desc = nextRow['desc']
+                        let love = nextRow['love']
 
                         let temp_html = `<div class="animals_info">
                                             <div class="animals_main_info">
@@ -737,17 +735,17 @@
             <div class="body">
                 <div class="container">
                     <div class="button-container">
-                        <button class="dog-button">
+                        <button class="dog-button" onClick="location.href='dog.html'">
                             <span class="button-text">강아지</span>
                         </button>
                     </div>
                     <div class="button-container">
-                        <button class="cat-button">
+                        <button class="cat-button" onClick="location.href='cat.html'">
                             <span class="button-text">고양이</span>
                         </button>
                     </div>
                     <div class="button-container">
-                        <button class="etc-button">
+                        <button class="etc-button" onClick="location.href='etc.html'">
                             <span class="button-text">기타</span>
                         </button>
                     </div>
