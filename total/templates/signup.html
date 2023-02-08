@@ -45,7 +45,7 @@
 
         html, body {
             width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         body {
@@ -60,7 +60,7 @@
 
         .main {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -74,24 +74,24 @@
         .main .main-page {
             max-width: 767px;
             width: 767px;
-            height: auto;
+            height: 100%;
             background: #FEE8E2;
         }
 
         .header {
-            text-align: center;
-            width: 100%;
-            margin: auto auto 20px auto;
+            width: 767px;
+            margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
             background-color: white;
             color: #FA6650;
-            font-size: 30px;
+            text-align: center;
         }
 
         .arrow_back {
             float: left;
             margin-left: 20px;
+            margin-top: 9px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
@@ -99,6 +99,7 @@
 
         .header p {
             margin-right: 20px;
+            font-size: 30px;
         }
 
         .arrow_back:hover {
@@ -241,9 +242,10 @@
             margin-bottom: 2px;
         }
 
-        .footer {
+        .signup-submit {
             margin-bottom: 30px;
         }
+
 
         /* 여기부터 모달 */
 
@@ -325,6 +327,49 @@
             border: transparent;
         }
 
+                /* 여기가 야매 반응형 */
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+            .main .main-page .page-gap {
+                margin: auto 0;
+            }
+
+            .main .main-page .header {
+                width: 100vw;
+            }
+
+            .main .main-page .header p {
+                width: 1vw;
+            }
+
+            .main .main-page .signup-box {
+                width: 90vw;
+            }
+
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
+
+            .background .window .popup .popup-body .animals button {
+                width: 90%;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -346,8 +391,8 @@
                     <div class="ID">
                         <span class="label">ID</span>
                         <div class="sort">
-                            <input type="text" class="form-control" id="name" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="">
+                            <input type="text" class="form-control" id="username" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
+                                   value="" name="username" required>
                             <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
                         </div>
                     </div>
@@ -356,7 +401,7 @@
                         <div class="sort">
                             <input type="text" class="form-control" id="nickname"
                                    placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="">
+                                   value="" name="nickname" required>
                             <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
                         </div>
                     </div>
@@ -384,10 +429,9 @@
                     </div>
                 </div>
                 <div class="signup-submit">
-                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" disabled>
+                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" >
                 </div>
             </div>
-            <div class="footer"></div>
         </div>
     </div>
 
@@ -414,11 +458,41 @@
 
 <script>
     function idcheck() {
-        alert('이미 존재하는 아이디입니다. 새로운 아이디를 입력하세요.')
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val()
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
     }
-
+// <id끝나면 넣기>
     function nickcheck() {
-        alert('이미 존재하는 닉네임입니다. 새로운 닉네임을 입력하세요.')
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val()
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
     }
 
     function check_pw() {
@@ -506,7 +580,26 @@
     reminderCheckbox.addEventListener("change", checkForm);
 
     function done() {
-        alert('가입이 완료 되었습니다!')
+        let soyn
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val(),
+                soyn: 'Y'
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
+
+        // alert('가입이 완료 되었습니다!')
         window.location.href = 'login.html';
     }
 </script>
