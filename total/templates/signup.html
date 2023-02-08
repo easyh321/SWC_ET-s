@@ -45,7 +45,7 @@
 
         html, body {
             width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         body {
@@ -60,7 +60,7 @@
 
         .main {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -74,24 +74,24 @@
         .main .main-page {
             max-width: 767px;
             width: 767px;
-            height: auto;
+            height: 100%;
             background: #FEE8E2;
         }
 
         .header {
-            text-align: center;
-            width: 100%;
-            margin: auto auto 20px auto;
+            width: 767px;
+            margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
             background-color: white;
             color: #FA6650;
-            font-size: 30px;
+            text-align: center;
         }
 
         .arrow_back {
             float: left;
             margin-left: 20px;
+            margin-top: 9px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
@@ -99,6 +99,7 @@
 
         .header p {
             margin-right: 20px;
+            font-size: 30px;
         }
 
         .arrow_back:hover {
@@ -241,9 +242,10 @@
             margin-bottom: 2px;
         }
 
-        .footer {
+        .signup-submit {
             margin-bottom: 30px;
         }
+
 
         /* 여기부터 모달 */
 
@@ -325,6 +327,49 @@
             border: transparent;
         }
 
+                /* 여기가 야매 반응형 */
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+            .main .main-page .page-gap {
+                margin: auto 0;
+            }
+
+            .main .main-page .header {
+                width: 100vw;
+            }
+
+            .main .main-page .header p {
+                width: 1vw;
+            }
+
+            .main .main-page .signup-box {
+                width: 90vw;
+            }
+
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
+
+            .background .window .popup .popup-body .animals button {
+                width: 90%;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -387,7 +432,6 @@
                     <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" disabled>
                 </div>
             </div>
-            <div class="footer"></div>
         </div>
     </div>
 
