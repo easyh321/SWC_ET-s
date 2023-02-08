@@ -14,7 +14,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -43,7 +43,7 @@
 
         html, body {
             width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         body {
@@ -58,7 +58,7 @@
 
         .main {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -72,9 +72,17 @@
         .main .main-page {
             max-width: 767px;
             width: 767px;
-            height: auto;
+            height: 100vh;
             text-align: center;
             background: #FEE8E2;
+        }
+
+        .main .main-page .background-img {
+            width: 100%;
+        }
+
+        .main .main-page .background-img img {
+            width: 100%;
         }
 
         .main .main-page p {
@@ -83,16 +91,22 @@
             line-height: 150%;
         }
 
-        .main .main-page .mybg p.title {
+        .main .main-page p.title {
             font-size: 50px;
             padding: 0 30px;
             color: #fa6650;
         }
 
-        .main .main-page .mybg p.sub-tit {
+        .main .main-page p.sub-tit {
             font-size: 25px;
         }
 
+        .main .main-page .login-wrap {
+            width: 100%;
+            /* display:flex; */
+            /* align-items:center; */
+            justify-content: center;
+        }
 
         .login-form {
             box-sizing: border-box;
@@ -154,6 +168,51 @@
         .footer {
             margin-bottom: 60px;
         }
+
+            /* 여기가 야매 반응형 */
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+            .main .main-page .page-gap {
+                margin: auto 0;
+            }
+
+            .main .main-page p.title {
+                font-size: 7vw;
+            }
+
+            .main .main-page p.sub-tit {
+                font-size: 4vw;
+            }
+
+            .main .main-page .login-form {
+                width: 75vw;
+            }
+
+            .main .main-page .login-form .text-field {
+                width: 60vw;
+            }
+
+            .main .main-page .login-form .next-btn {
+                width: 60vw;
+            }
+
+            .main .main-page .login-form input::placeholder {
+                font-size: 3vw;
+            }
+
+            .main .main-page .login-form input[value] {
+                font-size: 3.3vw;
+            }
+
+
+        }
+
+
     </style>
 
 </head>
@@ -162,7 +221,7 @@
 <div class="main">
     <div class="main-page">
         <div class="page-gap">
-            <div class="mybg">
+            <div class="logo">
                 <div class="background-img">
                     <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
                 </div>
@@ -172,7 +231,8 @@
             <div class="login-form">
                 <form>
                     <input type="text" name="name" class="text-field" placeholder="아이디를 입력하세요." id="username">
-                    <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요." id="password">
+                    <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
+                           id="password">
                     <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
                            disabled>
                 </form>
