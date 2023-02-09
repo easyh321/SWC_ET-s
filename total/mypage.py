@@ -43,7 +43,7 @@ def animals_post():
         s3.upload_fileobj(image_file, bucket_name, key)
 
         # Get the URL of the uploaded image
-        image_url = f"https://{bucket_name}.s3.ap-northeast-2.amazonaws.com/{key}"
+        img_url = f"https://{bucket_name}.s3.ap-northeast-2.amazonaws.com/{key}"
 
         animal_data = {
             'name': name,
@@ -51,7 +51,7 @@ def animals_post():
             'animal_type': animal_type,
             'age': age,
             'url': url,
-            'image_url': image_url,
+            'img_url': img_url,
             'date': today,
             'love': 777,
             'nickname': 'User',
