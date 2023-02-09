@@ -83,14 +83,14 @@
             width: 100%;
         }
 
-        /* 헤더 */
+       /* 헤더 */
         .main .main-page .header {
             text-align: center;
             width: 767px;
             margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
-            background-color: #FEE8E2;
+            background-color: white;
             color: #FA6650;
         }
 
@@ -107,16 +107,15 @@
             transition: 0.5s;
         }
 
-        .menu_btn {
+        #logout_btn {
             float: right;
             margin-right: 20px;
-            margin-top: -2px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
         }
 
-        .menu_btn:hover {
+        #logout_btn:hover {
             color: #333333;
             transition: 0.5s;
         }
@@ -125,6 +124,7 @@
         /* 컨테이너 */
 
         .container {
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -539,82 +539,6 @@
             border: transparent;
         }
 
-        /* 메뉴 바 */
-
-        #menuBar {
-            position: fixed;
-            top: -100%;
-            width: 767px;
-            height: 80px;
-            background-color: white;
-            transition: top 0.2s ease-in-out;
-            padding: 20px;
-            color: #fff;
-        }
-
-        #menuBar.active {
-            top: 0;
-        }
-
-        .menu_item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            margin-right: 20px;
-        }
-
-        .menu_item input {
-            background-color: #FA6650;
-            color: white;
-
-            width: 160px;
-            height: 55px;
-
-            border-radius: 80px;
-            border-color: transparent;
-            text-align: center;
-            display: flex;
-
-            margin: auto 10px;
-        }
-
-        .menu_item span {
-            text-align: center;
-        }
-
-        .menu_item input:hover {
-            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
-            transition: 0.5s;
-            border: transparent;
-        }
-
-        #logout_btn {
-            float: left;
-            margin-left: 10px;
-            margin-top: 7px;
-            color: #fa6650;
-        }
-
-        #logout_btn:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
-        .menu_btn2 {
-            margin-top: -37px;
-            float: right;
-            color: #FA6650;
-            border-color: transparent;
-            background-color: transparent;
-        }
-
-        .menu_btn2:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
-
         @media all and (max-width: 767px) {
             .main .main-page {
                 width: 100vw;
@@ -797,20 +721,8 @@
                     <button class="home_btn"><span class="material-icons">home</span></button>
                 </a>
                 <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
-                <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
-            </div>
-            <div id="menuBar">
                 <span id="logout_btn" class="material-symbols-outlined"
                       style="background-color: transparent; border: none;" onclick="logout()">logout</span>
-                <div class="menu_item">
-                    <a href="main.html">
-                        <input value="HOME" class="next-btn" id="btn-home" disabled>
-                    </a>
-                    <a href="mypage.html">
-                        <input value="내 새끼 자랑하기" class="next-btn2" id="btn-mypage" disabled>
-                    </a>
-                </div>
-                <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
             </div>
             <div class="contents">
                 <div class="container">
@@ -923,24 +835,6 @@
 
 <script>
 
-    const menuBar = document.getElementById("menuBar");
-    const menuBtns = document.querySelectorAll(".menu_btn");
-    const menuBtn2 = document.getElementById("menuBtn2");
-
-    menuBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            menuBar.classList.toggle("active");
-        });
-    });
-
-    menuBtn2.addEventListener("click", function () {
-        menuBar.classList.remove("active");
-    });
-
-    function menubar() {
-        menuBar.classList.toggle("active");
-    }
-
     function show() {
         document.querySelector(".background").className = "background show";
     }
@@ -968,6 +862,9 @@
     document.getElementById("comment-close").addEventListener("click", show2);
     document.getElementById("comment-close2").addEventListener("click", show2);
 
+    function logout() {
+        window.location.href = "login.html";
+    }
 
 </script>
 

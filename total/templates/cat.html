@@ -107,24 +107,11 @@
             transition: 0.5s;
         }
 
-        .menu_btn {
-            float: right;
-            margin-right: 20px;
-            margin-top: -2px;
-            color: #FA6650;
-            border-color: transparent;
-            background-color: transparent;
-        }
-
-        .menu_btn:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
 
         /* 컨테이너 */
 
         .container {
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -797,20 +784,8 @@
                     <button class="home_btn"><span class="material-icons">home</span></button>
                 </a>
                 <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
-                <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
-            </div>
-            <div id="menuBar">
                 <span id="logout_btn" class="material-symbols-outlined"
                       style="background-color: transparent; border: none;" onclick="logout()">logout</span>
-                <div class="menu_item">
-                    <a href="main.html">
-                        <input value="HOME" class="next-btn" id="btn-home" disabled>
-                    </a>
-                    <a href="mypage.html">
-                        <input value="내 새끼 자랑하기" class="next-btn2" id="btn-mypage" disabled>
-                    </a>
-                </div>
-                <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
             </div>
             <div class="contents">
                 <div class="container">
@@ -923,24 +898,6 @@
 
 <script>
 
-    const menuBar = document.getElementById("menuBar");
-    const menuBtns = document.querySelectorAll(".menu_btn");
-    const menuBtn2 = document.getElementById("menuBtn2");
-
-    menuBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            menuBar.classList.toggle("active");
-        });
-    });
-
-    menuBtn2.addEventListener("click", function () {
-        menuBar.classList.remove("active");
-    });
-
-    function menubar() {
-        menuBar.classList.toggle("active");
-    }
-
     function show() {
         document.querySelector(".background").className = "background show";
     }
@@ -968,6 +925,9 @@
     document.getElementById("comment-close").addEventListener("click", show2);
     document.getElementById("comment-close2").addEventListener("click", show2);
 
+    function logout() {
+        window.location.href = "login.html";
+    }
 
 </script>
 
