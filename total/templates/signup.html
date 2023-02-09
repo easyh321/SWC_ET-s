@@ -56,10 +56,10 @@
 
         .main {
             width: 100vw;
-            height: 100%;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
+            overflow: auto;
 
             display: flex;
             flex-direction: column;
@@ -69,15 +69,13 @@
         .main .main-page {
             max-width: 767px;
             width: 100%;
-            height: 100vh;
             background: #FEE8E2;
         }
 
         .main .main-page .page-gap {
             max-width: 767px;
             width: 100%;
-            height: 100vh;
-            overflow: auto;
+            height: auto;
         }
 
         .main .main-page .header {
@@ -261,7 +259,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: auto;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: 1000;
             z-index: -1;
@@ -395,228 +393,228 @@
                 <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
             </div>
             <div class="contents">
-            <div class="signup">
-                <h1>회원 가입</h1>
-                <div class="signup-box">
-                    <div class="ID">
-                        <span class="label">ID</span>
-                        <div class="sort">
-                            <input type="text" class="form-control" id="username"
-                                   placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="" name="username" required>
-                            <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
+                <div class="signup">
+                    <h1>회원 가입</h1>
+                    <div class="signup-box">
+                        <div class="ID">
+                            <span class="label">ID</span>
+                            <div class="sort">
+                                <input type="text" class="form-control" id="username"
+                                       placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
+                                       value="" name="username" required>
+                                <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
+                            </div>
                         </div>
-                    </div>
-                    <div class="Nickname">
-                        <span class="label">Nickname</span>
-                        <div class="sort">
-                            <input type="text" class="form-control" id="nickname"
-                                   placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="" name="nickname" required>
-                            <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
+                        <div class="Nickname">
+                            <span class="label">Nickname</span>
+                            <div class="sort">
+                                <input type="text" class="form-control" id="nickname"
+                                       placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
+                                       value="" name="nickname" required>
+                                <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
+                            </div>
                         </div>
-                    </div>
-                    <div class="Password">
-                        <span class="label">Password</span>
-                        <input type="password" name="password" id="password" class="form-control"
-                               onchange="check_pw()"
-                               placeholder="특수기호를 포함한 영문 대소문자 또는 숫자 6~12자리" value="">
-                    </div>
-                    <div class="Confirm Password">
-                        <span class="label">Confirm Password</span>
-                        <div class="check_password">
-                            <input type="password" name="confirm" id="confirm" class="form-control2"
+                        <div class="Password">
+                            <span class="label">Password</span>
+                            <input type="password" name="password" id="password" class="form-control"
                                    onchange="check_pw()"
-                                   placeholder="위와 같은 비밀번호를 다시 한번 입력하세요." value="">
-                            <span id="check"
-                                  style="display: inline-block; opacity: 0; font-size: 10px; margin-left: 2px;"></span>
+                                   placeholder="특수기호를 포함한 영문 대소문자 또는 숫자 6~12자리" value="">
+                        </div>
+                        <div class="Confirm Password">
+                            <span class="label">Confirm Password</span>
+                            <div class="check_password">
+                                <input type="password" name="confirm" id="confirm" class="form-control2"
+                                       onchange="check_pw()"
+                                       placeholder="위와 같은 비밀번호를 다시 한번 입력하세요." value="">
+                                <span id="check"
+                                      style="display: inline-block; opacity: 0; font-size: 10px; margin-left: 2px;"></span>
+                            </div>
+                        </div>
+                        <hr style="margin-top: 20px">
+                        <div class="custom-control custom-checkbox">
+                            <div class="links">
+                                모든 <a href="#" id="show">주의사항</a>을 확인하셨나요?
+                                <input type="checkbox" class="custom-control-input" id="reminder">
+                            </div>
                         </div>
                     </div>
-                    <hr style="margin-top: 20px">
-                    <div class="custom-control custom-checkbox">
-                        <div class="links">
-                            모든 <a href="#" id="show">주의사항</a>을 확인하셨나요?
-                            <input type="checkbox" class="custom-control-input" id="reminder">
-                        </div>
+                    <div class="signup-submit">
+                        <!--                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">-->
+                        <input type="button" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">
                     </div>
                 </div>
-                <div class="signup-submit">
-                    <!--                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">-->
-                    <input type="button" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">
-                </div>
-            </div>
-            <div class="footer"></div>
-        </div>
-    </div>
-</div>
-
-<!-- 모달 -->
-<div class="background">
-    <div class="window">
-        <div class="popup">
-            <div class="popup-header">
-                <span class="popup-title">주의사항</span>
-            </div>
-            <hr>
-            <div class="popup-body">
-                <span class="popup-content">주의사항내용</span>
-            </div>
-            <hr>
-            <div class="popup-footer">
-                <button class="close" id="close">확인했습니다!</button>
+                <div class="footer"></div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    function idcheck() {
-        $.ajax({
-            type: "POST",
-            url: "/register",
-            data: {
-                username: $("input[name=username]").val(),
-                nickname: $("input[name=nickname]").val(),
-                password: $("input[name=password]").val()
-            },
-            success: function (response) {
-                if (response.result == "error") {
-                    alert(response['msg']);
-                } else {
-                    alert(response['msg']);
-                }
-            }
-        });
-    }
+    <!-- 모달 -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="popup-header">
+                    <span class="popup-title">주의사항</span>
+                </div>
+                <hr>
+                <div class="popup-body">
+                    <span class="popup-content">주의사항내용</span>
+                </div>
+                <hr>
+                <div class="popup-footer">
+                    <button class="close" id="close">확인했습니다!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    // <id끝나면 넣기>
-    function nickcheck() {
-        $.ajax({
-            type: "POST",
-            url: "/register",
-            data: {
-                username: $("input[name=username]").val(),
-                nickname: $("input[name=nickname]").val(),
-                password: $("input[name=password]").val()
-            },
-            success: function (response) {
-                if (response.result == "error") {
-                    alert(response['msg']);
-                } else {
-                    alert(response['msg']);
-                }
-            }
-        });
-    }
-
-    function check_pw() {
-        var pw = document.getElementById('password').value;
-        var SC = ["!", "@", "#", "$", "%"];
-        var check_SC = 0;
-
-        if (pw.length < 6 || pw.length > 12) {
-            window.alert('비밀번호는 6글자 이상, 12글자 이하만 이용 가능합니다.');
-            document.getElementById('password').value = '';
-        }
-        for (var i = 0; i < SC.length; i++) {
-            if (pw.indexOf(SC[i]) != -1) {
-                check_SC = 1;
-            }
-        }
-        if (check_SC == 0) {
-            window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
-            document.getElementById('password').value = '';
-        }
-
-
-        if (document.getElementById('password').value != '' && document.getElementById('confirm').value != '') {
-            if (document.getElementById('password').value == document.getElementById('confirm').value) {
-                document.getElementById('check').innerHTML = '비밀번호가 일치합니다.';
-                document.getElementById('check').style.color = 'blue';
-                document.getElementById('check').style.opacity = 1;
-            } else {
-                document.getElementById('check').innerHTML = '비밀번호가 일치하지 않습니다.';
-                document.getElementById('check').style.color = 'red';
-                document.getElementById('check').style.opacity = 1;
-            }
-        } else {
-            document.getElementById('check').innerHTML = '';
-            document.getElementById('check').style.opacity = 0;
-        }
-    }
-
-    function show() {
-        document.querySelector(".background").className = "background show";
-    }
-
-    function close() {
-        document.querySelector(".background").className = "background";
-    }
-
-    document.querySelector("#show").addEventListener("click", show);
-    document.querySelector("#close").addEventListener("click", close);
-
-
-    warn.addEventListener("click", function (event) {
-        event.preventDefault();
-        modal.style.display = "block";
-    });
-
-    span.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-
-    const idInput = document.getElementById("name");
-    const passwordInput = document.getElementById("password");
-    const passwordConfirmationInput = document.getElementById("confirm");
-    const nicknameInput = document.getElementById("nickname");
-    const reminderCheckbox = document.getElementById("reminder");
-    const submitBtn = document.getElementById("submit-button");
-
-    function checkForm() {
-        if (idInput.value !== "" && passwordInput.value !== "" && passwordConfirmationInput.value !== "" && nicknameInput.value !== "" && reminderCheckbox.checked) {
-            submitBtn.disabled = false;
-        } else {
-            submitBtn.disabled = true;
-        }
-    }
-
-    idInput.addEventListener("input", checkForm);
-    passwordInput.addEventListener("input", checkForm);
-    passwordConfirmationInput.addEventListener("input", checkForm);
-    nicknameInput.addEventListener("input", checkForm);
-    reminderCheckbox.addEventListener("change", checkForm);
-
-    function done() {
-        let soyn
-        $.ajax({
-            type: "POST",
-            url: "/register",
-            data: {
-                username: $("input[name=username]").val(),
-                nickname: $("input[name=nickname]").val(),
-                password: $("input[name=password]").val(),
-                soyn: 'Y'
-            },
-            success: function (response) {
-                if (response.result == "error") {
-                    alert(response['msg']);
-                } else {
-                    if (confirm(response['msg'])) {
-                        window.location.href = 'login.html';
+    <script>
+        function idcheck() {
+            $.ajax({
+                type: "POST",
+                url: "/register",
+                data: {
+                    username: $("input[name=username]").val(),
+                    nickname: $("input[name=nickname]").val(),
+                    password: $("input[name=password]").val()
+                },
+                success: function (response) {
+                    if (response.result == "error") {
+                        alert(response['msg']);
+                    } else {
+                        alert(response['msg']);
                     }
                 }
+            });
+        }
+
+        // <id끝나면 넣기>
+        function nickcheck() {
+            $.ajax({
+                type: "POST",
+                url: "/register",
+                data: {
+                    username: $("input[name=username]").val(),
+                    nickname: $("input[name=nickname]").val(),
+                    password: $("input[name=password]").val()
+                },
+                success: function (response) {
+                    if (response.result == "error") {
+                        alert(response['msg']);
+                    } else {
+                        alert(response['msg']);
+                    }
+                }
+            });
+        }
+
+        function check_pw() {
+            var pw = document.getElementById('password').value;
+            var SC = ["!", "@", "#", "$", "%"];
+            var check_SC = 0;
+
+            if (pw.length < 6 || pw.length > 12) {
+                window.alert('비밀번호는 6글자 이상, 12글자 이하만 이용 가능합니다.');
+                document.getElementById('password').value = '';
+            }
+            for (var i = 0; i < SC.length; i++) {
+                if (pw.indexOf(SC[i]) != -1) {
+                    check_SC = 1;
+                }
+            }
+            if (check_SC == 0) {
+                window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
+                document.getElementById('password').value = '';
+            }
+
+
+            if (document.getElementById('password').value != '' && document.getElementById('confirm').value != '') {
+                if (document.getElementById('password').value == document.getElementById('confirm').value) {
+                    document.getElementById('check').innerHTML = '비밀번호가 일치합니다.';
+                    document.getElementById('check').style.color = 'blue';
+                    document.getElementById('check').style.opacity = 1;
+                } else {
+                    document.getElementById('check').innerHTML = '비밀번호가 일치하지 않습니다.';
+                    document.getElementById('check').style.color = 'red';
+                    document.getElementById('check').style.opacity = 1;
+                }
+            } else {
+                document.getElementById('check').innerHTML = '';
+                document.getElementById('check').style.opacity = 0;
+            }
+        }
+
+        function show() {
+            document.querySelector(".background").className = "background show";
+        }
+
+        function close() {
+            document.querySelector(".background").className = "background";
+        }
+
+        document.querySelector("#show").addEventListener("click", show);
+        document.querySelector("#close").addEventListener("click", close);
+
+
+        warn.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        });
+
+        span.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
         });
-    }
 
-</script>
+        const idInput = document.getElementById("name");
+        const passwordInput = document.getElementById("password");
+        const passwordConfirmationInput = document.getElementById("confirm");
+        const nicknameInput = document.getElementById("nickname");
+        const reminderCheckbox = document.getElementById("reminder");
+        const submitBtn = document.getElementById("submit-button");
+
+        function checkForm() {
+            if (idInput.value !== "" && passwordInput.value !== "" && passwordConfirmationInput.value !== "" && nicknameInput.value !== "" && reminderCheckbox.checked) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        idInput.addEventListener("input", checkForm);
+        passwordInput.addEventListener("input", checkForm);
+        passwordConfirmationInput.addEventListener("input", checkForm);
+        nicknameInput.addEventListener("input", checkForm);
+        reminderCheckbox.addEventListener("change", checkForm);
+
+        function done() {
+            let soyn
+            $.ajax({
+                type: "POST",
+                url: "/register",
+                data: {
+                    username: $("input[name=username]").val(),
+                    nickname: $("input[name=nickname]").val(),
+                    password: $("input[name=password]").val(),
+                    soyn: 'Y'
+                },
+                success: function (response) {
+                    if (response.result == "error") {
+                        alert(response['msg']);
+                    } else {
+                        if (confirm(response['msg'])) {
+                            window.location.href = 'login.html';
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
 
 </body>
 
