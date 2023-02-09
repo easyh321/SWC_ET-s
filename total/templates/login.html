@@ -250,22 +250,22 @@
             username: $("#username").val(),
             password: $("#password").val()
         };
+
+        $.ajax({})
     }
-    $.ajax({
-        function mainbtn() {
-            xhr.onreadystatechange = function () {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                    const response = JSON.parse(this.responseText);
-                    if (response.startsWith("로그인에 실패하였습니다")) {
-                        alert(response);
-                    } else {
-                        alert(response);
-                        window.location.href = 'main.html';
-                    }
+    function mainbtn() {
+        xhr.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                const response = JSON.parse(this.responseText);
+                if (response.startsWith("로그인에 실패하였습니다")) {
+                    alert(response);
+                } else {
+                    alert(response);
+                    window.location.href = 'main.html';
                 }
             }
         }
-    });
+    };
     // // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
     // function mainbtn() {
     //     alert('로그인 실패')
