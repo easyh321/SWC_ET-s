@@ -48,14 +48,10 @@
             height: 100%;
         }
 
-        body {
-            color: #333;
-            background: #ffffff;
-        }
 
         body {
             color: #333;
-            background: #ffffff;
+            background: #FEE8E2;
         }
 
         .main {
@@ -67,18 +63,22 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
         }
 
         .main .main-page {
             max-width: 767px;
-            width: 767px;
-            height: 100%;
+            width: 100%;
+            height: 100vh;
             background: #FEE8E2;
         }
 
-        .header {
+        .main .main-page .page-gap {
+            max-width: 767px;
+            width: 100%;
+        }
+
+        .main .main-page .header {
             width: 767px;
             margin: 0 auto;
             padding-top: 20px;
@@ -88,28 +88,33 @@
             text-align: center;
         }
 
-        .arrow_back {
+        .main .main-page .page-gap .header .arrow_back {
             float: left;
             margin-left: 20px;
-            margin-top: 9px;
+            margin-top: 1px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
         }
 
-        .header p {
-            margin-right: 20px;
-            font-size: 30px;
-        }
-
-        .arrow_back:hover {
+        .main .main-page .page-gap .header .arrow_back:hover {
             color: #333333;
             transition: 0.5s;
         }
 
+        .main .main-page .page-gap .header h3 {
+            margin-right: 30px;
+        }
+
+        .main .main-page .page-gap .signup {
+            max-width: 767px;
+            width: 100%;
+        }
+
         .signup > h1 {
             color: #FD6038;
-            margin: 50px auto;
+            padding: 50px 0 0 0;
+            margin: 0 auto;
             text-align: center;
         }
 
@@ -123,7 +128,7 @@
             padding: 30px;
             border: none;
             background-color: white;
-            box-shadow: 0px 0px 5px 0px #fa6650;
+            box-shadow: 0 0 5px 0 #fa6650;
         }
 
         .sort {
@@ -178,6 +183,7 @@
 
         .signup-submit {
             margin-top: 60px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -210,7 +216,6 @@
             padding: 10px;
             width: 200px;
             background-color: #fa6650;
-            margin-bottom: 30px;
             color: white;
         }
 
@@ -240,10 +245,6 @@
             height: 15px;
             accent-color: #fa6650;
             margin-bottom: 2px;
-        }
-
-        .signup-submit {
-            margin-bottom: 30px;
         }
 
 
@@ -282,7 +283,6 @@
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
             width: 400px;
             height: 350px;
-            transform: translate(-50%, -40%);
         }
 
         .show .popup {
@@ -327,7 +327,7 @@
             border: transparent;
         }
 
-                /* 여기가 야매 반응형 */
+        /* 여기가 야매 반응형 */
 
         @media all and (max-width: 767px) {
             .main .main-page {
@@ -335,22 +335,13 @@
                 display: flex;
             }
 
-            .main .main-page .page-gap {
-                margin: auto 0;
-            }
-
             .main .main-page .header {
                 width: 100vw;
             }
 
-            .main .main-page .header p {
-                width: 1vw;
-            }
-
             .main .main-page .signup-box {
-                width: 90vw;
+                width: 60vw;
             }
-
 
             .background {
                 width: 100vw;
@@ -370,6 +361,18 @@
 
         }
 
+        @media all and (max-width: 510px) {
+            .main .main-page .signup-box {
+                width: 80vw;
+            }
+        }
+
+        @media all and (max-width: 375px) {
+            .main .main-page .signup-box {
+                width: 90vw;
+            }
+        }
+
     </style>
 </head>
 
@@ -383,7 +386,7 @@
                 <a href="login.html">
                     <button class="arrow_back"><span class="material-symbols-outlined">arrow_back</span></button>
                 </a>
-                <p style="display: inline" class="title">내 새끼 니도 이쁘지?</p>
+                <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
             </div>
             <div class="signup">
                 <h1>회원 가입</h1>
@@ -391,7 +394,8 @@
                     <div class="ID">
                         <span class="label">ID</span>
                         <div class="sort">
-                            <input type="text" class="form-control" id="name" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
                                    value="">
                             <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
                         </div>
@@ -407,7 +411,8 @@
                     </div>
                     <div class="Password">
                         <span class="label">Password</span>
-                        <input type="password" name="password" id="password" class="form-control" onchange="check_pw()"
+                        <input type="password" name="password" id="password" class="form-control"
+                               onchange="check_pw()"
                                placeholder="특수기호를 포함한 영문 대소문자 또는 숫자 6~12자리" value="">
                     </div>
                     <div class="Confirm Password">
@@ -429,7 +434,8 @@
                     </div>
                 </div>
                 <div class="signup-submit">
-                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()" disabled>
+                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()"
+                           disabled>
                 </div>
             </div>
         </div>

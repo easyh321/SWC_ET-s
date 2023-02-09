@@ -9,6 +9,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
 <head>
 
@@ -47,7 +49,7 @@
 
         html, body {
             width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         body {
@@ -57,7 +59,7 @@
 
         .main {
             width: 100vw;
-            height: 100%;
+            height: auto;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -76,28 +78,24 @@
             background: #FEE8E2;
         }
 
+        .main .main-page .page-gap {
+            max-width: 767px;
+            width: 100%;
+        }
+
         .footer {
             margin: 60px;
         }
 
-        .main .main-page .page-gap .header {
-            width: 100%;
-        }
-
-        .main .main-page .page-gap .container {
-            width: 100%;
-        }
-
         /* 헤더 */
-        .header {
+        .main .main-page .header {
             text-align: center;
-            width: 100%;
-            margin: auto auto 20px auto;
+            width: 767px;
+            margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
             background-color: #FEE8E2;
             color: #FA6650;
-            font-size: 30px;
         }
 
         .home_btn {
@@ -116,6 +114,7 @@
         .menu_btn {
             float: right;
             margin-right: 20px;
+            margin-top: -2px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
@@ -124,10 +123,6 @@
         .menu_btn:hover {
             color: #333333;
             transition: 0.5s;
-        }
-
-        .header > span {
-            margin: 15px 25px 0 25px;
         }
 
 
@@ -204,7 +199,7 @@
             text-align: left;
             line-height: 14px;
             max-width: 50%;
-            margin-left: 60px;
+            margin-left: 35px;
             margin-top: 20px;
         }
 
@@ -227,6 +222,7 @@
             width: 700px;
             height: 700px;
             position: relative;
+
         }
 
         .image-container img {
@@ -236,16 +232,15 @@
             transform: translate(-50%, -50%);
             background-size: cover;
             background-position: center center;
-            object-fit: contain;
+            object-fit: cover;
             width: 100%;
             height: 100%;
-            border-image: 30px;
         }
 
         .animals_info2 {
             text-align: left;
-            max-width: 85%;
-            margin-left: 60px;
+            max-width: 90%;
+            margin-left: 35px;
         }
 
         .desc {
@@ -255,6 +250,12 @@
 
         .source p {
             margin: 0;
+        }
+
+        .source .address {
+            line-height: 19px;
+            word-wrap: break-word;
+
         }
 
         .guide {
@@ -530,49 +531,24 @@
         #menuBar {
             position: fixed;
             top: -100%;
-            left: 0;
-            right: 0;
-            max-width: 767px;
-            width: 100%;
+            width: 767px;
             height: 80px;
             background-color: white;
             transition: top 0.2s ease-in-out;
             padding: 20px;
             color: #fff;
-            margin: auto;
         }
 
         #menuBar.active {
             top: 0;
         }
 
-        #menu_bar_content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            width: 80%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        #logout_container {
-            margin-left: -80px;
-        }
-
-        #logout_container button {
-            color: #fa6650;
-        }
-
-        #logout_container button:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
         .menu_item {
             display: flex;
-            margin: 20px;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-right: 20px;
         }
 
         .menu_item input {
@@ -585,16 +561,9 @@
             border-radius: 80px;
             border-color: transparent;
             text-align: center;
-            align-items: center;
             display: flex;
 
-            font-size: 15px;
-
-            margin-left: 20px;
-        }
-
-        .menu_item .next-btn2 {
-            margin-right: 77px;
+            margin: auto 10px;
         }
 
         .menu_item span {
@@ -607,8 +576,20 @@
             border: transparent;
         }
 
+        #logout_btn {
+            float: left;
+            margin-left: 10px;
+            margin-top: 7px;
+            color: #fa6650;
+        }
+
+        #logout_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
         .menu_btn2 {
-            margin-top: -35px;
+            margin-top: -37px;
             float: right;
             color: #FA6650;
             border-color: transparent;
@@ -618,6 +599,33 @@
         .menu_btn2:hover {
             color: #333333;
             transition: 0.5s;
+        }
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+
+            .main .main-page .header {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar .menu_item {
+                margin-right: 30px;
+            }
+
+            .main .main-page #menuBar .menu_item input {
+                width: 100px;
+                height: 40px;
+                font-size: 2vw;
+            }
+
         }
 
     </style>
@@ -710,29 +718,23 @@
                 <a href="main.html">
                     <button class="home_btn"><span class="material-icons">home</span></button>
                 </a>
-                <span><p style="display: inline" class="title">내 새끼 니도 이쁘지?</p></span>
+                <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
                 <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
             </div>
             <div id="menuBar">
-                <div id="menu_bar_content">
-                    <div id="logout_container">
-                        <button id="logout_btn"
-                                style="background-color: transparent; border: none;" onclick="logout()">
-                            Logout
-                        </button>
-                    </div>
-                    <div class="menu_item">
-                        <a href="main.html">
-                            <input value="HOME" class="next-btn" id="home" disabled>
-                        </a>
-                        <a href="mypage.html">
-                            <input value="MY PAGE" class="next-btn2" id="mypage" disabled>
-                        </a>
-                    </div>
+                <span id="logout_btn" class="material-symbols-outlined"
+                      style="background-color: transparent; border: none;" onclick="logout()">logout</span>
+                <div class="menu_item">
+                    <a href="main.html">
+                        <input value="HOME" class="next-btn" id="btn-home" disabled>
+                    </a>
+                    <a href="mypage.html">
+                        <input value="MY PAGE" class="next-btn2" id="btn-mypage" disabled>
+                    </a>
                 </div>
                 <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
             </div>
-            <div class="body">
+            <div class="contents">
                 <div class="container">
                     <div class="button-container">
                         <button class="dog-button" onClick="location.href='dog.html'">
@@ -772,7 +774,8 @@
                         <p class="desc">우리 쫀득이는 비맞는 걸 참 좋아해요. 산책 갈 때마다 행복한 얼굴로 들어가지 말자고 하는 것도 너무 귀여움 ㅠㅠㅠ 어쩌면 좋지?</p>
                         <div class="source" style="font-size: 13px; color: #a9a9a9;">
                             <p class="address_title">출처: </p>
-                            <p class="address">https://rel0608.tistory.com/479</p>
+                            <p class="address">
+                                https://rel0608.tistory.com/479https://rel0608.tistory.com/479https://rel0608.tistory.com/479https://rel0608.tistory.com/479https://rel0608.tistory.com/479</p>
                         </div>
                         <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
                     </div>
@@ -796,8 +799,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-            </div>
+            <div class="footer"></div>
         </div>
     </div>
 
@@ -879,16 +881,13 @@
 
     document.querySelector("#show").addEventListener("click", show);
     document.querySelector("#close").addEventListener("click", close);
-
-
     document.querySelector("#close2").addEventListener("click", close2);
-
-    document.getElementById("btn-outline-secondary").addEventListener("click", show2);
 
     function show2() {
         document.querySelector(".comment-background").classList.toggle("show2");
     }
 
+    document.getElementById("btn-outline-secondary").addEventListener("click", show2);
     document.getElementById("comment-close").addEventListener("click", show2);
     document.getElementById("comment-close2").addEventListener("click", show2);
 
