@@ -71,7 +71,7 @@
         .main .main-page {
             max-width: 767px;
             width: 100%;
-            height: auto;
+            height: 100%;
             text-align: center;
             background: #FEE8E2;
         }
@@ -79,6 +79,7 @@
         .main .main-page .page-gap {
             max-width: 767px;
             width: 100%;
+            height: auto;
         }
 
         /* 헤더 */
@@ -389,7 +390,6 @@
         }
 
 
-
         .close:hover {
             box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
             transition: 0.5s;
@@ -480,79 +480,79 @@
                         </button>
                     </div>
                     <form action="/mypage" method="post" enctype="multipart/form-data">
-                    <div class="mypost" id="post-box">
-                        <div class="must">
-                            <h5>필수 등록 사항</h5>
-                            <hr>
-                            <div class="must-contents">
-                                <h6>분류</h6>
-                                <div class="input-group mb-3">
-                                    <select class="form-select" type=text id="category" name="category" value="">
-                                        <option selected>-- 선택하기 --</option>
-                                        <option value="dogs" name="dogs">강아지</option>
-                                        <option value="cats" name="cats">고양이</option>
-                                        <option value="etc" name="etc">기타</option>
-                                    </select>
-                                </div>
-                                <div class="mypicture">
-                                    <h6>내 새끼 사진</h6>
-                                    <input id="image" name="image" type="file" class="form-control" accept="image/*"
-                                           value="이미지 첨부" placeholder="이미지를 첨부해주세요">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="choice">
-                            <h5 style="margin-top: 55px">선택 등록 사항</h5>
-                            <hr>
-                            <div class="choice-contents">
-                                <div class="form-floating mb-3">
-                                    <input id="name" type="text" class="form-control" name="name" value=""
-                                           placeholder="내 새끼 이름을 입력해주세요">
-                                    <label>내 새끼 이름</label>
-                                    <br/>
+                        <div class="mypost" id="post-box">
+                            <div class="must">
+                                <h5>필수 등록 사항</h5>
+                                <hr>
+                                <div class="must-contents">
+                                    <h6>분류</h6>
                                     <div class="input-group mb-3">
-                                        <select class="form-select" id="age" type="text" name="age">
-                                            <option selected>-- 나이 --</option>
-                                            <option value="1살">1살</option>
-                                            <option value="2살">2살</option>
-                                            <option value="3살">3살</option>
-                                            <option value="4살">4살</option>
-                                            <option value="5살">5살</option>
-                                            <option value="6살">6살</option>
-                                            <option value="7살">7살</option>
-                                            <option value="8살">8살</option>
-                                            <option value="9살">9살</option>
-                                            <option value="10살">10살</option>
-                                            <option value="11살">11살</option>
-                                            <option value="12살">12살</option>
-                                            <option value="13살">13살</option>
-                                            <option value="14살">14살</option>
-                                            <option value="15살">15살</option>
-                                            <option value="16살">16살</option>
-                                            <option value="17살">17살</option>
-                                            <option value="18살">18살</option>
-                                            <option value="19살">19살</option>
-                                            <option value="20살 이상">20살 이상</option>
+                                        <select class="form-select" type=text id="category" name="category" value="">
+                                            <option selected>-- 선택하기 --</option>
+                                            <option value="dogs" name="dogs">강아지</option>
+                                            <option value="cats" name="cats">고양이</option>
+                                            <option value="etc" name="etc">기타</option>
                                         </select>
                                     </div>
-                                    <div class="form-floating">
-                                <textarea id="desc" class="form-control" type="text" name="desc" value=""
-                                          placeholder="내 새끼 사진을 설명해주세요"></textarea>
-                                        <label>사진 설명</label>
-                                    </div>
-                                    <br/>
-                                    <div class="form-floating">
-                                    <textarea id="url" class="form-control" name="url" type="text"
-                                              placeholder="Leave a comment here"></textarea>
-                                        <label>내 새끼 더보기 링크</label>
+                                    <div class="mypicture">
+                                        <h6>내 새끼 사진</h6>
+                                        <input id="image" name="image" type="file" class="form-control" accept="image/*"
+                                               value="이미지 첨부" placeholder="이미지를 첨부해주세요">
                                     </div>
                                 </div>
-                                <div class="mybtns">
-                                    <button type="submit" class="regis-btn" value="등록 완료" id="submit">등록</button>
+                            </div>
+                            <div class="choice">
+                                <h5 style="margin-top: 55px">선택 등록 사항</h5>
+                                <hr>
+                                <div class="choice-contents">
+                                    <div class="form-floating mb-3">
+                                        <input id="name" type="text" class="form-control" name="name" value=""
+                                               placeholder="내 새끼 이름을 입력해주세요">
+                                        <label>내 새끼 이름</label>
+                                        <br/>
+                                        <div class="input-group mb-3">
+                                            <select class="form-select" id="age" type="text" name="age">
+                                                <option selected>-- 나이 --</option>
+                                                <option value="1살">1살</option>
+                                                <option value="2살">2살</option>
+                                                <option value="3살">3살</option>
+                                                <option value="4살">4살</option>
+                                                <option value="5살">5살</option>
+                                                <option value="6살">6살</option>
+                                                <option value="7살">7살</option>
+                                                <option value="8살">8살</option>
+                                                <option value="9살">9살</option>
+                                                <option value="10살">10살</option>
+                                                <option value="11살">11살</option>
+                                                <option value="12살">12살</option>
+                                                <option value="13살">13살</option>
+                                                <option value="14살">14살</option>
+                                                <option value="15살">15살</option>
+                                                <option value="16살">16살</option>
+                                                <option value="17살">17살</option>
+                                                <option value="18살">18살</option>
+                                                <option value="19살">19살</option>
+                                                <option value="20살 이상">20살 이상</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-floating">
+                                <textarea id="desc" class="form-control" type="text" name="desc" value=""
+                                          placeholder="내 새끼 사진을 설명해주세요"></textarea>
+                                            <label>사진 설명</label>
+                                        </div>
+                                        <br/>
+                                        <div class="form-floating">
+                                    <textarea id="url" class="form-control" name="url" type="text"
+                                              placeholder="Leave a comment here"></textarea>
+                                            <label>내 새끼 더보기 링크</label>
+                                        </div>
+                                    </div>
+                                    <div class="mybtns">
+                                        <button type="submit" class="regis-btn" value="등록 완료" id="submit">등록</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
