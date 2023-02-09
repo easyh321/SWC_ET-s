@@ -10,6 +10,10 @@ users = db["users"]
 def home():
    return render_template('signup.html')
 
+@app.route('/login')
+def login():
+   return render_template('login.html')
+
 @app.route("/register", methods=["POST"])
 def register():
     username = request.form.get('username')
