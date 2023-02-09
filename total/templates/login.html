@@ -241,18 +241,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        login();
-    });
 
-    function login() {
-        let data = {
-            username: $("#username").val(),
-            password: $("#password").val()
-        };
-
-        $.ajax({})
-    }
     function mainbtn() {
         xhr.onreadystatechange = function () {
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -260,8 +249,7 @@
                 if (response.startsWith("로그인에 실패하였습니다")) {
                     alert(response);
                 } else {
-                    alert(response);
-                    window.location.href = 'main.html';
+                    alert("{username}님 환영합니다");
                 }
             }
         }
