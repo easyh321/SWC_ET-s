@@ -28,7 +28,7 @@ def animals_post():
 
         image_file = request.files["image"]
         age = request.form['age']
-        animal_type = request.form['animal_type']
+        category = request.form['category']
         desc = request.form['desc']
         name = request.form['name']
         url = request.form['url']
@@ -48,13 +48,11 @@ def animals_post():
         animal_data = {
             'name': name,
             'desc': desc,
-            'animal_type': animal_type,
+            'category': category,
             'age': age,
             'url': url,
             'img_url': img_url,
             'date': today,
-            'love': 777,
-            'nickname': 'User',
         }
 
         collection.insert_one(animal_data)
@@ -62,10 +60,10 @@ def animals_post():
     else:
         return render_template("mypage.html")
 def determine_collection():
-    animal_type = request.form['animal_type']
-    if animal_type == "dogs":
+    category = request.form['category']
+    if category == "dogs":
         return "dog"
-    elif animal_type == "cats":
+    elif category == "cats":
         return "cat"
     else:
         return "etc"
