@@ -15,16 +15,6 @@ def home():
 def main():
    return render_template('main.html')
 
-# @app.route("/login", methods=["POST"])
-# def login():
-#     username = request.form["username"]
-#     password = request.form["password"]
-#     user = db.users.find_one({"username": username})
-#     if user and user["password"] == password:
-#         return render_template('main.html')
-#     else:
-#         return ("로그인에 실패하였습니다. 다시 시도해주세요.")
-
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
@@ -33,8 +23,8 @@ def login():
     if user and user["password"] == password:
         return jsonify({"result": "success"})
     else:
-        return jsonify({"result": "fail"})
-        # return jsonify({"result": "fail", "msg":"로그인에 실패하였습니다. 다시 시도해주세요."})
+        return jsonify({'msg':'로그인에 실패하였습니다. 다시 시도해주세요!'})
+
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)

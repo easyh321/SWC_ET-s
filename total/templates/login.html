@@ -234,6 +234,23 @@
 </div>
 
 <script>
+    // function mainbtn() {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/login",
+    //         data: {
+    //             username: $("input[name=username]").val(),
+    //             password: $("input[name=password]").val(),
+    //         },
+    //         success: function (data) {
+    //             if (data.result === "success") {
+    //                 window.location.href = "/main";
+    //             } else {
+    //                 alert("로그인에 실패하였습니다. 다시 시도해주세요.");
+    //             }
+    //         }
+    //     });
+    // }
     function mainbtn() {
         $.ajax({
             type: "POST",
@@ -251,21 +268,6 @@
             }
         });
     }
-
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/register",
-    //         data: {
-    //             username: $("input[name=username]").val(),
-    //             password: $("input[name=password]").val(),
-    //         },
-    //         success: function (reponse) {
-    //         }
-    //     });
-    // // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
-    // function mainbtn() {
-    //     alert('로그인 실패')
-    // }
 
     // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
     function signup() {
