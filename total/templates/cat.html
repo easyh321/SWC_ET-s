@@ -83,14 +83,14 @@
             width: 100%;
         }
 
-        /* 헤더 */
+       /* 헤더 */
         .main .main-page .header {
             text-align: center;
             width: 767px;
             margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
-            background-color: #FEE8E2;
+            background-color: white;
             color: #FA6650;
         }
 
@@ -103,6 +103,19 @@
         }
 
         .home_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        #logout_btn {
+            float: right;
+            margin-right: 20px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        #logout_btn:hover {
             color: #333333;
             transition: 0.5s;
         }
@@ -524,81 +537,6 @@
             box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
             transition: 0.5s;
             border: transparent;
-        }
-
-        /* 메뉴 바 */
-
-        #menuBar {
-            position: fixed;
-            top: -100%;
-            width: 767px;
-            height: 80px;
-            background-color: white;
-            transition: top 0.2s ease-in-out;
-            padding: 20px;
-            color: #fff;
-        }
-
-        #menuBar.active {
-            top: 0;
-        }
-
-        .menu_item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            margin-right: 20px;
-        }
-
-        .menu_item input {
-            background-color: #FA6650;
-            color: white;
-
-            width: 160px;
-            height: 55px;
-
-            border-radius: 80px;
-            border-color: transparent;
-            text-align: center;
-            display: flex;
-
-            margin: auto 10px;
-        }
-
-        .menu_item span {
-            text-align: center;
-        }
-
-        .menu_item input:hover {
-            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
-            transition: 0.5s;
-            border: transparent;
-        }
-
-        #logout_btn {
-            float: left;
-            margin-left: 10px;
-            margin-top: 7px;
-            color: #fa6650;
-        }
-
-        #logout_btn:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
-        .menu_btn2 {
-            margin-top: -37px;
-            float: right;
-            color: #FA6650;
-            border-color: transparent;
-            background-color: transparent;
-        }
-
-        .menu_btn2:hover {
-            color: #333333;
-            transition: 0.5s;
         }
 
 
