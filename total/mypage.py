@@ -2,9 +2,8 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.0ps45en.mongodb.net/cluster0?retryWrites=true&w=majority')
-db = client["animals"]
-animal = db["animal"]
+client = MongoClient('mongodb+srv://test:sparta@cluster0.temtprh.mongodb.net/Cluster0?retryWrites=true&w=majority')
+db = client.animals
 
 import requests
 from bs4 import BeautifulSoup
@@ -22,9 +21,9 @@ def animals_post():
         s3 = boto3.client(
             service_name="s3",
             region_name="ap-northeast-2",
-            aws_access_key_id='AKIAYWXKUXUWBLYOD2GG',
-            aws_secret_access_key='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')
-        bucket_name = 'animals-all-image'
+            aws_access_key_id='AKIA5HIYPCTFPPWPD3SK',
+            aws_secret_access_key='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')
+        bucket_name = 'animals-image'
 
         image_file = request.files["image"]
         age = request.form['age']
@@ -50,7 +49,7 @@ def animals_post():
             'animal_type': animal_type,
             'age': age,
             'url': url,
-            'image_url': image_url,
+            'image_url': img_url,
         }
 
         collection.insert_one(animal_data)
@@ -60,11 +59,11 @@ def animals_post():
 def determine_collection():
     animal_type = request.form['animal_type']
     if animal_type == "dogs":
-        return "dogs"
+        return "dog"
     elif animal_type == "cats":
-        return "cats"
+        return "cat"
     else:
-        return "others"
+        return "etc"
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)

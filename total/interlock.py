@@ -7,8 +7,8 @@ db = client.animal
 s3 = boto3.client(
             service_name="s3",
             region_name="ap-northeast-2",
-            aws_access_key_id='USER01',
-            aws_secret_access_key='qBxZXr5{')
+            aws_access_key_id='AKIA5HIYPCTFPPWPD3SK',
+            aws_secret_access_key='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')
 
 def s3_connection():
     try:
