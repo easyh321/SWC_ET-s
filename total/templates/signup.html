@@ -394,9 +394,8 @@
                     <div class="ID">
                         <span class="label">ID</span>
                         <div class="sort">
-                            <input type="text" class="form-control" id="name"
-                                   placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="">
+                            <input type="text" class="form-control" id="username" placeholder="아이디를 입력한 후 중복 체크를 눌러 확인하세요."
+                                   value="" name="username" required>
                             <input type="submit" value="중복 확인" class="submit-btn" onclick="idcheck()">
                         </div>
                     </div>
@@ -405,7 +404,7 @@
                         <div class="sort">
                             <input type="text" class="form-control" id="nickname"
                                    placeholder="사용할 닉네임을 입력한 후 중복 체크를 눌러 확인하세요."
-                                   value="">
+                                   value="" name="nickname" required>
                             <input type="submit" value="중복 확인" class="submit-btn" onclick="nickcheck()">
                         </div>
                     </div>
@@ -464,11 +463,41 @@
 
 <script>
     function idcheck() {
-        alert('이미 존재하는 아이디입니다. 새로운 아이디를 입력하세요.')
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val()
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
     }
-
+// <id끝나면 넣기>
     function nickcheck() {
-        alert('이미 존재하는 닉네임입니다. 새로운 닉네임을 입력하세요.')
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val()
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
     }
 
     function check_pw() {
@@ -556,7 +585,26 @@
     reminderCheckbox.addEventListener("change", checkForm);
 
     function done() {
-        alert('가입이 완료 되었습니다!')
+        let soyn
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {
+                username: $("input[name=username]").val(),
+                nickname: $("input[name=nickname]").val(),
+                password: $("input[name=password]").val(),
+                soyn: 'Y'
+            },
+            success: function (response) {
+                if (response.result == "error") {
+                    alert(response['msg']);
+                } else {
+                    alert(response['msg']);
+                }
+            }
+        });
+
+        // alert('가입이 완료 되었습니다!')
         window.location.href = 'login.html';
     }
 </script>

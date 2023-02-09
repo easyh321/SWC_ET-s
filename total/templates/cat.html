@@ -622,6 +622,9 @@
 
     </style>
     <script>
+        const number = []
+        let flagnumber = 0;
+
         $(document).ready(function () {
             let importedData = [];
             let rows;
@@ -631,6 +634,10 @@
                 data: {},
                 success: function (response) {
                     rows = response['cats'];
+                    for (let i = 0; i < rows.length; i++) {
+                        number.push(i)
+                    }
+                    shuffle(number)
                     show_cats();
                 }
             });
@@ -643,6 +650,10 @@
                 }
             });
 
+            function shuffle(array) {
+                array.sort(() => Math.random() - 0.5);
+            }
+
             function show_cats() {
                 $('#cat-list').empty()
 
@@ -651,9 +662,9 @@
                     url: "/total",
                     data: {},
                     success: function (response) {
-                        let rows = response['cats'];
-                        let nextIndex = importedData.length;
-                        let nextRow = rows[nextIndex];
+                        let rows = response['cats']
+                        let nextRow = rows[number[flagnumber]];
+                        flagnumber += 1;
 
                         importedData.push(nextRow);
 
@@ -685,7 +696,7 @@
                                         <div class="animals_info2">
                                             <p class="desc">${desc}</p>
                                             <div class="source" style="font-size: 13px; color: #a9a9a9;">
-                                                <p class="address_title">출처: </p>
+                                                <p class="address_title">더보기 링크 : </p>
                                                 <p class="address">${url}</p>
                                             </div>
                                             <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
@@ -697,6 +708,7 @@
             }
         });
     </script>
+
 </head>
 
 <body>
