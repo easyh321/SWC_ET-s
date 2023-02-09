@@ -599,16 +599,12 @@
                 if (response.result == "error") {
                     alert(response['msg']);
                 } else {
-                    alert(response['msg']);
-                    window.location.assign('login.html');
+                    if(confirm(response['msg'])) {
+                        window.location.href = 'login.html';
+                    }
                 }
             }
         });
-        // alert('가입이 완료 되었습니다!')
-        // window.location.href = 'login.html';
-        // window.location.href('login.html');
-        // window.location.assign('login.html');
-        // window.location.replace('login.html');
     }
 
 </script>
