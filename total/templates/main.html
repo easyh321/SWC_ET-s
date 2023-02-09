@@ -37,7 +37,7 @@
 
         .main {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -52,7 +52,7 @@
         .main .main-page {
             max-width: 767px;
             width: 100%;
-            height: auto;
+            height: 100vh;
             text-align: center;
             background: #FEE8E2;
         }
@@ -107,7 +107,7 @@
             color: white;
             font-size: 25px;
         }
-        
+
         /* 여기가 야매 반응형 */
 
         @media all and (max-width: 767px) {
@@ -149,9 +149,6 @@
                 width: 90%;
             }
 
-            .background .window .popup .popup-body .animals button {
-                width: 90%;
-            }
         }
 
         /* 여기부터 모달 */
@@ -192,8 +189,8 @@
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 
             /* 임시 지정 */
-            width: 480px;
-            height: 490px;
+            width: 350px;
+            height: 350px;
 
             /* 초기에 약간 아래에 배치 */
             transform: translate(-50%, -40%);
@@ -218,40 +215,70 @@
             margin: 10px;
         }
 
-        .popup-noti {
-            display: inline-block;
-            margin: 10px auto auto 20px;
-            font-size: 13px;
+        /* 컨테이너 */
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-bottom: 40px;
         }
 
-        .animals {
-            text-align: center;
-            margin: 20px auto 40px auto;
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .animal-button {
-            background-color: #fff;
-            padding: 10px 20px;
-            border: 1px solid #E6E6E6;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 13px auto;
-            width: 420px;
-            height: 48px;
-
-            text-align: left;
-            display: block;
-            font-size: 13px;
+        .dog-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
         }
 
-        .animal-button.selected {
-            background-color: #fff;
-            border: 1px solid #fa6650;
+        .cat-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://cdn.ccdailynews.com/news/photo/202104/2047160_528296_3416.png");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
         }
 
-        .animal-button-text {
-            color: #1A1A1A;
-            font-size: 13px;
+        .etc-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://img.seoul.co.kr/img/upload/2021/05/03/SSI_20210503113234.jpg");
+            background-position: center;
+            background-size: cover;
+            margin: 10px;
+            border-color: transparent;
+        }
+
+        .button-text2 {
+            margin-top: 80px;
+            font-size: 12px;
         }
 
         .popup-footer {
@@ -301,7 +328,7 @@
                     <span class="button-text">남의 새끼 보러 가기</span>
                 </button>
                 <button onclick="mypage" class="rounded-pill" alt="...">
-                    <span class="button-text">MY PAGE</span>
+                    <span class="button-text">내 새끼 자랑하러 가기</span>
                 </button>
 
             </div>
@@ -319,17 +346,22 @@
                 </div>
                 <hr>
                 <div class="popup-body">
-                    <span class="popup-noti">중복 선택이 가능합니다.</span>
-                    <div class="animals">
-                        <button class="animal-button" value="강아지">
-                            <span class="animal-button-text">강아지</span>
-                        </button>
-                        <button class="animal-button" value="고양이">
-                            <span class="animal-button-text">고양이</span>
-                        </button>
-                        <button class="animal-button" value="기타">
-                            <span class="animal-button-text">기타</span>
-                        </button>
+                    <div class="container">
+                        <div class="button-container">
+                            <button class="dog-button">
+                                <span class="button-text2">강아지</span>
+                            </button>
+                        </div>
+                        <div class="button-container">
+                            <button class="cat-button">
+                                <span class="button-text2">고양이</span>
+                            </button>
+                        </div>
+                        <div class="button-container">
+                            <button class="etc-button">
+                                <span class="button-text2">기타</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -356,15 +388,6 @@
 
     document.querySelector("#show").addEventListener("click", show);
     document.querySelector("#close").addEventListener("click", close);
-
-    const buttons = document.querySelectorAll('.animal-button');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', event => {
-            button.classList.toggle('selected');
-        });
-    });
-
 
 </script>
 

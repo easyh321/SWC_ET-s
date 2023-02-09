@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>내 새끼 니도 이쁘지?</title>
+
+    <style>
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-family: 'GmarketSansMedium';
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            color: #333;
+            background: #ffffff;
+        }
+
+        .main {
+            width: 100vw;
+            height: auto;
+            background-color: #fa6650;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .main-page {
+            max-width: 767px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: #FEE8E2;
+        }
+
+        .main .main-page .page-gap {
+            max-width: 767px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* 헤더 */
+        .main .main-page .header {
+            text-align: center;
+            width: 767px;
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #FEE8E2;
+            color: #FA6650;
+        }
+
+        .home_btn {
+            float: left;
+            margin-left: 20px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .home_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .menu_btn {
+            float: right;
+            margin-right: 20px;
+            margin-top: -2px;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .menu_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        /* 바디 */
+
+        .regis {
+            color: #FA6650;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 50px;
+        }
+
+        .more > button {
+            background-color: #FA6650;
+            color: white;
+            width: 250px;
+            height: 55px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            font-size: 20px;
+        }
+
+        .more > button:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .mypost {
+            width: 100%;
+            max-width: 460px;
+            padding: 30px;
+
+            display: none;
+
+            color: black;
+
+            box-sizing: border-box;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: left;
+            border: none;
+            background-color: white;
+            box-shadow: 0 0 5px 0 #fa6650;
+        }
+
+        #category {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 38px;
+            margin-bottom: 10px;
+        }
+
+        #image {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 38px;
+            margin-bottom: 20px;
+        }
+
+        #name {
+            border-radius: 10px;
+            font-size: 10px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 55px;
+        }
+
+        #age {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 55px;
+            margin-bottom: 8px;
+        }
+
+        #desc {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 120px;
+        }
+
+        #url {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 120px;
+        }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 10px;
+        }
+
+        .mybtns > button {
+            margin: 20px;
+            padding: 10px 50px 10px 50px;
+        }
+
+        .regis-btn {
+            background-color: #FA6650;
+            color: white;
+            width: 200px;
+            height: 55px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            font-size: 20px;
+        }
+
+        .regis-btn:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .mypets {
+            margin: 20px auto 20px auto;
+            width: 100%;
+            max-width: 500px;
+
+            align-items: center;
+            justify-content: center;
+            color: #FA6650;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .mypicture {
+            margin-bottom: 20px;
+        }
+
+        .moreview {
+            margin-top: -1px;
+        }
+
+        .moreview > button {
+            background-color: #FA6650;
+            max-width: 100%;
+            border: none;
+            margin-bottom: 50px;
+        }
+
+        .moreview > button:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        .more-image {
+            width: 100%;
+            height: 50px;
+            background-color: #FA6650;
+            color: #ffffff;
+            font-size: 20px;
+
+            bottom: 0;
+        }
+
+        #images_1 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #images_2 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #images_3 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        img {
+            width: 33.33%;
+            height: auto;
+        }
+
+        /* 메뉴 바 */
+
+        #menuBar {
+            position: fixed;
+            top: -100%;
+            width: 767px;
+            height: 80px;
+            background-color: white;
+            transition: top 0.2s ease-in-out;
+            padding: 20px;
+            color: #fff;
+        }
+
+        #menuBar.active {
+            top: 0;
+        }
+
+        .menu_item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-right: 20px;
+        }
+
+        .menu_item input {
+            background-color: #FA6650;
+            color: white;
+
+            width: 160px;
+            height: 55px;
+
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+            display: flex;
+
+            margin: auto 10px;
+        }
+
+        .menu_item span {
+            text-align: center;
+        }
+
+        .menu_item input:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        #logout_btn {
+            float: left;
+            margin-left: 10px;
+            margin-top: 7px;
+            color: #fa6650;
+        }
+
+        #logout_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+        .menu_btn2 {
+            margin-top: -37px;
+            float: right;
+            color: #FA6650;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .menu_btn2:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
+
+        .close:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+
+            .main .main-page .header {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar .menu_item {
+                margin-right: 30px;
+            }
+
+            .main .main-page #menuBar .menu_item input {
+                width: 100px;
+                height: 40px;
+                font-size: 2vw;
+            }
+
+            .main .main-page .regis .mypet_upload .mypost {
+                width: 80vw
+            }
+
+            .main .main-page .mypets {
+                width: 80vw
+            }
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="main">
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="header">
+                <a href="main.html">
+                    <button class="home_btn"><span class="material-icons">home</span></button>
+                </a>
+                <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
+                <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
+            </div>
+            <div id="menuBar">
+                <span id="logout_btn" class="material-symbols-outlined"
+                      style="background-color: transparent; border: none;" onclick="logout()">logout</span>
+                <div class="menu_item">
+                    <a href="main.html">
+                        <input value="HOME" class="next-btn" id="btn-home" disabled>
+                    </a>
+                    <a href="niseki.html">
+                        <input value="남의 새끼 보러 가기" class="next-btn2" id="btn-niseki" disabled>
+                    </a>
+                </div>
+                <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
+            </div>
+            <div class="regis">
+                <h1>My Page</h1>
+                <div class="mypet_upload" style="margin-top: 50px">
+                    <div class="more">
+                        <button onclick="open_box()" type="button">
+                            <span>내 새끼 자랑하기</span>
+                        </button>
+                    </div>
+                    <form action="/mypage" method="post" enctype="multipart/form-data">
+                        <div class="mypost" id="post-box">
+                            <div class="must">
+                                <h5>필수 등록 사항</h5>
+                                <hr>
+                                <div class="must-contents">
+                                    <h6>분류</h6>
+                                    <div class="input-group mb-3">
+                                        <select class="form-select" type=text id="category" name="category" value="">
+                                            <option selected>-- 선택하기 --</option>
+                                            <option value="dogs" name="dogs">강아지</option>
+                                            <option value="cats" name="cats">고양이</option>
+                                            <option value="etc" name="etc">기타</option>
+                                        </select>
+                                    </div>
+                                    <div class="mypicture">
+                                        <h6>내 새끼 사진</h6>
+                                        <input id="image" name="image" type="file" class="form-control" accept="image/*"
+                                               value="이미지 첨부" placeholder="이미지를 첨부해주세요">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice">
+                                <h5 style="margin-top: 55px">선택 등록 사항</h5>
+                                <hr>
+                                <div class="choice-contents">
+                                    <div class="form-floating mb-3">
+                                        <input id="name" type="text" class="form-control" name="name" value=""
+                                               placeholder="내 새끼 이름을 입력해주세요">
+                                        <label>내 새끼 이름</label>
+                                        <br/>
+                                        <div class="input-group mb-3">
+                                            <select class="form-select" id="age" type="text" name="age">
+                                                <option selected>-- 나이 --</option>
+                                                <option value="1살">1살</option>
+                                                <option value="2살">2살</option>
+                                                <option value="3살">3살</option>
+                                                <option value="4살">4살</option>
+                                                <option value="5살">5살</option>
+                                                <option value="6살">6살</option>
+                                                <option value="7살">7살</option>
+                                                <option value="8살">8살</option>
+                                                <option value="9살">9살</option>
+                                                <option value="10살">10살</option>
+                                                <option value="11살">11살</option>
+                                                <option value="12살">12살</option>
+                                                <option value="13살">13살</option>
+                                                <option value="14살">14살</option>
+                                                <option value="15살">15살</option>
+                                                <option value="16살">16살</option>
+                                                <option value="17살">17살</option>
+                                                <option value="18살">18살</option>
+                                                <option value="19살">19살</option>
+                                                <option value="20살 이상">20살 이상</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-floating">
+                                <textarea id="desc" class="form-control" type="text" name="desc" value=""
+                                          placeholder="내 새끼 사진을 설명해주세요"></textarea>
+                                            <label>사진 설명</label>
+                                        </div>
+                                        <br/>
+                                        <div class="form-floating">
+                                    <textarea id="url" class="form-control" name="url" type="text"
+                                              placeholder="Leave a comment here"></textarea>
+                                            <label>내 새끼 더보기 링크</label>
+                                        </div>
+                                    </div>
+                                    <div class="mybtns">
+                                        <button type="submit" class="regis-btn" value="등록 완료" id="submit">등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mypets" style="margin-top: 60px">
+                <h5>내 새끼 확인하기</h5>
+                <div id="images_1">
+                    <img src='https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
+                </div>
+                <div class="moreview">
+                    <button id="showMoreButton" class="more-image">
+                        <span>더 보기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mypets">
+                <h5>이뻐요한 새끼 모아보기</h5>
+                <div id="images_2">
+                    <img src='https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
+                </div>
+                <div class="moreview">
+                    <button id="showMoreButton_2" class="more-image">
+                        <span>더 보기</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mypets">
+                <h5>내가 댓글 단 남의 새끼 모아보기</h5>
+                <div id="images_3">
+                    <img src='https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'>
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTZfOTcg/MDAxNTYzMjU4OTgxNTgz.n6PR-FWCx97rgc0vjDTBJU_O1SdzuP2wU_0ja-AdtTIg.3tVQKL6R45VsZR1nDNfcjh_EvLt6XHWwopG5rcAfq68g.JPEG.dono_box/%EA%B3%A8%EB%93%A0%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%8411.jpg?type=w800">
+                    <img src="https://pbs.twimg.com/profile_images/1181902209698582528/PVU-fj8z_400x400.jpg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyrZTjR213Y0xlXbGR-Pvw30tVQ8ZfUnmG7A&usqp=CAU">
+                </div>
+                <div class="moreview">
+                    <button id="showMoreButton_3" class="more-image">
+                        <span>더 보기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+
+<script>
+
+
+    const menuBar = document.getElementById("menuBar");
+    const menuBtns = document.querySelectorAll(".menu_btn");
+    const menuBtn2 = document.getElementById("menuBtn2");
+
+    menuBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            menuBar.classList.toggle("active");
+        });
+    });
+
+    menuBtn2.addEventListener("click", function () {
+        menuBar.classList.remove("active");
+    });
+
+    function menubar() {
+        menuBar.classList.toggle("active");
+    }
+
+    function open_box() {
+        if ($('#post-box').is(':visible')) {
+            $('#post-box').hide();
+        } else {
+            $('#post-box').show();
+        }
+    }
+
+    const images_1 = [
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+    ];
+
+    let currentIndex = 0;
+    const showMoreButton = document.getElementById('showMoreButton');
+    const imageContainer = document.getElementById('images_1');
+
+    //더 이상 출력할 이미지가 없으면 버튼 사라지게 수정(02.09)//
+    showMoreButton.addEventListener('click', function () {
+        for (let i = 0; i < 3; i++) {
+            const nextImage = images_1[currentIndex];
+            if (!nextImage) {
+                showMoreButton.style.display = 'none';
+                return;
+            }
+
+            const newImage = document.createElement('img');
+            newImage.src = nextImage;
+            imageContainer.appendChild(newImage);
+            currentIndex++;
+        }
+    });
+
+    const images_2 = [
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+    ];
+
+    let currentIndex_2 = 0;
+    const showMoreButton_2 = document.getElementById('showMoreButton_2');
+    const imageContainer_2 = document.getElementById('images_2');
+
+    showMoreButton_2.addEventListener('click', function () {
+        for (let i = 0; i < 3; i++) {
+            const nextImage = images_2[currentIndex_2];
+            if (!nextImage) {
+                showMoreButton_2.disabled = true;
+                return;
+            }
+
+            const newImage = document.createElement('img');
+            newImage.src = nextImage;
+            imageContainer_2.appendChild(newImage);
+            currentIndex_2++;
+        }
+    });
+
+    const images_3 = [
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/28/8c765c3c0f3aa8ebe8c6d67f058d8482_res.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever.jpg/640px-Golden_retriever.jpg'
+    ];
+
+    let currentIndex_3 = 0;
+    const showMoreButton_3 = document.getElementById('showMoreButton_3');
+    const imageContainer_3 = document.getElementById('images_3');
+
+    showMoreButton_3.addEventListener('click', function () {
+        for (let i = 0; i < 3; i++) {
+            const nextImage = images_3[currentIndex_3];
+            if (!nextImage) {
+                showMoreButton_3.disabled = true;
+                return;
+            }
+
+            const newImage = document.createElement('img');
+            newImage.src = nextImage;
+            imageContainer_3.appendChild(newImage);
+            currentIndex_3++;
+        }
+    });
+
+
+</script>
+
+</html>

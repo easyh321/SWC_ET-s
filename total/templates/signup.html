@@ -56,7 +56,7 @@
 
         .main {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -70,7 +70,7 @@
         .main .main-page {
             max-width: 767px;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background: #FEE8E2;
         }
 
@@ -231,7 +231,6 @@
             cursor: not-allowed;
         }
 
-
         .done-btn {
             box-sizing: border-box;
             border-radius: 20px;
@@ -241,6 +240,7 @@
             width: 200px;
             background-color: #fa6650;
             color: white;
+            margin-bottom: 30px;
         }
 
         .done-btn:hover {
@@ -248,11 +248,6 @@
             transition: 0.5s;
             border: transparent;
         }
-
-        .footer {
-            bottom: 0;
-        }
-
 
         /* 여기부터 모달 */
 
@@ -452,7 +447,6 @@
                         <input type="button" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">
                     </div>
                 </div>
-                <div class="footer"></div>
             </div>
         </div>
     </div>
