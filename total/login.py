@@ -17,10 +17,10 @@ def login():
     password = request.form["password"]
     user = db.users.find_one({"username": username})
     if user and user["password"] == password:
-        return jsonify(f"{user['nickname']}님 환영합니다!")
+        return (f"{user['nickname']}님 환영합니다!")
         return redirect("main.html")
     else:
-        return jsonify("로그인에 실패하였습니다. 다시 시도해주세요.")
+        return ("로그인에 실패하였습니다. 다시 시도해주세요.")
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)
