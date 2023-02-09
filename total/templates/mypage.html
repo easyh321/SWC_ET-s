@@ -388,78 +388,7 @@
             transition: 0.5s;
         }
 
-        /* 등록 팝업*/
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            z-index: -1;
-            opacity: 0;
-        }
 
-        .show {
-            opacity: 1;
-            z-index: 1000;
-            transition: all 0.5s;
-        }
-
-        .window {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .popup {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffffff;
-            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-            width: 400px;
-            height: 350px;
-            transform: translate(-50%, -40%);
-        }
-
-        .show .popup {
-            transform: translate(-50%, -50%);
-            transition: all 0.5s;
-        }
-
-        .popup-header {
-            margin: 10px;
-            text-align: left;
-        }
-
-        .popup-title {
-            display: inline-block;
-            margin: 25px auto 15px 20px;
-            font-size: 20px;
-        }
-
-        .popup-body {
-            margin: 60px;
-            text-align: center;
-        }
-
-        .popup-footer {
-            margin-top: 22px;
-            text-align: center;
-        }
-
-        .close {
-            background-color: #FA6650;
-            color: white;
-            width: 200px;
-            height: 60px;
-            border-radius: 80px;
-            border-color: transparent;
-            text-align: center;
-        }
 
         .close:hover {
             box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
@@ -560,9 +489,9 @@
                                 <div class="input-group mb-3">
                                     <select class="form-select" type=text id="animal_type" name="animal_type" value="">
                                         <option selected>-- 선택하기 --</option>
-                                        <option value="강아지">강아지</option>
-                                        <option value="고양이">고양이</option>
-                                        <option value="기타">기타</option>
+                                        <option value="dogs" name="dogs">강아지</option>
+                                        <option value="cats" name="cats">고양이</option>
+                                        <option value="기타" name="etc">기타</option>
                                     </select>
                                 </div>
                                 <div class="mypicture">
@@ -619,19 +548,7 @@
                                     </div>
                                 </div>
                                 <div class="mybtns">
-                                    <button type="submit" class="regis-btn" id="show" value="등록 완료" id="submit">등록</button>
-                                    <script>
-                                        function show() {
-                                            document.querySelector(".background").className = "background show";
-                                        }
-
-                                        function close() {
-                                            document.querySelector(".background").className = "background";
-                                        }
-
-                                        document.querySelector("#show").addEventListener("click", show);
-                                        document.querySelector("#close").addEventListener("click", close);
-                                    </script>
+                                    <button type="submit" class="regis-btn" value="등록 완료" id="submit">등록</button>
                                 </div>
                             </div>
                         </div>
@@ -689,44 +606,6 @@
             </div>
         </div>
     </div>
-    <div class="background">
-        <div class="window">
-            <div class="popup">
-                <div class="popup-header">
-                    <button id="close2" type="button" class="btn-close" aria-label="Close"
-                            style="float: right;"></button>
-                    <span class="popup-title">등록 확인</span>
-                </div>
-                <hr>
-                <div class="popup-body">
-                    <span class="popup-content">정말 등록하시겠습니까?</span>
-                </div>
-                <hr>
-                <div class="popup-footer">
-                    <button class="close" id="close">등록하기</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        function show() {
-            document.querySelector(".background").className = "background show";
-        }
-
-        function close() {
-            document.querySelector(".background").className = "background";
-        }
-
-        function close2() {
-            document.querySelector(".background").className = "background";
-        }
-
-        document.querySelector("#show").addEventListener("click", show);
-        document.querySelector("#close").addEventListener("click", close);
-
-
-        document.querySelector("#close2").addEventListener("click", close2);
-    </script>
 </div>
 
 </div>
