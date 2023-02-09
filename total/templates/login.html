@@ -225,7 +225,7 @@
                 <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
             </div>
             <div class="login-form">
-                <form>
+                <form action="/login" method="post">
                     <input type="text" name="name" class="text-field" placeholder="아이디를 입력하세요." id="username">
                     <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
                            id="password">
@@ -250,14 +250,26 @@
             username: $("#username").val(),
             password: $("#password").val()
         };
-
-        $.ajax({})
     }
-
-    // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
-    function mainbtn() {
-        alert('로그인 실패')
-    }
+    $.ajax({
+        function mainbtn() {
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    const response = JSON.parse(this.responseText);
+                    if (response.startsWith("로그인에 실패하였습니다")) {
+                        alert(response);
+                    } else {
+                        alert(response);
+                        window.location.href = 'main.html';
+                    }
+                }
+            }
+        }
+    });
+    // // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
+    // function mainbtn() {
+    //     alert('로그인 실패')
+    // }
 
     // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
     function signup() {
