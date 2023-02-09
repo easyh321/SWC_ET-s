@@ -234,19 +234,34 @@
 </div>
 
 <script>
-
     function mainbtn() {
-        xhr.onreadystatechange = function () {
-            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                const response = JSON.parse(this.responseText);
-                if (response.startsWith("로그인에 실패하였습니다")) {
-                    alert(response);
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: {
+                username: $("input[name=username]").val(),
+                password: $("input[name=password]").val(),
+            },
+            success: function (data) {
+                if (data.result === "success") {
+                    window.location.href = "/main";
                 } else {
-                    alert("{username}님 환영합니다");
+                    alert("로그인에 실패하였습니다. 다시 시도해주세요.");
                 }
             }
-        }
-    };
+        });
+    }
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/register",
+    //         data: {
+    //             username: $("input[name=username]").val(),
+    //             password: $("input[name=password]").val(),
+    //         },
+    //         success: function (reponse) {
+    //         }
+    //     });
     // // 우리네 새끼들 구경 버튼 클릭 -> id/pw가 맞으면 메인페이지로 이동, 다르면 로그인 실패 알럿
     // function mainbtn() {
     //     alert('로그인 실패')
