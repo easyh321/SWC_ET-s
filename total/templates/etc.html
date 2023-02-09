@@ -9,6 +9,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
 <head>
 
@@ -47,7 +49,7 @@
 
         html, body {
             width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         body {
@@ -57,7 +59,7 @@
 
         .main {
             width: 100vw;
-            height: 100%;
+            height: auto;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -70,34 +72,26 @@
 
         .main .main-page {
             max-width: 767px;
-            width: 767px;
+            width: 100%;
             height: auto;
             text-align: center;
             background: #FEE8E2;
         }
 
-        .footer {
-            margin: 60px;
-        }
-
-        .main .main-page .page-gap .header {
-            width: 100%;
-        }
-
-        .main .main-page .page-gap .container {
+        .main .main-page .page-gap {
+            max-width: 767px;
             width: 100%;
         }
 
         /* 헤더 */
-        .header {
+        .main .main-page .header {
             text-align: center;
-            width: 100%;
-            margin: auto auto 20px auto;
+            width: 767px;
+            margin: 0 auto;
             padding-top: 20px;
             padding-bottom: 20px;
             background-color: #FEE8E2;
             color: #FA6650;
-            font-size: 30px;
         }
 
         .home_btn {
@@ -116,6 +110,7 @@
         .menu_btn {
             float: right;
             margin-right: 20px;
+            margin-top: -2px;
             color: #FA6650;
             border-color: transparent;
             background-color: transparent;
@@ -124,10 +119,6 @@
         .menu_btn:hover {
             color: #333333;
             transition: 0.5s;
-        }
-
-        .header > span {
-            margin: 15px 25px 0 25px;
         }
 
 
@@ -204,7 +195,7 @@
             text-align: left;
             line-height: 14px;
             max-width: 50%;
-            margin-left: 60px;
+            margin-left: 35px;
             margin-top: 20px;
         }
 
@@ -227,6 +218,7 @@
             width: 700px;
             height: 700px;
             position: relative;
+
         }
 
         .image-container img {
@@ -236,16 +228,15 @@
             transform: translate(-50%, -50%);
             background-size: cover;
             background-position: center center;
-            object-fit: contain;
+            object-fit: cover;
             width: 100%;
             height: 100%;
-            border-image: 30px;
         }
 
         .animals_info2 {
             text-align: left;
-            max-width: 85%;
-            margin-left: 60px;
+            max-width: 90%;
+            margin-left: 35px;
         }
 
         .desc {
@@ -257,6 +248,12 @@
             margin: 0;
         }
 
+        .source .address {
+            line-height: 19px;
+            word-wrap: break-word;
+
+        }
+
         .guide {
             color: #FA6650;
             margin-top: 20px;
@@ -265,9 +262,11 @@
 
         .btn2 {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            justify-content: center;
-            margin: 30px;
+            justify-content: space-between;
+            margin-left: 35px;
+            margin-right: 35px;
         }
 
         .like_btn {
@@ -298,8 +297,6 @@
             text-align: center;
 
             font-size: 27px;
-
-            margin-left: 37px;
         }
 
         .next_btn:hover {
@@ -308,17 +305,22 @@
             border: transparent;
         }
 
+        .reply {
+            margin-left: 31px;
+        }
+
         .reply-input {
             display: flex;
             margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         .form-control {
             background-color: #f2f2f2;
-            width: 555px;
+            max-width: 595px;
+            width: 100%;
             height: 60px;
             align-items: center;
-            margin: 0 0 0 7%;
 
             border-color: transparent;
             border-radius: 8px;
@@ -346,8 +348,8 @@
 
         .comment-box {
             text-align: left;
-            margin: 20px auto 20px auto;
-            width: 660px;
+            margin-bottom: 20px;
+            width: 700px;
             height: auto;
             border-radius: 10px;
             border: 2px solid #FA6650;
@@ -376,6 +378,8 @@
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: 1000;
+
+            /* 숨기기 */
             z-index: -1;
             opacity: 0;
         }
@@ -399,8 +403,12 @@
             transform: translate(-50%, -50%);
             background-color: #ffffff;
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
             width: 400px;
             height: 350px;
+
+            /* 초기에 약간 아래에 배치 */
             transform: translate(-50%, -40%);
         }
 
@@ -455,6 +463,8 @@
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: 1000;
+
+            /* 숨기기 */
             z-index: -1;
             opacity: 0;
         }
@@ -478,8 +488,12 @@
             transform: translate(-50%, -50%);
             background-color: #ffffff;
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
             width: 400px;
             height: 350px;
+
+            /* 초기에 약간 아래에 배치 */
             transform: translate(-50%, -40%);
         }
 
@@ -500,12 +514,12 @@
         }
 
         .comment-popup-body {
-            margin: 45px 10px 45px 10px;
+            margin: 60px;
             text-align: center;
         }
 
         .comment-popup-footer {
-            margin-top: 25px;
+            margin-top: 22px;
             text-align: center;
         }
 
@@ -530,49 +544,24 @@
         #menuBar {
             position: fixed;
             top: -100%;
-            left: 0;
-            right: 0;
-            max-width: 767px;
-            width: 100%;
+            width: 767px;
             height: 80px;
             background-color: white;
             transition: top 0.2s ease-in-out;
             padding: 20px;
             color: #fff;
-            margin: auto;
         }
 
         #menuBar.active {
             top: 0;
         }
 
-        #menu_bar_content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            width: 80%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        #logout_container {
-            margin-left: -80px;
-        }
-
-        #logout_container button {
-            color: #fa6650;
-        }
-
-        #logout_container button:hover {
-            color: #333333;
-            transition: 0.5s;
-        }
-
         .menu_item {
             display: flex;
-            margin: 20px;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-right: 20px;
         }
 
         .menu_item input {
@@ -585,16 +574,9 @@
             border-radius: 80px;
             border-color: transparent;
             text-align: center;
-            align-items: center;
             display: flex;
 
-            font-size: 15px;
-
-            margin-left: 20px;
-        }
-
-        .menu_item .next-btn2 {
-            margin-right: 77px;
+            margin: auto 10px;
         }
 
         .menu_item span {
@@ -607,8 +589,20 @@
             border: transparent;
         }
 
+        #logout_btn {
+            float: left;
+            margin-left: 10px;
+            margin-top: 7px;
+            color: #fa6650;
+        }
+
+        #logout_btn:hover {
+            color: #333333;
+            transition: 0.5s;
+        }
+
         .menu_btn2 {
-            margin-top: -35px;
+            margin-top: -37px;
             float: right;
             color: #FA6650;
             border-color: transparent;
@@ -618,6 +612,87 @@
         .menu_btn2:hover {
             color: #333333;
             transition: 0.5s;
+        }
+
+
+        @media all and (max-width: 767px) {
+            .main .main-page {
+                width: 100vw;
+                display: flex;
+            }
+
+            .main .main-page .header {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar {
+                width: 100vw;
+            }
+
+            .main .main-page #menuBar .menu_item {
+                margin-right: 30px;
+            }
+
+            .main .main-page #menuBar .menu_item input {
+                width: 100px;
+                height: 40px;
+                font-size: 2vw;
+            }
+
+            .image-container {
+                width: 38vh;
+                height: 38vh;
+            }
+
+            .animals_info2 {
+                width: 80vw;
+            }
+
+            .desc {
+                font-size: 4vw;
+                line-height: 3vh;
+            }
+
+            .source p {
+                font-size: 3vw;
+                line-height: 2vh;
+            }
+
+            .guide {
+                font-size: 4vw;
+                line-height: 3vh;
+            }
+
+            .btn2 {
+                width: 85vw;
+                margin: 0 auto;
+            }
+
+            .btn2 button {
+                width: 40vw;
+                height: 15vw;
+                font-size: 4vw;
+            }
+
+            .reply-input {
+                width: 85vw;
+            }
+
+            .comment-box {
+                width: 85vw;
+            }
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
         }
 
     </style>
@@ -721,29 +796,23 @@
                 <a href="main.html">
                     <button class="home_btn"><span class="material-icons">home</span></button>
                 </a>
-                <span><p style="display: inline" class="title">내 새끼 니도 이쁘지?</p></span>
+                <h3 style="display: inline" class="title">내 새끼 니도 이쁘지?</h3>
                 <button id="menuBtn" class="menu_btn"><span class="material-icons">reorder</span></button>
             </div>
             <div id="menuBar">
-                <div id="menu_bar_content">
-                    <div id="logout_container">
-                        <button id="logout_btn"
-                                style="background-color: transparent; border: none;" onclick="logout()">
-                            Logout
-                        </button>
-                    </div>
-                    <div class="menu_item">
-                        <a href="main.html">
-                            <input value="HOME" class="next-btn" id="home" disabled>
-                        </a>
-                        <a href="mypage.html">
-                            <input value="MY PAGE" class="next-btn2" id="mypage" disabled>
-                        </a>
-                    </div>
+                <span id="logout_btn" class="material-symbols-outlined"
+                      style="background-color: transparent; border: none;" onclick="logout()">logout</span>
+                <div class="menu_item">
+                    <a href="main.html">
+                        <input value="HOME" class="next-btn" id="btn-home" disabled>
+                    </a>
+                    <a href="mypage.html">
+                        <input value="MY PAGE" class="next-btn2" id="btn-mypage" disabled>
+                    </a>
                 </div>
                 <button id="menuBtn2" class="menu_btn2"><span class="material-icons">reorder</span></button>
             </div>
-            <div class="body">
+            <div class="contents">
                 <div class="container">
                     <div class="button-container">
                         <button class="dog-button" onClick="location.href='dog.html'">
@@ -791,7 +860,7 @@
                 <div class="btn2">
                     <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요
                     </button>
-                    <input type="button" class="next_btn" id="button" value="다음 새끼 볼래요">
+                    <button type="button" class="next_btn" id="button">다음 새끼 볼래요</button>
                 </div>
                 <div class="reply">
                     <div class="reply-input">
@@ -800,14 +869,12 @@
                         <button class="reply_btn" id="btn-outline-secondary">댓글 등록</button>
                     </div>
                     <div class="comment-box">
-                        <p class="name">글쓴이</p>
+                        <p class="name">개발 중</p>
                         <div class="comments">
-                            <span class="comment" id="detail">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하</span>
+                            <span class="comment" id="detail">현재 개발 중인 기능입니다.</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer">
             </div>
         </div>
     </div>
@@ -819,15 +886,15 @@
                 <div class="popup-header">
                     <button id="close2" type="button" class="btn-close" aria-label="Close"
                             style="float: right;"></button>
-                    <span class="popup-title">이뻐요 확인</span>
+                    <span class="popup-title">Comming soon!</span>
                 </div>
                 <hr>
                 <div class="popup-body">
-                    <span class="popup-content">이뻐해 주셔서 감사합니다!</span>
+                    <span class="popup-content">현재 개발 중인 기능입니다.</span>
                 </div>
                 <hr>
                 <div class="popup-footer">
-                    <button class="close" id="close">별말씀을요!</button>
+                    <button class="close" id="close">확인</button>
                 </div>
             </div>
         </div>
@@ -838,13 +905,11 @@
                 <div class="comment-popup-header">
                     <button id="comment-close2" type="button" class="btn-close" aria-label="Close"
                             style="float: right;"></button>
-                    <span class="comment-popup-title">댓글 등록 확인</span>
+                    <span class="comment-popup-title">Comming soon!</span>
                 </div>
                 <hr>
                 <div class="comment-popup-body">
-                    <span class="comment-popup-content1">댓글을 등록하시면 수정/삭제가 불가합니다.</span>
-                    <p>
-                        <span class="comment-popup-content2">등록하시겠습니까?</span>
+                    <span class="comment-popup-content1">현재 개발 중인 기능입니다.</span>
                 </div>
                 <hr>
                 <div class="comment-popup-footer">

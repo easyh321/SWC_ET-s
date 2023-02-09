@@ -72,7 +72,7 @@
 
         .main .main-page {
             max-width: 767px;
-            width: 767px;
+            width: 100%;
             height: auto;
             text-align: center;
             background: #FEE8E2;
@@ -81,10 +81,6 @@
         .main .main-page .page-gap {
             max-width: 767px;
             width: 100%;
-        }
-
-        .footer {
-            margin: 60px;
         }
 
         /* 헤더 */
@@ -266,9 +262,11 @@
 
         .btn2 {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            justify-content: center;
-            margin: 30px;
+            justify-content: space-between;
+            margin-left: 35px;
+            margin-right: 35px;
         }
 
         .like_btn {
@@ -299,8 +297,6 @@
             text-align: center;
 
             font-size: 27px;
-
-            margin-left: 37px;
         }
 
         .next_btn:hover {
@@ -309,17 +305,22 @@
             border: transparent;
         }
 
+        .reply {
+            margin-left: 31px;
+        }
+
         .reply-input {
             display: flex;
             margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         .form-control {
             background-color: #f2f2f2;
-            width: 555px;
+            max-width: 595px;
+            width: 100%;
             height: 60px;
             align-items: center;
-            margin: 0 0 0 7%;
 
             border-color: transparent;
             border-radius: 8px;
@@ -347,8 +348,8 @@
 
         .comment-box {
             text-align: left;
-            margin: 20px auto 20px auto;
-            width: 660px;
+            margin-bottom: 20px;
+            width: 700px;
             height: auto;
             border-radius: 10px;
             border: 2px solid #FA6650;
@@ -377,6 +378,8 @@
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: 1000;
+
+            /* 숨기기 */
             z-index: -1;
             opacity: 0;
         }
@@ -400,8 +403,12 @@
             transform: translate(-50%, -50%);
             background-color: #ffffff;
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
             width: 400px;
             height: 350px;
+
+            /* 초기에 약간 아래에 배치 */
             transform: translate(-50%, -40%);
         }
 
@@ -456,6 +463,8 @@
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: 1000;
+
+            /* 숨기기 */
             z-index: -1;
             opacity: 0;
         }
@@ -479,8 +488,12 @@
             transform: translate(-50%, -50%);
             background-color: #ffffff;
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+            /* 임시 지정 */
             width: 400px;
             height: 350px;
+
+            /* 초기에 약간 아래에 배치 */
             transform: translate(-50%, -40%);
         }
 
@@ -501,12 +514,12 @@
         }
 
         .comment-popup-body {
-            margin: 45px 10px 45px 10px;
+            margin: 60px;
             text-align: center;
         }
 
         .comment-popup-footer {
-            margin-top: 25px;
+            margin-top: 22px;
             text-align: center;
         }
 
@@ -601,12 +614,12 @@
             transition: 0.5s;
         }
 
+
         @media all and (max-width: 767px) {
             .main .main-page {
                 width: 100vw;
                 display: flex;
             }
-
 
             .main .main-page .header {
                 width: 100vw;
@@ -626,6 +639,60 @@
                 font-size: 2vw;
             }
 
+            .image-container {
+                width: 38vh;
+                height: 38vh;
+            }
+
+            .animals_info2 {
+                width: 80vw;
+            }
+
+            .desc {
+                font-size: 4vw;
+                line-height: 3vh;
+            }
+
+            .source p {
+                font-size: 3vw;
+                line-height: 2vh;
+            }
+
+            .guide {
+                font-size: 4vw;
+                line-height: 3vh;
+            }
+
+            .btn2 {
+                width: 85vw;
+                margin: 0 auto;
+            }
+
+            .btn2 button {
+                width: 40vw;
+                height: 15vw;
+                font-size: 4vw;
+            }
+
+            .reply-input {
+                width: 85vw;
+            }
+
+            .comment-box {
+                width: 85vw;
+            }
+
+            .background {
+                width: 100vw;
+            }
+
+            .background .window {
+                width: 100%;
+            }
+
+            .background .window .popup {
+                width: 90%;
+            }
         }
 
     </style>
@@ -793,7 +860,7 @@
                 <div class="btn2">
                     <button class="like_btn" id="show"><span class="material-icons">thumb_up_off_alt</span> 니 새끼 이뻐요
                     </button>
-                    <input type="button" class="next_btn" id="button" value="다음 새끼 볼래요">
+                    <button type="button" class="next_btn" id="button">다음 새끼 볼래요</button>
                 </div>
                 <div class="reply">
                     <div class="reply-input">
@@ -802,14 +869,13 @@
                         <button class="reply_btn" id="btn-outline-secondary">댓글 등록</button>
                     </div>
                     <div class="comment-box">
-                        <p class="name">글쓴이</p>
+                        <p class="name">개발 중</p>
                         <div class="comments">
-                            <span class="comment" id="detail">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하</span>
+                            <span class="comment" id="detail">현재 개발 중인 기능입니다.</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer"></div>
         </div>
     </div>
 
@@ -820,15 +886,15 @@
                 <div class="popup-header">
                     <button id="close2" type="button" class="btn-close" aria-label="Close"
                             style="float: right;"></button>
-                    <span class="popup-title">이뻐요 확인</span>
+                    <span class="popup-title">Comming soon!</span>
                 </div>
                 <hr>
                 <div class="popup-body">
-                    <span class="popup-content">이뻐해 주셔서 감사합니다!</span>
+                    <span class="popup-content">현재 개발 중인 기능입니다.</span>
                 </div>
                 <hr>
                 <div class="popup-footer">
-                    <button class="close" id="close">별말씀을요!</button>
+                    <button class="close" id="close">확인</button>
                 </div>
             </div>
         </div>
@@ -839,13 +905,11 @@
                 <div class="comment-popup-header">
                     <button id="comment-close2" type="button" class="btn-close" aria-label="Close"
                             style="float: right;"></button>
-                    <span class="comment-popup-title">댓글 등록 확인</span>
+                    <span class="comment-popup-title">Comming soon!</span>
                 </div>
                 <hr>
                 <div class="comment-popup-body">
-                    <span class="comment-popup-content1">댓글을 등록하시면 수정/삭제가 불가합니다.</span>
-                    <p>
-                        <span class="comment-popup-content2">등록하시겠습니까?</span>
+                    <span class="comment-popup-content1">현재 개발 중인 기능입니다.</span>
                 </div>
                 <hr>
                 <div class="comment-popup-footer">

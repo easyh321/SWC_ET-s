@@ -51,9 +51,9 @@
             background: #FEE8E2;
         }
 
-        .main {
+       .main {
             width: 100vw;
-            height: 100vh;
+            height: auto;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -62,14 +62,21 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
         }
 
         .main .main-page {
             max-width: 767px;
-            width: 767px;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             text-align: center;
             background: #FEE8E2;
+        }
+
+        .main .main-page .page-gap {
+            max-width: 767px;
+            width: 100%;
+            height: auto;
         }
 
         .main .main-page .background-img {
@@ -158,7 +165,7 @@
             margin-bottom: 60px;
         }
 
-            /* 여기가 야매 반응형 */
+        /* 여기가 야매 반응형 */
 
         @media all and (max-width: 767px) {
             .main .main-page {
@@ -229,7 +236,6 @@
                     <a href="signup.html" onclick="signup()">회원가입</a> 할래요!
                 </div>
             </div>
-            <div class="footer"></div>
         </div>
     </div>
 </div>
