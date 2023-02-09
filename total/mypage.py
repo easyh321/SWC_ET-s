@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 app = Flask(__name__)
 
 from pymongo import MongoClient
+import datetime
 client = MongoClient('mongodb+srv://test:sparta@cluster0.temtprh.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.animals
 
@@ -31,6 +32,7 @@ def animals_post():
         desc = request.form['desc']
         name = request.form['name']
         url = request.form['url']
+        today = datetime.datetime.now().strftime("%Y-%m-%d")
 
         collection_name = determine_collection()
         collection = db[collection_name]
@@ -49,11 +51,14 @@ def animals_post():
             'animal_type': animal_type,
             'age': age,
             'url': url,
-            'image_url': img_url,
+            'image_url': image_url,
+            'date': today,
+            'love': 777,
+            'nickname': 'User',
         }
 
         collection.insert_one(animal_data)
-        return "Animal stored in collection '{}'".format(collection_name)
+        return render_template('mypage.html')
     else:
         return render_template("mypage.html")
 def determine_collection():
