@@ -433,8 +433,8 @@
                     </div>
                 </div>
                 <div class="signup-submit">
-                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()"
-                           disabled>
+<!--                    <input type="submit" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">-->
+                    <input type="button" value="가입 완료하기" class="done-btn" id="submit-button" onclick="done()">
                 </div>
             </div>
         </div>
@@ -600,13 +600,17 @@
                     alert(response['msg']);
                 } else {
                     alert(response['msg']);
+                    window.location.assign('login.html');
                 }
             }
         });
-
         // alert('가입이 완료 되었습니다!')
-        window.location.href = 'login.html';
+        // window.location.href = 'login.html';
+        // window.location.href('login.html');
+        // window.location.assign('login.html');
+        // window.location.replace('login.html');
     }
+
 </script>
 
 </body>
