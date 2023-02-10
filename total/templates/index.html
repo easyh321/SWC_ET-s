@@ -222,7 +222,7 @@
                 <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
             </div>
             <div class="login-form">
-                <form action="/login" method="post">
+                <form action="/" method="post">
                     <input type="text" name="username" class="text-field" placeholder="아이디를 입력하세요." id="username">
                     <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
                            id="password">
@@ -258,14 +258,14 @@
     function mainbtn() {
         $.ajax({
             type: "POST",
-            url: "/login",
+            url: "/",
             data: {
                 username: $("input[name=username]").val(),
                 password: $("input[name=password]").val(),
             },
             success: function (data) {
                 if (data.result === "success") {
-                    window.location.href = "main";
+                    window.location.replace("main");
                     alert("로그인에 성공하였어요! 이쁜 새끼들을 보러가요!");
                 } else {
                     location.reload();
