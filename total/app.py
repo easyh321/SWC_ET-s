@@ -98,17 +98,17 @@ def register():
         return jsonify({"msg": "중복확인을 해주세요."})
 
 # 니 새끼 보기
-@app.route("/total", methods=["GET"])
+@app.route("/total.cat", methods=["GET"])
 def cat_get():
     cat_list = list(animalsdb.cat.find({}, {'_id': False}))
     return jsonify({'cats': cat_list})
 
-@app.route("/total", methods=["GET"])
+@app.route("/total.dog", methods=["GET"])
 def dog_get():
     dog_list = list(animalsdb.dog.find({}, {'_id': False}))
     return jsonify({'dogs': dog_list})
 
-@app.route("/total", methods=["GET"])
+@app.route("/total.etc", methods=["GET"])
 def etc_get():
     etc_list = list(animalsdb.etc.find({}, {'_id': False}))
     return jsonify({'etcs': etc_list})

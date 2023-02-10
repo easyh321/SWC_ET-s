@@ -629,7 +629,7 @@
             let rows;
             $.ajax({
                 type: "GET",
-                url: "/total",
+                url: "/total.etc",
                 data: {},
                 success: function (response) {
                     rows = response['etcs'];
@@ -658,7 +658,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "/total",
+                    url: "/total.etc",
                     data: {},
                     success: function (response) {
                         let rows = response['etcs']
