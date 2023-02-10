@@ -46,7 +46,7 @@ def mypage():
 
 
 # 로그인
-@app.route("/login", methods=["POST"])
+@app.route("/", methods=["POST"])
 def login():
     username = request.form["username"]
     password = request.form["password"]
