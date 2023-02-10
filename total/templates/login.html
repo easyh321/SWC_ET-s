@@ -262,12 +262,32 @@
             success: function (data) {
                 if (data.result === "success") {
                     window.location.href = "/main";
+                    alert("로그인에 성공하였어요! 이쁜 새끼들을 보러가요!");
                 } else {
+                    location.reload();
                     alert("로그인에 실패하였습니다. 다시 시도해주세요.");
                 }
             }
         });
     }
+
+    // function mainbtn() {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/login",
+    //         data: {
+    //             username: $("input[name=username]").val(),
+    //             password: $("input[name=password]").val(),
+    //         },
+    //         success: function (data) {
+    //             if (data.result === "success") {
+    //                 window.location.href = "/main";
+    //             } else {
+    //                 alert("로그인에 실패하였습니다. 다시 시도해주세요.");
+    //             }
+    //         }
+    //     });
+    // }
 
     // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
     function signup() {
