@@ -53,6 +53,8 @@ def login():
     user = db.users.find_one({"username": username})
     if user and user["password"] == password:
         return jsonify({"result": "success"})
+    else:
+        return jsonify({"result": "fail"})
 
 # 회원 가입
 @app.route("/register", methods=["POST"])
