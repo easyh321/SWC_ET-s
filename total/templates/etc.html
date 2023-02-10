@@ -673,6 +673,7 @@
                         let age = nextRow['age']
                         let date = nextRow['date']
                         let desc = nextRow['desc']
+                        let save = nextRow['save']
 
                         let temp_html = `<div class="animals_info">
                                             <div class="animals_main_info">
@@ -697,7 +698,7 @@
                                                 <p class="address_title">더보기 링크 : </p>
                                                 <p class="address">${url}</p>
                                             </div>
-                                            <p class="guide">해당 사진은 저장이 허용되지 않는 사진입니다. 여기에서만 감상해 주세요.</p>
+                                            <p class="guide">사진 저장 허용 여부 [ ${save} ]</p>
                                         </div>`
 
                         $('#etc-list').append(temp_html);
