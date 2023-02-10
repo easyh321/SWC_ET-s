@@ -32,6 +32,7 @@ def animals_post():
         desc = request.form['desc']
         name = request.form['name']
         url = request.form['url']
+        save = request.form['save']
         today = datetime.datetime.now().strftime("%Y-%m-%d")
 
         collection_name = determine_collection()
@@ -51,6 +52,7 @@ def animals_post():
             'category': category,
             'age': age,
             'url': url,
+            'save': save,
             'img_url': img_url,
             'date': today,
         }

@@ -223,6 +223,15 @@
             border: solid #fa6650 2px;
             width: 100%;
             height: 120px;
+            margin-bottom: 10px;
+        }
+
+        #save {
+            border-radius: 10px;
+            font-size: 15px;
+            border: solid #fa6650 2px;
+            width: 100%;
+            height: 38px;
         }
 
         .mybtns {
@@ -371,6 +380,16 @@
                                     <textarea id="url" class="form-control" name="url" type="text"
                                               placeholder="Leave a comment here"></textarea>
                                             <label>내 새끼 더보기 링크</label>
+                                        </div>
+                                        <div>
+                                            <h6>저장 허용 여부</h6>
+                                            <div class="input-group mb-3">
+                                                <select class="form-select" id="save" type="text" name="save" value="">
+                                                    <option selected>-- 저장 허용 여부 --</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
