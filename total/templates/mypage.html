@@ -152,6 +152,11 @@
             border: transparent;
         }
 
+        button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         #post-box {
             margin-bottom: 50px;
             display: none;
@@ -351,7 +356,7 @@
                                 <div class="must-contents">
                                     <h6>분류</h6>
                                     <div class="input-group mb-3">
-                                        <select class="form-select" type=text id="category" name="category" value="">
+                                        <select class="form-select" type=text id="category" name="category" >
                                             <option selected>-- 선택하기 --</option>
                                             <option value="dogs" name="dogs">강아지</option>
                                             <option value="cats" name="cats">고양이</option>
@@ -366,7 +371,7 @@
                                     <div>
                                             <h6>저장 허용 여부</h6>
                                             <div class="input-group mb-3">
-                                                <select class="form-select" id="save" type="text" name="save" value="">
+                                                <select class="form-select" id="save" type="text" name="save">
                                                     <option selected>-- 저장 허용 여부 --</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
@@ -422,7 +427,7 @@
                                 </div>
                             </div>
                             <div class="mybtns">
-                                <button type="submit" class="regis-btn" value="등록 완료" id="submit">등록</button>
+                                <button type="submit" class="regis-btn" value="등록 완료" id="submit" disabled>등록</button>
                             </div>
                         </div>
                     </form>
@@ -446,6 +451,23 @@
     function logout() {
         window.location.href = "/";
     }
+
+    const categoryInput = document.getElementById("category");
+    const saveInput = document.getElementById("save");
+    const imageInput = document.getElementById("image");
+    const submitBtn = document.getElementById("submit");
+
+    function checkForm() {
+        if (categoryInput.value !=="-- 선택하기 --" && saveInput.value !=="-- 나이 --" && imageInput.value !== "") {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+
+    categoryInput.addEventListener("select", checkForm);
+    saveInput.addEventListener("select", checkForm);
+    imageInput.addEventListener("input", checkForm);
 
 </script>
 
