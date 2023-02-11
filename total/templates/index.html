@@ -57,7 +57,7 @@
 
         .main {
             width: 100vw;
-            height: 100vh;
+            height: auto;
             background-color: #fa6650;
             margin-left: auto;
             margin-right: auto;
@@ -72,7 +72,7 @@
         .main .main-page {
             max-width: 767px;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             text-align: center;
             background: #FEE8E2;
         }
@@ -107,6 +107,13 @@
             font-size: 25px;
         }
 
+        .more {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .more > button {
             background-color: #FA6650;
             color: white;
@@ -128,15 +135,14 @@
         }
 
         #post-box {
-            margin-bottom: 50px;
+            margin-bottom: 10px;
             display: none;
         }
 
         #post-box p {
-            text-align: center;
-            font-size: 20px;
+            font-size: 15px;
 
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         #post-box ol {
@@ -306,18 +312,16 @@
                 <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
                 <div class="more">
                     <button onclick="open_box()" type="button">
-                        <span>주의사항 펼쳐보기</span>
+                        <span>로그인 안 될 때 클릭</span>
                     </button>
                     <div id="post-box" class="mypost">
-                        <p>등록 시 주의사항</p>
-                        <ol>
-                            <li>내 새끼가 아닌 남의 새끼 사진을 업로드한 경우 발생할 문제에 대해서는 책임지지 않습니다. 반드시 내 새끼만 업로드 해 주세요.</li>
-                            <li>정방형에 가까운 비율의 사진 또는 사진의 가운데에 내 새끼가 위치하고 있는 사진을 업로드 하시는 것을 추천드립니다. 이외에는 예쁜 내 새끼 사진이 잘려 나올
-                                수
-                                있습니다.
-                            </li>
-                            <li>현재 등록한 내 새끼 삭제 기능이 구현되어 있지 않습니다. 신중하게 등록을 부탁 드립니다.</li>
-                        </ol>
+                        <p>[긴급 공지] 현재 success와 fail 값이 뜨고 로그인이 되지 않는 현상이 발생하고 있습니다. 해당 문제를 수정하고 있으니 조금만 기다려주세요. 그동안 메인 페이지에 접속하실 수 있도록 임시로 대안을 준비해 놓았습니다. 만약 로그인이 되지 않는다면 다음의
+                            절차를 따라해주세요.</p>
+                        <li>웹 환경에서 로그인 시</li>
+                        <p>그대로 뒤로 가기를 누르시면 팝업창과 함께 메인 페이지로 접속됩니다.</p>
+                        <li>모바일 환경에서 로그인 시</li>
+                        <p>현재 창을 끄시고 새 창에서 niseki/main으로 접속하시면 됩니다.</p>
+                        <p>위의 대처 방법을 따라 해도 로그인이 되지 않을 시에는 개발팀(slack: 노경택 양성민 이지현 조혜린)에게 메시지 보내주세요.</p>
                     </div>
                 </div>
             </div>
