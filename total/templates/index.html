@@ -208,115 +208,81 @@
 
     </style>
 
+    <script>
+        function mainbtn() {
+            $.ajax({
+                type: "POST",
+                url: "/main",
+                data: {
+                    username: $("input[name=username]").val(),
+                    password: $("input[name=password]").val(),
+                },
+                success: function (data) {
+                    if (data.result === "success") {
+                        alert("로그인에 성공하였어요! 이쁜 새끼들을 보러가요!");
+                        window.location.replace("main");
+                    } else {
+                        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
+                        location.reload();
+                    }
+                }
+            });
+        }
+    </script>
+
 </head>
 
 <body>
-<div class="main">
-    <div class="main-page">
-        <div class="page-gap">
-            <div class="logo">
-                <div class="background-img">
-                    <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
+
+    <div class="main">
+        <div class="main-page">
+            <div class="page-gap">
+                <div class="logo">
+                    <div class="background-img">
+                        <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
+                    </div>
+                    <p class="title">내 새끼 니도 이쁘지?</p>
+                    <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
                 </div>
-                <p class="title">내 새끼 니도 이쁘지?</p>
-                <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
-            </div>
-            <div class="login-form">
-                <form action="/main" method="post">
-                    <input type="text" name="username" class="text-field" placeholder="아이디를 입력하세요." id="username">
-                    <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
-                           id="password">
-                    <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
-                           disabled>
-                </form>
-                <div class="links">
-                    <a href="signup" onclick="signup()">회원가입</a> 할래요!
+                <div class="login-form">
+                    <form action="/main" method="post">
+                        <input type="text" name="username" class="text-field" placeholder="아이디를 입력하세요." id="username">
+                        <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
+                               id="password">
+                        <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
+                               disabled>
+                    </form>
+                    <div class="links">
+                        <a href="signup" onclick="signup()">회원가입</a> 할래요!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    // function mainbtn() {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/login",
-    //         data: {
-    //             username: $("input[name=username]").val(),
-    //             password: $("input[name=password]").val(),
-    //         },
-    //         success: function (data) {
-    //             if (data.result === "success") {
-    //                 window.location.href = "/main";
-    //             } else {
-    //                 alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-    //             }
-    //         }
-    //     });
-    // }
-    function mainbtn() {
-        $.ajax({
-            type: "POST",
-            url: "/main",
-            data: {
-                username: $("input[name=username]").val(),
-                password: $("input[name=password]").val(),
-            },
-            success: function (data) {
-                if (data.result === "success") {
-                    window.location.replace("main");
-                    alert("로그인에 성공하였어요! 이쁜 새끼들을 보러가요!");
-                } else {
-                    location.reload();
-                    alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-                }
-            }
-        });
-    }
-
-    // function mainbtn() {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/login",
-    //         data: {
-    //             username: $("input[name=username]").val(),
-    //             password: $("input[name=password]").val(),
-    //         },
-    //         success: function (data) {
-    //             if (data.result === "success") {
-    //                 window.location.href = "/main";
-    //             } else {
-    //                 alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-    //             }
-    //         }
-    //     });
-    // }
-
-    // 회원가입 버튼 클릭 -> 회원 가입 창으로 이동
-    function signup() {
-        alert('회원가입 페이지로 이동합니다!')
-        window.location.href = "/signup";
-    }
-
-    const idInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const submitBtn = document.getElementById("btn-login");
-
-    function checkForm() {
-        if (idInput.value !== "" && passwordInput.value !== "") {
-            submitBtn.disabled = false;
-        } else {
-            submitBtn.disabled = true;
+    <script>
+        function signup() {
+            alert('회원가입 페이지로 이동합니다!')
+            window.location.href = "/signup";
         }
-    }
 
-    idInput.addEventListener("input", checkForm);
-    passwordInput.addEventListener("input", checkForm);
+        const idInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const submitBtn = document.getElementById("btn-login");
+
+        function checkForm() {
+            if (idInput.value !== "" && passwordInput.value !== "") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        idInput.addEventListener("input", checkForm);
+        passwordInput.addEventListener("input", checkForm);
 
 
-</script>
-
+    </script>
 
 </body>
 
