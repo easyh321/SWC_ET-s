@@ -66,7 +66,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
+            text-align: center;
         }
 
         .main .main-page {
@@ -105,6 +105,67 @@
 
         .main .main-page p.sub-tit {
             font-size: 25px;
+        }
+
+        .more > button {
+            background-color: #FA6650;
+            color: white;
+            width: 250px;
+            height: 55px;
+            border-radius: 80px;
+            border-color: transparent;
+            text-align: center;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .more > button:hover {
+            box-shadow: 0 80px 0 0 rgba(0, 0, 0, 0.25) inset, 0 -80px 0 0 rgba(0, 0, 0, 0.27) inset;
+            transition: 0.5s;
+            border: transparent;
+        }
+
+        #post-box {
+            margin-bottom: 50px;
+            display: none;
+        }
+
+        #post-box p {
+            text-align: center;
+            font-size: 20px;
+
+            margin-bottom: 30px;
+        }
+
+        #post-box ol {
+            list-style-position: inside;
+            font-size: 15px;
+            color: #333333;
+            padding-left: 16px;
+            padding-right: 5px;
+        }
+
+        #post-box li {
+            margin: 8px auto;
+        }
+
+        .mypost {
+            width: 100%;
+            max-width: 460px;
+            padding: 30px;
+
+            color: black;
+
+            box-sizing: border-box;
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+            border: none;
+            background-color: white;
+            box-shadow: 0 0 5px 0 #fa6650;
         }
 
         .login-form {
@@ -234,55 +295,77 @@
 
 <body>
 
-    <div class="main">
-        <div class="main-page">
-            <div class="page-gap">
-                <div class="logo">
-                    <div class="background-img">
-                        <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
-                    </div>
-                    <p class="title">내 새끼 니도 이쁘지?</p>
-                    <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
+<div class="main">
+    <div class="main-page">
+        <div class="page-gap">
+            <div class="logo">
+                <div class="background-img">
+                    <img src="https://m.cj.co.kr/resources/img/brand/onature_img_01.png" alt="main">
                 </div>
-                <div class="login-form">
-                    <form action="/main" method="post">
-                        <input type="text" name="username" class="text-field" placeholder="아이디를 입력하세요." id="username">
-                        <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
-                               id="password">
-                        <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
-                               disabled>
-                    </form>
-                    <div class="links">
-                        <a href="signup" onclick="signup()">회원가입</a> 할래요!
+                <p class="title">내 새끼 니도 이쁘지?</p>
+                <p class="sub-tit">내 새끼 자랑하고 다른 새끼도 구경하세요!</p>
+                <div class="more">
+                    <button onclick="open_box()" type="button">
+                        <span>주의사항 펼쳐보기</span>
+                    </button>
+                    <div id="post-box" class="mypost">
+                        <p>등록 시 주의사항</p>
+                        <ol>
+                            <li>내 새끼가 아닌 남의 새끼 사진을 업로드한 경우 발생할 문제에 대해서는 책임지지 않습니다. 반드시 내 새끼만 업로드 해 주세요.</li>
+                            <li>정방형에 가까운 비율의 사진 또는 사진의 가운데에 내 새끼가 위치하고 있는 사진을 업로드 하시는 것을 추천드립니다. 이외에는 예쁜 내 새끼 사진이 잘려 나올
+                                수
+                                있습니다.
+                            </li>
+                            <li>현재 등록한 내 새끼 삭제 기능이 구현되어 있지 않습니다. 신중하게 등록을 부탁 드립니다.</li>
+                        </ol>
                     </div>
+                </div>
+            </div>
+            <div class="login-form">
+                <form action="/main" method="post">
+                    <input type="text" name="username" class="text-field" placeholder="아이디를 입력하세요." id="username">
+                    <input type="password" name="password" class="text-field" placeholder="비밀번호를 입력하세요."
+                           id="password">
+                    <input type="submit" value="우리네 새끼들 구경하러 가기" class="next-btn" onclick="mainbtn()" id="btn-login"
+                           disabled>
+                </form>
+                <div class="links">
+                    <a href="signup" onclick="signup()">회원가입</a> 할래요!
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        function signup() {
-            alert('회원가입 페이지로 이동합니다!')
-            window.location.href = "/signup";
+<script>
+    function signup() {
+        alert('회원가입 페이지로 이동합니다!')
+        window.location.href = "/signup";
+    }
+
+    const idInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const submitBtn = document.getElementById("btn-login");
+
+    function checkForm() {
+        if (idInput.value !== "" && passwordInput.value !== "") {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
         }
+    }
 
-        const idInput = document.getElementById("username");
-        const passwordInput = document.getElementById("password");
-        const submitBtn = document.getElementById("btn-login");
+    idInput.addEventListener("input", checkForm);
+    passwordInput.addEventListener("input", checkForm);
 
-        function checkForm() {
-            if (idInput.value !== "" && passwordInput.value !== "") {
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.disabled = true;
-            }
+    function open_box() {
+        if ($('#post-box').is(':visible')) {
+            $('#post-box').hide();
+        } else {
+            $('#post-box').show();
         }
-
-        idInput.addEventListener("input", checkForm);
-        passwordInput.addEventListener("input", checkForm);
-
-
-    </script>
+    }
+</script>
 
 </body>
 
