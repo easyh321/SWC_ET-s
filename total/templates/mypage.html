@@ -357,7 +357,7 @@
                                     <h6>분류</h6>
                                     <div class="input-group mb-3">
                                         <select class="form-select" type=text id="category" name="category" >
-                                            <option selected>-- 선택하기 --</option>
+                                            <option value="-- 선택하기 --">-- 선택하기 --</option>
                                             <option value="dogs" name="dogs">강아지</option>
                                             <option value="cats" name="cats">고양이</option>
                                             <option value="etc" name="etc">기타</option>
@@ -372,7 +372,7 @@
                                             <h6>저장 허용 여부</h6>
                                             <div class="input-group mb-3">
                                                 <select class="form-select" id="save" type="text" name="save">
-                                                    <option selected>-- 저장 허용 여부 --</option>
+                                                    <option value="-- 저장 허용 여부 --">-- 저장 허용 여부 --</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -391,7 +391,7 @@
                                         <br/>
                                         <div class="input-group mb-3">
                                             <select class="form-select" id="age" type="text" name="age">
-                                                <option selected>-- 나이 --</option>
+                                                <option selected="">-- 나이 --</option>
                                                 <option value="1살">1살</option>
                                                 <option value="2살">2살</option>
                                                 <option value="3살">3살</option>
@@ -452,21 +452,21 @@
         window.location.href = "/";
     }
 
-    const categoryInput = document.getElementById("category");
-    const saveInput = document.getElementById("save");
+    const categorySelected = document.getElementById("category");
+    const saveSelected = document.getElementById("save");
     const imageInput = document.getElementById("image");
     const submitBtn = document.getElementById("submit");
 
     function checkForm() {
-        if (categoryInput.value !=="-- 선택하기 --" && saveInput.value !=="-- 나이 --" && imageInput.value !== "") {
+        if (categorySelected.value !== "-- 선택하기 --" && saveSelected.value !== "-- 저장 허용 여부 --" && imageInput.value !== "") {
             submitBtn.disabled = false;
         } else {
             submitBtn.disabled = true;
         }
     }
 
-    categoryInput.addEventListener("select", checkForm);
-    saveInput.addEventListener("select", checkForm);
+    categorySelected.addEventListener("change", checkForm);
+    saveSelected.addEventListener("change", checkForm);
     imageInput.addEventListener("input", checkForm);
 
 </script>
